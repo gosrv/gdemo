@@ -1,0 +1,23 @@
+/**
+*   客户端与战斗服之间的消息定义
+*/
+
+syntax = "proto3";
+package netproto;
+
+// 心跳
+message BCS_Tick {
+}
+
+message BSC_Tick {
+}
+
+message BCS_None{}
+
+// 协议id定义
+enum EBMsgIds {
+    EBCS_None = 0;
+
+    EBCS_Tick = 1;
+    EBSC_Tick = 2;
+}

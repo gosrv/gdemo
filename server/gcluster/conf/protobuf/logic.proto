@@ -1,0 +1,80 @@
+/**
+*   客户端与逻辑服之间的消息定义
+*/
+syntax = "proto2";
+package netproto;
+
+// 错误码
+enum E_Code {
+    E_ERROR = 0;
+
+    E_OK = 1; // 成功
+
+    E_RELOGIN = 2; // 重复登录
+    E_NONE_EXIST = 3; // 账号不存在
+    E_UNKNOWN = 4;
+    E_SERVER_INTERNAL_ERROR = 5;    // 服务器内部错误，一般是服务器的一个bug造成
+    E_INVALID_PARAM = 6; // 无效的参数
+    E_INVALID_OPT = 7;     // 无效操作
+}
+
+message CS_TestSyncBaseInfo {
+
+}
+
+message SC_TestSyncBaseInfo {
+    optional E_Code code = 1; // 操作结果
+}
+
+message CS_Tick {
+}
+
+message SC_Tick {
+}
+
+// 登录
+message CS_Login {
+    optional string token = 1;
+}
+
+// 登录返回
+message SC_Login {
+    optional int64 id = 1;
+    optional E_Code code = 2; // 登录结果
+}
+
+// p2p消息
+message CS_P2P {
+    optional int64 from = 1;
+    optional int64 to = 2;
+    optional bytes msg = 3;
+}
+
+// p2p消息
+message SC_P2P {
+    optional int64 from = 1;
+    optional int64 to = 2;
+    optional bytes msg = 3;
+}
+
+message CS_GuideDonate {
+    optional int64 guideId = 1;
+    optional int32 gold = 2;
+}
+
+message CS_None{}
+
+enum EMsgIds {
+    ECS_None = 0;
+
+    ECS_TestSyncBaseInfo = 90;
+    ESC_TestSyncBaseInfo = 91;
+
+    ECS_Login = 101;
+    ESC_Login = 103;
+    ECS_Tick = 104;
+    ESC_Tick = 105;
+    ECS_P2P = 106;
+    ESC_P2P = 107;
+    ECS_GuideDonate = 108;
+}

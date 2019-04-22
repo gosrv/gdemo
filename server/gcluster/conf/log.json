@@ -1,0 +1,88 @@
+{
+  "pcluster.log": {
+    "writers" : {
+      "discardWriterName":{
+        "writer":"discard"
+      },
+      "consoleWriterName":{
+        "writer":"console"
+      },
+      "sfiledevWriterName":{
+        "writer":"sfile",
+        "path":"slog/logdev.log",
+        "span":"1m"
+      },
+      "sfilepubWriterName":{
+        "writer":"sfile",
+        "path":"slog/logpub.log",
+        "span":"1m"
+      }
+    },
+    "appenders" : {
+      "async" : {
+        "appender":"chan",
+        "param": {
+          "cap": 1024
+        }
+      },
+      "discardAppenderName" : {
+        "appender":"writer",
+        "params": {
+          "writer":"discardWriterName"
+        },
+        "filters": {
+          "level.limit": {"level": "debug"}
+        },
+        "layout": "[{logger}] [goid:{goid}] {date:2006-01-02 15:04:05} [{level}] {body} {fields} {file::,short}"
+      },
+      "consoleAppenderName" : {
+        "appender":"writer",
+        "params": {
+          "writer":"consoleWriterName"
+        },
+        "filters": {
+          "level.limit": {"level": "debug"}
+        },
+        "layout": "[{logger}] [goid:{goid}] {date:2006-01-02 15:04:05} [{level}] {body} {fields} {file::,short}"
+      },
+      "sfiledevAppenderName" : {
+        "appender":"writer",
+        "params": {
+          "writer":"sfiledevWriterName"
+        },
+        "filters": {
+          "level.limit": {"level": "debug"}
+        },
+        "layout": "[goid:{goid}] {date:2006-01-02 15:04:05} [{level}] {body} {fields} {file::,full}"
+      },
+      "sfilepubAppenderName" : {
+        "appender":"writer",
+        "params": {
+          "writer":"sfilepubWriterName"
+        },
+        "filters": {
+          "level.limit": {"level": "warn"}
+        },
+        "layout": "[goid:{goid}] {date:2006-01-02 15:04:05} [{level}] {body} {fields} {file::,full}"
+      }
+    },
+    "loggers" : {
+      "engine" : {
+        "params": {
+        },
+        "filters": {
+          "level.limit": {"level": "debug"}
+        },
+        "appenders": ["async", "consoleAppenderName", "sfiledevAppenderName"]
+      },
+      "app" : {
+        "params": {
+        },
+        "filters": {
+          "level.limit": {"level": "trace"}
+        },
+        "appenders": ["async", "consoleAppenderName", "sfiledevAppenderName"]
+      }
+    }
+  }
+}

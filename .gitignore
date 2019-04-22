@@ -1,0 +1,8 @@
+server/.idea
+*.log
+client/Library
+client/Logs
+client/Packages
+client/Temp
+client/client.sln
+client/*.csproj

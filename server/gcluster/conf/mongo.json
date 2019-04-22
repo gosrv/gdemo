@@ -1,0 +1,6 @@
+{
+  "_comment": "mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]",
+  "pcluster.mongo": {
+    "mongo.url": "mongodb://192.168.212.212:27017"
+  }
+}

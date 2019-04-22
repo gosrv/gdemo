@@ -1,0 +1,13 @@
+{
+  "cfg.files": [
+    "gcluster/conf/log.json"
+  ],
+
+  "app.group": "go.cluster",
+  "url.login.login": "http://127.0.0.1:18080/login/login?account=%v&password=%v",
+  "pcluster.basenet": {
+
+  },
+
+  "server.host": "127.0.0.1:11102"
+}

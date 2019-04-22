@@ -1,0 +1,57 @@
+/**
+*   集群之间的消息定义
+*/
+
+syntax = "proto3";
+package netproto;
+
+message SS_Tick {
+
+}
+
+message SS_ClusterRegister {
+    string signCode = 1;
+    string uuid = 2;
+}
+message SS_KickPlayer {
+    int64 playerId = 1;
+}
+
+// 玩家之间的消息
+message SS_Player2Player {
+    int64 fromPlayerId = 1;
+    int64 toPlayerId = 2;
+    bytes data = 3;
+}
+// 玩家之间的消息重定向
+message SS_P2PRedirect {
+    int64 fromPlayerId = 1;
+    int64 toPlayerId = 2;
+}
+
+message SS_ForwardPlayerMsg {
+    int64 playerId = 1;
+    int32 msgId = 2;
+    bytes msgs = 3;
+}
+
+message SS_ForwardPlayerGuideMsg {
+    int64 playerId = 1;
+    int64 guideId = 2;
+    int32 msgId = 3;
+    bytes msgs = 4;
+}
+
+message SS_None{}
+
+enum ECMsgIds {
+    ESS_None = 0;
+
+    ESS_Tick = 1;
+    ESS_ClusterRegister = 10;
+    ESS_KickPlayer = 11;
+    ESS_Player2Player = 12;
+    ESS_P2PRedirect = 13;
+    ESS_ForwardPlayerMsg = 14;
+    ESS_ForwardPlayerGuideMsg = 15;
+}

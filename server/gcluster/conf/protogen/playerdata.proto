@@ -1,0 +1,57 @@
+syntax = "proto2";
+
+package netproto;
+
+message PlayerData {
+    optional BaseInfo baseInfo = 1;
+    repeated Pet pets = 2;
+    optional Daily daily = 3;
+    repeated Pack packs = 4;
+}
+
+message PlayerInfo {
+    optional int64 serverTime = 1;
+    optional string serverName = 2;
+}
+
+message BaseInfo {
+    optional int64 id = 1;
+    optional string name = 2;
+    optional int32 level = 3;
+    optional int32 gold = 4;
+    optional int32 exp = 5;
+}
+
+message Pet {
+    optional int64 id = 1;
+    optional int32 level = 2;
+    optional int32 pack = 3;
+}
+
+message Pack {
+    optional int64 id = 1;
+    optional int64 num = 2;
+}
+
+message Daily {
+    optional int64 lastUpdateTime = 1;
+    optional bool sign = 2;
+}
+
+message TestList {
+    optional int64 id = 7;
+    repeated int32 ListPrimitiveInt = 1;
+    repeated string ListPrimitiveStr = 2;
+    repeated PlayerData ListPrimitiveCom = 3;
+
+}
+
+message TestMap {
+    optional BaseInfo id = 7;
+    map<int32, int32> MapPrimitiveIntInt = 1;
+    map<int32, string> MapPrimitiveIntStr = 2;
+    map<string, int32> MapPrimitiveStrInt = 3;
+    map<string, string> MapPrimitiveStrStr = 4;
+    map<int32, BaseInfo> MapPrimitiveIntCom = 5;
+    map<string, PlayerData> MapPrimitiveStrCom = 6;
+}

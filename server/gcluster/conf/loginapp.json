@@ -1,0 +1,13 @@
+{
+  "cfg.files": [
+    "gcluster/conf/redis.json",
+    "gcluster/conf/mongo.json",
+    "gcluster/conf/log.json"
+  ],
+
+  "app.group": "go.cluster",
+
+  "pcluster.http" : {
+    "http.host": "127.0.0.1:18080"
+  }
+}
