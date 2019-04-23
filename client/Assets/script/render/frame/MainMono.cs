@@ -11,7 +11,7 @@ public class MainMono : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {       
         int ct = System.Environment.TickCount;
         FrameWork.instance.tick(ct - bt);
 	}

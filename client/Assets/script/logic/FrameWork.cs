@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 
+
 public class FrameWork  {
     public static FrameWork instance = new FrameWork();
 
@@ -15,7 +16,6 @@ public class FrameWork  {
                 modules.Add((IModule)ct.Assembly.CreateInstance(ct.FullName));
             }
         }
-
         
         foreach(IModule module in modules)
         {

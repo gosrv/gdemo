@@ -1,7 +1,7 @@
 /**
 *   客户端与逻辑服之间的消息定义
 */
-syntax = "proto2";
+syntax = "proto3";
 package netproto;
 
 // 错误码
@@ -23,7 +23,7 @@ message CS_TestSyncBaseInfo {
 }
 
 message SC_TestSyncBaseInfo {
-    optional E_Code code = 1; // 操作结果
+    E_Code code = 1; // 操作结果
 }
 
 message CS_Tick {
@@ -34,32 +34,32 @@ message SC_Tick {
 
 // 登录
 message CS_Login {
-    optional string token = 1;
+    string token = 1;
 }
 
 // 登录返回
 message SC_Login {
-    optional int64 id = 1;
-    optional E_Code code = 2; // 登录结果
+    int64 id = 1;
+    E_Code code = 2; // 登录结果
 }
 
 // p2p消息
 message CS_P2P {
-    optional int64 from = 1;
-    optional int64 to = 2;
-    optional bytes msg = 3;
+    int64 from = 1;
+    int64 to = 2;
+    bytes msg = 3;
 }
 
 // p2p消息
 message SC_P2P {
-    optional int64 from = 1;
-    optional int64 to = 2;
-    optional bytes msg = 3;
+    int64 from = 1;
+    int64 to = 2;
+    bytes msg = 3;
 }
 
 message CS_GuideDonate {
-    optional int64 guideId = 1;
-    optional int32 gold = 2;
+    int64 guideId = 1;
+    int32 gold = 2;
 }
 
 message CS_None{}
