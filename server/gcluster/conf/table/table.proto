@@ -1,0 +1,46 @@
+// generate by excelreader
+syntax = "proto3";
+
+
+message Chapter {
+	int32 Id = 1; // ID
+	string Name = 2; // 名字
+	int32 Gold = 3; // 挂机金币收益
+	int32 Power = 4; // 通关战力
+	
+}
+
+message ChapterArray {
+	repeated int32 Keys = 1;
+   	repeated Chapter Items = 2;
+}
+
+message Equip {
+	int32 Id = 1; // ID
+	string Name = 2; // 名字
+	int32 Atk = 3; // 攻击力
+	int32 Hp = 4; // 生命
+	int32 Atkup = 5; // 攻击成长
+	int32 Hpup = 6; // 生命成长
+	
+}
+
+message EquipArray {
+	repeated int32 Keys = 1;
+   	repeated Equip Items = 2;
+}
+
+message Hero {
+	int32 Id = 1; // ID
+	string Name = 2; // 名字
+	int32 Atk = 3; // 攻击力
+	int32 Hp = 4; // 生命
+	int32 Atkup = 5; // 攻击成长
+	int32 Hpup = 6; // 生命成长
+	
+}
+
+message HeroArray {
+	repeated int32 Keys = 1;
+   	repeated Hero Items = 2;
+}

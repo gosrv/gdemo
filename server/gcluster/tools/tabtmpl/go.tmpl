@@ -1,0 +1,36 @@
+// generate by excelreader
+package table
+
+import (
+    "github.com/golang/protobuf/proto"
+    "github.com/gosrv/excelreader/tableloader"
+)
+
+var TableMgr *tableMgr
+
+type tableMgr struct {
+    {{range . -}}
+    Table{{.Name}} map[int32]*{{.Name}}
+    {{end}}
+}
+
+{{range . -}}
+func (this *tableMgr)load{{.Name}}() {
+    data := tableloader.Load("{{.Name}}")
+    itemArray := &{{.Name}}Array{}
+    err := proto.Unmarshal(data, itemArray)
+    if err != nil {panic(err)}
+    this.Table{{.Name}} = make(map[int32]*{{.Name}})
+    for i := 0; i < len(itemArray.Keys); i++ {
+        this.Table{{.Name}}[itemArray.Keys[i]] = itemArray.Items[i]
+    }
+}
+{{end -}}
+
+func Load() *tableMgr {
+    mgr := &tableMgr{}
+    {{range . -}}
+    mgr.load{{.Name}}()
+    {{end}}
+    return mgr
+}

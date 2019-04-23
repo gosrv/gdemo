@@ -6,3 +6,5 @@ client/Packages
 client/Temp
 client/client.sln
 client/*.csproj
+client/.vs
+client/obj

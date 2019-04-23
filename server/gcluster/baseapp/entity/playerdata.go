@@ -7,86 +7,215 @@ import (
 )
             
                 
-type ItemIterPlayerDatapets func(k int32, v *Pet)
-type ItemStatusIterPlayerDatapets func(k int32, v *Pet, dirty bool)
+type ItemIterChapterheros func(k int32, v int32)
+type ItemStatusIterChapterheros func(k int32, v int32, dirty bool)
     
-type ContainerPlayerDatapets struct {
+type ContainerChapterheros struct {
     _impl *datasync.DirtyContainerVector
 }
-func (this *ContainerPlayerDatapets)Get(key int32) *Pet {
-    return this._impl.Get(key).(*Pet)
+func (this *ContainerChapterheros)Get(key int32) int32 {
+    return this._impl.Get(key).(int32)
 }
-func (this *ContainerPlayerDatapets)Set(key int32, value *Pet) {
+func (this *ContainerChapterheros)Set(key int32, value int32) {
     this._impl.Set(key, value)
 }
-func (this *ContainerPlayerDatapets)Foreach(iter ItemIterPlayerDatapets) {
-    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Pet))})
+func (this *ContainerChapterheros)Foreach(iter ItemIterChapterheros) {
+    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(int32))})
 }
-func (this *ContainerPlayerDatapets)ForeachStatus(iter ItemStatusIterPlayerDatapets) {
-    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Pet), dirty)})
+func (this *ContainerChapterheros)ForeachStatus(iter ItemStatusIterChapterheros) {
+    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(int32), dirty)})
 }
-func (this *ContainerPlayerDatapets)ForeachDirty(iter ItemIterPlayerDatapets) {
-    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Pet))})
+func (this *ContainerChapterheros)ForeachDirty(iter ItemIterChapterheros) {
+    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(int32))})
 }
-func (this *ContainerPlayerDatapets)Size() int {
+func (this *ContainerChapterheros)Size() int {
     return this._impl.Size()
 }
-func (this *ContainerPlayerDatapets)Clear() {
+func (this *ContainerChapterheros)Clear() {
     this._impl.Clear()
 }
 
-func NewPlayerDatapetsProto(k int32, v *Pet) *netproto.PlayerDatapets {
-        return &netproto.PlayerDatapets{
+func NewChapterherosProto(k int32, v int32) *netproto.Chapterheros {
+        return &netproto.Chapterheros{
+            Key:&k,
+            Val:&v,
+        }
+}
+
+func NewChapterherosProtoDirty(k int32, v int32) *netproto.Chapterheros {
+        return &netproto.Chapterheros{
+            Key:&k,
+            Val:&v,
+        }
+}
+            
+                
+type ItemIterChapterprizeEquip func(k int32, v *Equip)
+type ItemStatusIterChapterprizeEquip func(k int32, v *Equip, dirty bool)
+    
+type ContainerChapterprizeEquip struct {
+    _impl *datasync.DirtyContainerVector
+}
+func (this *ContainerChapterprizeEquip)Get(key int32) *Equip {
+    return this._impl.Get(key).(*Equip)
+}
+func (this *ContainerChapterprizeEquip)Set(key int32, value *Equip) {
+    this._impl.Set(key, value)
+}
+func (this *ContainerChapterprizeEquip)Foreach(iter ItemIterChapterprizeEquip) {
+    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
+}
+func (this *ContainerChapterprizeEquip)ForeachStatus(iter ItemStatusIterChapterprizeEquip) {
+    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Equip), dirty)})
+}
+func (this *ContainerChapterprizeEquip)ForeachDirty(iter ItemIterChapterprizeEquip) {
+    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
+}
+func (this *ContainerChapterprizeEquip)Size() int {
+    return this._impl.Size()
+}
+func (this *ContainerChapterprizeEquip)Clear() {
+    this._impl.Clear()
+}
+
+func NewChapterprizeEquipProto(k int32, v *Equip) *netproto.ChapterprizeEquip {
+        return &netproto.ChapterprizeEquip{
             Key:&k,
             Val:v.ToProto(),
         }
 }
 
-func NewPlayerDatapetsProtoDirty(k int32, v *Pet) *netproto.PlayerDatapets {
-        return &netproto.PlayerDatapets{
+func NewChapterprizeEquipProtoDirty(k int32, v *Equip) *netproto.ChapterprizeEquip {
+        return &netproto.ChapterprizeEquip{
             Key:&k,
             Val:v.ToProtoDirty(),
         }
 }
             
                 
-type ItemIterPlayerDatapacks func(k int32, v *Pack)
-type ItemStatusIterPlayerDatapacks func(k int32, v *Pack, dirty bool)
+type ItemIterHeroequips func(k int32, v *Equip)
+type ItemStatusIterHeroequips func(k int32, v *Equip, dirty bool)
     
-type ContainerPlayerDatapacks struct {
+type ContainerHeroequips struct {
     _impl *datasync.DirtyContainerVector
 }
-func (this *ContainerPlayerDatapacks)Get(key int32) *Pack {
-    return this._impl.Get(key).(*Pack)
+func (this *ContainerHeroequips)Get(key int32) *Equip {
+    return this._impl.Get(key).(*Equip)
 }
-func (this *ContainerPlayerDatapacks)Set(key int32, value *Pack) {
+func (this *ContainerHeroequips)Set(key int32, value *Equip) {
     this._impl.Set(key, value)
 }
-func (this *ContainerPlayerDatapacks)Foreach(iter ItemIterPlayerDatapacks) {
-    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Pack))})
+func (this *ContainerHeroequips)Foreach(iter ItemIterHeroequips) {
+    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
 }
-func (this *ContainerPlayerDatapacks)ForeachStatus(iter ItemStatusIterPlayerDatapacks) {
-    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Pack), dirty)})
+func (this *ContainerHeroequips)ForeachStatus(iter ItemStatusIterHeroequips) {
+    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Equip), dirty)})
 }
-func (this *ContainerPlayerDatapacks)ForeachDirty(iter ItemIterPlayerDatapacks) {
-    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Pack))})
+func (this *ContainerHeroequips)ForeachDirty(iter ItemIterHeroequips) {
+    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
 }
-func (this *ContainerPlayerDatapacks)Size() int {
+func (this *ContainerHeroequips)Size() int {
     return this._impl.Size()
 }
-func (this *ContainerPlayerDatapacks)Clear() {
+func (this *ContainerHeroequips)Clear() {
     this._impl.Clear()
 }
 
-func NewPlayerDatapacksProto(k int32, v *Pack) *netproto.PlayerDatapacks {
-        return &netproto.PlayerDatapacks{
+func NewHeroequipsProto(k int32, v *Equip) *netproto.Heroequips {
+        return &netproto.Heroequips{
             Key:&k,
             Val:v.ToProto(),
         }
 }
 
-func NewPlayerDatapacksProtoDirty(k int32, v *Pack) *netproto.PlayerDatapacks {
-        return &netproto.PlayerDatapacks{
+func NewHeroequipsProtoDirty(k int32, v *Equip) *netproto.Heroequips {
+        return &netproto.Heroequips{
+            Key:&k,
+            Val:v.ToProtoDirty(),
+        }
+}
+            
+            
+type ItemIterHeroPackheros func(k int32, v *Hero)
+type ItemStatusIterHeroPackheros func(k int32, v *Hero, dirty bool)
+    
+type ContainerHeroPackheros struct {
+    _impl *datasync.DirtyContainerMap
+}
+func (this *ContainerHeroPackheros)Get(key int32) *Hero {
+    return this._impl.Get(key).(*Hero)
+}
+func (this *ContainerHeroPackheros)Set(key int32, value *Hero) {
+    this._impl.Set(key, value)
+}
+func (this *ContainerHeroPackheros)Foreach(iter ItemIterHeroPackheros) {
+    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Hero))})
+}
+func (this *ContainerHeroPackheros)ForeachStatus(iter ItemStatusIterHeroPackheros) {
+    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Hero), dirty)})
+}
+func (this *ContainerHeroPackheros)ForeachDirty(iter ItemIterHeroPackheros) {
+    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Hero))})
+}
+func (this *ContainerHeroPackheros)Size() int {
+    return this._impl.Size()
+}
+func (this *ContainerHeroPackheros)Clear() {
+    this._impl.Clear()
+}
+
+func NewHeroPackherosProto(k int32, v *Hero) *netproto.HeroPackheros {
+        return &netproto.HeroPackheros{
+            Key:&k,
+            Val:v.ToProto(),
+        }
+}
+
+func NewHeroPackherosProtoDirty(k int32, v *Hero) *netproto.HeroPackheros {
+        return &netproto.HeroPackheros{
+            Key:&k,
+            Val:v.ToProtoDirty(),
+        }
+}
+            
+            
+type ItemIterEquipPackequips func(k int32, v *Equip)
+type ItemStatusIterEquipPackequips func(k int32, v *Equip, dirty bool)
+    
+type ContainerEquipPackequips struct {
+    _impl *datasync.DirtyContainerMap
+}
+func (this *ContainerEquipPackequips)Get(key int32) *Equip {
+    return this._impl.Get(key).(*Equip)
+}
+func (this *ContainerEquipPackequips)Set(key int32, value *Equip) {
+    this._impl.Set(key, value)
+}
+func (this *ContainerEquipPackequips)Foreach(iter ItemIterEquipPackequips) {
+    this._impl.Foreach(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
+}
+func (this *ContainerEquipPackequips)ForeachStatus(iter ItemStatusIterEquipPackequips) {
+    this._impl.ForeachStatus(func(k interface{}, v interface{}, dirty bool) {iter(k.(int32), v.(*Equip), dirty)})
+}
+func (this *ContainerEquipPackequips)ForeachDirty(iter ItemIterEquipPackequips) {
+    this._impl.ForeachDirty(func(k interface{}, v interface{}) {iter(k.(int32), v.(*Equip))})
+}
+func (this *ContainerEquipPackequips)Size() int {
+    return this._impl.Size()
+}
+func (this *ContainerEquipPackequips)Clear() {
+    this._impl.Clear()
+}
+
+func NewEquipPackequipsProto(k int32, v *Equip) *netproto.EquipPackequips {
+        return &netproto.EquipPackequips{
+            Key:&k,
+            Val:v.ToProto(),
+        }
+}
+
+func NewEquipPackequipsProtoDirty(k int32, v *Equip) *netproto.EquipPackequips {
+        return &netproto.EquipPackequips{
             Key:&k,
             Val:v.ToProtoDirty(),
         }
@@ -483,9 +612,10 @@ func NewTestMapMapPrimitiveStrComProtoDirty(k string, v *PlayerData) *netproto.T
     type PlayerData struct {
         *datasync.DirtyContainerMarkVector
                 _baseInfo *BaseInfo
-                _pets *ContainerPlayerDatapets
-                _daily *Daily
-                _packs *ContainerPlayerDatapacks
+                _vipInfo *VipInfo
+                _heroPack *HeroPack
+                _equipPack *EquipPack
+                _guide *Guide
     }
     // ctor
     func NewPlayerData() *PlayerData {
@@ -494,33 +624,35 @@ func NewTestMapMapPrimitiveStrComProtoDirty(k string, v *PlayerData) *netproto.T
         }
                 ins._baseInfo = NewBaseInfo()
                 ins._baseInfo.Init(ins, 1)
-                ins._pets = &ContainerPlayerDatapets {
-                    _impl : datasync.NewDirtyContainerVector(),
-                }
-                ins._pets._impl.Init(ins, 2)
-                ins._daily = NewDaily()
-                ins._daily.Init(ins, 3)
-                ins._packs = &ContainerPlayerDatapacks {
-                    _impl : datasync.NewDirtyContainerVector(),
-                }
-                ins._packs._impl.Init(ins, 4)
+                ins._vipInfo = NewVipInfo()
+                ins._vipInfo.Init(ins, 2)
+                ins._heroPack = NewHeroPack()
+                ins._heroPack.Init(ins, 3)
+                ins._equipPack = NewEquipPack()
+                ins._equipPack.Init(ins, 4)
+                ins._guide = NewGuide()
+                ins._guide.Init(ins, 5)
         return ins
     }
 // BaseInfo getter and setter
             func (this *PlayerData)GetBaseInfo() *BaseInfo {
                 return this._baseInfo
             }
-// Pets getter and setter
-            func (this *PlayerData)GetPets() *ContainerPlayerDatapets {
-                return this._pets
+// VipInfo getter and setter
+            func (this *PlayerData)GetVipInfo() *VipInfo {
+                return this._vipInfo
             }
-// Daily getter and setter
-            func (this *PlayerData)GetDaily() *Daily {
-                return this._daily
+// HeroPack getter and setter
+            func (this *PlayerData)GetHeroPack() *HeroPack {
+                return this._heroPack
             }
-// Packs getter and setter
-            func (this *PlayerData)GetPacks() *ContainerPlayerDatapacks {
-                return this._packs
+// EquipPack getter and setter
+            func (this *PlayerData)GetEquipPack() *EquipPack {
+                return this._equipPack
+            }
+// Guide getter and setter
+            func (this *PlayerData)GetGuide() *Guide {
+                return this._guide
             }
 
 // read from proto    
@@ -529,35 +661,32 @@ func (this *PlayerData)FromProto(pdata *netproto.PlayerData) {
             if pdata.BaseInfo != nil {
                 this.GetBaseInfo().FromProto(pdata.BaseInfo)
             }
-        // Pets getter and setter   
-                for _,val := range pdata.Pets {
-                    ele := NewPet()
-                    ele.FromProto(val.Val)
-                    this._pets.Set(*val.Key, ele)
-                }
-        // Daily getter and setter 
-            if pdata.Daily != nil {
-                this.GetDaily().FromProto(pdata.Daily)
+        // VipInfo getter and setter 
+            if pdata.VipInfo != nil {
+                this.GetVipInfo().FromProto(pdata.VipInfo)
             }
-        // Packs getter and setter   
-                for _,val := range pdata.Packs {
-                    ele := NewPack()
-                    ele.FromProto(val.Val)
-                    this._packs.Set(*val.Key, ele)
-                }
+        // HeroPack getter and setter 
+            if pdata.HeroPack != nil {
+                this.GetHeroPack().FromProto(pdata.HeroPack)
+            }
+        // EquipPack getter and setter 
+            if pdata.EquipPack != nil {
+                this.GetEquipPack().FromProto(pdata.EquipPack)
+            }
+        // Guide getter and setter 
+            if pdata.Guide != nil {
+                this.GetGuide().FromProto(pdata.Guide)
+            }
 }
 
 // write to proto    
 func (this *PlayerData)ToProto() *netproto.PlayerData {
     pdata := &netproto.PlayerData{}
         pdata.BaseInfo = this._baseInfo.ToProto()
-        this._pets.Foreach(func (k int32, v *Pet) {
-            pdata.Pets = append(pdata.Pets, NewPlayerDatapetsProto(k,v))
-        })
-        pdata.Daily = this._daily.ToProto()
-        this._packs.Foreach(func (k int32, v *Pack) {
-            pdata.Packs = append(pdata.Packs, NewPlayerDatapacksProto(k,v))
-        })
+        pdata.VipInfo = this._vipInfo.ToProto()
+        pdata.HeroPack = this._heroPack.ToProto()
+        pdata.EquipPack = this._equipPack.ToProto()
+        pdata.Guide = this._guide.ToProto()
     return pdata
 }
 
@@ -571,17 +700,16 @@ func (this *PlayerData)ToProtoDirty() *netproto.PlayerData {
             pdata.BaseInfo = this._baseInfo.ToProtoDirty()
     }
     if this.IsDirty(2) {
-            this._pets.ForeachDirty(func (k int32, v *Pet) {
-                    pdata.Pets = append(pdata.Pets, NewPlayerDatapetsProtoDirty(k,v))
-                })
+            pdata.VipInfo = this._vipInfo.ToProtoDirty()
     }
     if this.IsDirty(3) {
-            pdata.Daily = this._daily.ToProtoDirty()
+            pdata.HeroPack = this._heroPack.ToProtoDirty()
     }
     if this.IsDirty(4) {
-            this._packs.ForeachDirty(func (k int32, v *Pack) {
-                    pdata.Packs = append(pdata.Packs, NewPlayerDatapacksProtoDirty(k,v))
-                })
+            pdata.EquipPack = this._equipPack.ToProtoDirty()
+    }
+    if this.IsDirty(5) {
+            pdata.Guide = this._guide.ToProtoDirty()
     }
     return pdata
 }
@@ -653,8 +781,10 @@ func (this *PlayerInfo)ToProtoDirty() *netproto.PlayerInfo {
                 _id int64
                 _name string
                 _level int32
-                _gold int32
                 _exp int32
+                _gold int32
+                _head int32
+                _diamond int32
     }
     // ctor
     func NewBaseInfo() *BaseInfo {
@@ -687,21 +817,37 @@ func (this *PlayerInfo)ToProtoDirty() *netproto.PlayerInfo {
                 this._level = val
                 this.MarkDirtyUp(3)
             }
-// Gold getter and setter
-            func (this *BaseInfo)GetGold() int32 {
-                return this._gold
-            }
-            func (this *BaseInfo)SetGold(val int32) {
-                this._gold = val
-                this.MarkDirtyUp(4)
-            }
 // Exp getter and setter
             func (this *BaseInfo)GetExp() int32 {
                 return this._exp
             }
             func (this *BaseInfo)SetExp(val int32) {
                 this._exp = val
+                this.MarkDirtyUp(4)
+            }
+// Gold getter and setter
+            func (this *BaseInfo)GetGold() int32 {
+                return this._gold
+            }
+            func (this *BaseInfo)SetGold(val int32) {
+                this._gold = val
                 this.MarkDirtyUp(5)
+            }
+// Head getter and setter
+            func (this *BaseInfo)GetHead() int32 {
+                return this._head
+            }
+            func (this *BaseInfo)SetHead(val int32) {
+                this._head = val
+                this.MarkDirtyUp(6)
+            }
+// Diamond getter and setter
+            func (this *BaseInfo)GetDiamond() int32 {
+                return this._diamond
+            }
+            func (this *BaseInfo)SetDiamond(val int32) {
+                this._diamond = val
+                this.MarkDirtyUp(7)
             }
 
 // read from proto    
@@ -718,13 +864,21 @@ func (this *BaseInfo)FromProto(pdata *netproto.BaseInfo) {
             if pdata.Level != nil {
                 this.SetLevel(*pdata.Level)
             }
+        // Exp getter and setter
+            if pdata.Exp != nil {
+                this.SetExp(*pdata.Exp)
+            }
         // Gold getter and setter
             if pdata.Gold != nil {
                 this.SetGold(*pdata.Gold)
             }
-        // Exp getter and setter
-            if pdata.Exp != nil {
-                this.SetExp(*pdata.Exp)
+        // Head getter and setter
+            if pdata.Head != nil {
+                this.SetHead(*pdata.Head)
+            }
+        // Diamond getter and setter
+            if pdata.Diamond != nil {
+                this.SetDiamond(*pdata.Diamond)
             }
 }
 
@@ -734,8 +888,10 @@ func (this *BaseInfo)ToProto() *netproto.BaseInfo {
         pdata.Id = proto.Int64(this._id)
         pdata.Name = proto.String(this._name)
         pdata.Level = proto.Int32(this._level)
-        pdata.Gold = proto.Int32(this._gold)
         pdata.Exp = proto.Int32(this._exp)
+        pdata.Gold = proto.Int32(this._gold)
+        pdata.Head = proto.Int32(this._head)
+        pdata.Diamond = proto.Int32(this._diamond)
     return pdata
 }
 
@@ -755,53 +911,318 @@ func (this *BaseInfo)ToProtoDirty() *netproto.BaseInfo {
             pdata.Level = proto.Int32(this._level)
     }
     if this.IsDirty(4) {
-            pdata.Gold = proto.Int32(this._gold)
+            pdata.Exp = proto.Int32(this._exp)
     }
     if this.IsDirty(5) {
-            pdata.Exp = proto.Int32(this._exp)
+            pdata.Gold = proto.Int32(this._gold)
+    }
+    if this.IsDirty(6) {
+            pdata.Head = proto.Int32(this._head)
+    }
+    if this.IsDirty(7) {
+            pdata.Diamond = proto.Int32(this._diamond)
     }
     return pdata
 }
-    type Pet struct {
+    type Guide struct {
         *datasync.DirtyContainerMarkVector
                 _id int64
-                _level int32
-                _pack int32
     }
     // ctor
-    func NewPet() *Pet {
-        ins := &Pet {
+    func NewGuide() *Guide {
+        ins := &Guide {
             DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
         }
         return ins
     }
 // Id getter and setter
-            func (this *Pet)GetId() int64 {
+            func (this *Guide)GetId() int64 {
                 return this._id
             }
-            func (this *Pet)SetId(val int64) {
+            func (this *Guide)SetId(val int64) {
                 this._id = val
                 this.MarkDirtyUp(1)
             }
+
+// read from proto    
+func (this *Guide)FromProto(pdata *netproto.Guide) {
+        // Id getter and setter
+            if pdata.Id != nil {
+                this.SetId(*pdata.Id)
+            }
+}
+
+// write to proto    
+func (this *Guide)ToProto() *netproto.Guide {
+    pdata := &netproto.Guide{}
+        pdata.Id = proto.Int64(this._id)
+    return pdata
+}
+
+// write dirty to proto
+func (this *Guide)ToProtoDirty() *netproto.Guide {
+    if (this.IsAllDirty()) {
+        return this.ToProto()
+    }
+    pdata := &netproto.Guide{}
+    if this.IsDirty(1) {
+            pdata.Id = proto.Int64(this._id)
+    }
+    return pdata
+}
+    type Chapter struct {
+        *datasync.DirtyContainerMarkVector
+                _heros *ContainerChapterheros
+                _level int32
+                _prizeGoldCheckTime int32
+                _prizeEquipCheckTime int32
+                _prizeEquip *ContainerChapterprizeEquip
+    }
+    // ctor
+    func NewChapter() *Chapter {
+        ins := &Chapter {
+            DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
+        }
+                ins._heros = &ContainerChapterheros {
+                    _impl : datasync.NewDirtyContainerVector(),
+                }
+                ins._heros._impl.Init(ins, 1)
+                ins._prizeEquip = &ContainerChapterprizeEquip {
+                    _impl : datasync.NewDirtyContainerVector(),
+                }
+                ins._prizeEquip._impl.Init(ins, 5)
+        return ins
+    }
+// Heros getter and setter
+            func (this *Chapter)GetHeros() *ContainerChapterheros {
+                return this._heros
+            }
 // Level getter and setter
-            func (this *Pet)GetLevel() int32 {
+            func (this *Chapter)GetLevel() int32 {
                 return this._level
             }
-            func (this *Pet)SetLevel(val int32) {
+            func (this *Chapter)SetLevel(val int32) {
                 this._level = val
                 this.MarkDirtyUp(2)
             }
-// Pack getter and setter
-            func (this *Pet)GetPack() int32 {
-                return this._pack
+// PrizeGoldCheckTime getter and setter
+            func (this *Chapter)GetPrizeGoldCheckTime() int32 {
+                return this._prizeGoldCheckTime
             }
-            func (this *Pet)SetPack(val int32) {
-                this._pack = val
+            func (this *Chapter)SetPrizeGoldCheckTime(val int32) {
+                this._prizeGoldCheckTime = val
+                this.MarkDirtyUp(3)
+            }
+// PrizeEquipCheckTime getter and setter
+            func (this *Chapter)GetPrizeEquipCheckTime() int32 {
+                return this._prizeEquipCheckTime
+            }
+            func (this *Chapter)SetPrizeEquipCheckTime(val int32) {
+                this._prizeEquipCheckTime = val
+                this.MarkDirtyUp(4)
+            }
+// PrizeEquip getter and setter
+            func (this *Chapter)GetPrizeEquip() *ContainerChapterprizeEquip {
+                return this._prizeEquip
+            }
+
+// read from proto    
+func (this *Chapter)FromProto(pdata *netproto.Chapter) {
+        // Heros getter and setter
+                for _,val := range pdata.Heros {
+                    this._heros.Set(*val.Key, *val.Val)
+                }
+        // Level getter and setter
+            if pdata.Level != nil {
+                this.SetLevel(*pdata.Level)
+            }
+        // PrizeGoldCheckTime getter and setter
+            if pdata.PrizeGoldCheckTime != nil {
+                this.SetPrizeGoldCheckTime(*pdata.PrizeGoldCheckTime)
+            }
+        // PrizeEquipCheckTime getter and setter
+            if pdata.PrizeEquipCheckTime != nil {
+                this.SetPrizeEquipCheckTime(*pdata.PrizeEquipCheckTime)
+            }
+        // PrizeEquip getter and setter   
+                for _,val := range pdata.PrizeEquip {
+                    ele := NewEquip()
+                    ele.FromProto(val.Val)
+                    this._prizeEquip.Set(*val.Key, ele)
+                }
+}
+
+// write to proto    
+func (this *Chapter)ToProto() *netproto.Chapter {
+    pdata := &netproto.Chapter{}
+        this._heros.Foreach(func (k int32, v int32) {
+            pdata.Heros = append(pdata.Heros, NewChapterherosProto(k,v))
+        })
+        pdata.Level = proto.Int32(this._level)
+        pdata.PrizeGoldCheckTime = proto.Int32(this._prizeGoldCheckTime)
+        pdata.PrizeEquipCheckTime = proto.Int32(this._prizeEquipCheckTime)
+        this._prizeEquip.Foreach(func (k int32, v *Equip) {
+            pdata.PrizeEquip = append(pdata.PrizeEquip, NewChapterprizeEquipProto(k,v))
+        })
+    return pdata
+}
+
+// write dirty to proto
+func (this *Chapter)ToProtoDirty() *netproto.Chapter {
+    if (this.IsAllDirty()) {
+        return this.ToProto()
+    }
+    pdata := &netproto.Chapter{}
+    if this.IsDirty(1) {
+            this._heros.ForeachDirty(func (k int32, v int32) {
+                    pdata.Heros = append(pdata.Heros, NewChapterherosProtoDirty(k,v))
+                })
+    }
+    if this.IsDirty(2) {
+            pdata.Level = proto.Int32(this._level)
+    }
+    if this.IsDirty(3) {
+            pdata.PrizeGoldCheckTime = proto.Int32(this._prizeGoldCheckTime)
+    }
+    if this.IsDirty(4) {
+            pdata.PrizeEquipCheckTime = proto.Int32(this._prizeEquipCheckTime)
+    }
+    if this.IsDirty(5) {
+            this._prizeEquip.ForeachDirty(func (k int32, v *Equip) {
+                    pdata.PrizeEquip = append(pdata.PrizeEquip, NewChapterprizeEquipProtoDirty(k,v))
+                })
+    }
+    return pdata
+}
+    type VipInfo struct {
+        *datasync.DirtyContainerMarkVector
+                _level int32
+                _exp int32
+                _totalRecharge int32
+    }
+    // ctor
+    func NewVipInfo() *VipInfo {
+        ins := &VipInfo {
+            DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
+        }
+        return ins
+    }
+// Level getter and setter
+            func (this *VipInfo)GetLevel() int32 {
+                return this._level
+            }
+            func (this *VipInfo)SetLevel(val int32) {
+                this._level = val
+                this.MarkDirtyUp(1)
+            }
+// Exp getter and setter
+            func (this *VipInfo)GetExp() int32 {
+                return this._exp
+            }
+            func (this *VipInfo)SetExp(val int32) {
+                this._exp = val
+                this.MarkDirtyUp(2)
+            }
+// TotalRecharge getter and setter
+            func (this *VipInfo)GetTotalRecharge() int32 {
+                return this._totalRecharge
+            }
+            func (this *VipInfo)SetTotalRecharge(val int32) {
+                this._totalRecharge = val
                 this.MarkDirtyUp(3)
             }
 
 // read from proto    
-func (this *Pet)FromProto(pdata *netproto.Pet) {
+func (this *VipInfo)FromProto(pdata *netproto.VipInfo) {
+        // Level getter and setter
+            if pdata.Level != nil {
+                this.SetLevel(*pdata.Level)
+            }
+        // Exp getter and setter
+            if pdata.Exp != nil {
+                this.SetExp(*pdata.Exp)
+            }
+        // TotalRecharge getter and setter
+            if pdata.TotalRecharge != nil {
+                this.SetTotalRecharge(*pdata.TotalRecharge)
+            }
+}
+
+// write to proto    
+func (this *VipInfo)ToProto() *netproto.VipInfo {
+    pdata := &netproto.VipInfo{}
+        pdata.Level = proto.Int32(this._level)
+        pdata.Exp = proto.Int32(this._exp)
+        pdata.TotalRecharge = proto.Int32(this._totalRecharge)
+    return pdata
+}
+
+// write dirty to proto
+func (this *VipInfo)ToProtoDirty() *netproto.VipInfo {
+    if (this.IsAllDirty()) {
+        return this.ToProto()
+    }
+    pdata := &netproto.VipInfo{}
+    if this.IsDirty(1) {
+            pdata.Level = proto.Int32(this._level)
+    }
+    if this.IsDirty(2) {
+            pdata.Exp = proto.Int32(this._exp)
+    }
+    if this.IsDirty(3) {
+            pdata.TotalRecharge = proto.Int32(this._totalRecharge)
+    }
+    return pdata
+}
+    type Hero struct {
+        *datasync.DirtyContainerMarkVector
+                _id int32
+                _level int32
+                _status int64
+                _equips *ContainerHeroequips
+    }
+    // ctor
+    func NewHero() *Hero {
+        ins := &Hero {
+            DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
+        }
+                ins._equips = &ContainerHeroequips {
+                    _impl : datasync.NewDirtyContainerVector(),
+                }
+                ins._equips._impl.Init(ins, 4)
+        return ins
+    }
+// Id getter and setter
+            func (this *Hero)GetId() int32 {
+                return this._id
+            }
+            func (this *Hero)SetId(val int32) {
+                this._id = val
+                this.MarkDirtyUp(1)
+            }
+// Level getter and setter
+            func (this *Hero)GetLevel() int32 {
+                return this._level
+            }
+            func (this *Hero)SetLevel(val int32) {
+                this._level = val
+                this.MarkDirtyUp(2)
+            }
+// Status getter and setter
+            func (this *Hero)GetStatus() int64 {
+                return this._status
+            }
+            func (this *Hero)SetStatus(val int64) {
+                this._status = val
+                this.MarkDirtyUp(3)
+            }
+// Equips getter and setter
+            func (this *Hero)GetEquips() *ContainerHeroequips {
+                return this._equips
+            }
+
+// read from proto    
+func (this *Hero)FromProto(pdata *netproto.Hero) {
         // Id getter and setter
             if pdata.Id != nil {
                 this.SetId(*pdata.Id)
@@ -810,72 +1231,181 @@ func (this *Pet)FromProto(pdata *netproto.Pet) {
             if pdata.Level != nil {
                 this.SetLevel(*pdata.Level)
             }
-        // Pack getter and setter
-            if pdata.Pack != nil {
-                this.SetPack(*pdata.Pack)
+        // Status getter and setter
+            if pdata.Status != nil {
+                this.SetStatus(*pdata.Status)
             }
+        // Equips getter and setter   
+                for _,val := range pdata.Equips {
+                    ele := NewEquip()
+                    ele.FromProto(val.Val)
+                    this._equips.Set(*val.Key, ele)
+                }
 }
 
 // write to proto    
-func (this *Pet)ToProto() *netproto.Pet {
-    pdata := &netproto.Pet{}
-        pdata.Id = proto.Int64(this._id)
+func (this *Hero)ToProto() *netproto.Hero {
+    pdata := &netproto.Hero{}
+        pdata.Id = proto.Int32(this._id)
         pdata.Level = proto.Int32(this._level)
-        pdata.Pack = proto.Int32(this._pack)
+        pdata.Status = proto.Int64(this._status)
+        this._equips.Foreach(func (k int32, v *Equip) {
+            pdata.Equips = append(pdata.Equips, NewHeroequipsProto(k,v))
+        })
     return pdata
 }
 
 // write dirty to proto
-func (this *Pet)ToProtoDirty() *netproto.Pet {
+func (this *Hero)ToProtoDirty() *netproto.Hero {
     if (this.IsAllDirty()) {
         return this.ToProto()
     }
-    pdata := &netproto.Pet{}
+    pdata := &netproto.Hero{}
     if this.IsDirty(1) {
-            pdata.Id = proto.Int64(this._id)
+            pdata.Id = proto.Int32(this._id)
     }
     if this.IsDirty(2) {
             pdata.Level = proto.Int32(this._level)
     }
     if this.IsDirty(3) {
-            pdata.Pack = proto.Int32(this._pack)
+            pdata.Status = proto.Int64(this._status)
+    }
+    if this.IsDirty(4) {
+            this._equips.ForeachDirty(func (k int32, v *Equip) {
+                    pdata.Equips = append(pdata.Equips, NewHeroequipsProtoDirty(k,v))
+                })
     }
     return pdata
 }
-    type Pack struct {
+    type HeroPack struct {
         *datasync.DirtyContainerMarkVector
-                _id int64
-                _num int64
+                _limit int32
+                _heros *ContainerHeroPackheros
     }
     // ctor
-    func NewPack() *Pack {
-        ins := &Pack {
+    func NewHeroPack() *HeroPack {
+        ins := &HeroPack {
+            DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
+        }
+                ins._heros = &ContainerHeroPackheros {
+                    _impl : datasync.NewDirtyContainerMap(),
+                }
+                ins._heros._impl.Init(ins, 2)
+        return ins
+    }
+// Limit getter and setter
+            func (this *HeroPack)GetLimit() int32 {
+                return this._limit
+            }
+            func (this *HeroPack)SetLimit(val int32) {
+                this._limit = val
+                this.MarkDirtyUp(1)
+            }
+// Heros getter and setter
+            func (this *HeroPack)GetHeros() *ContainerHeroPackheros {
+                return this._heros
+            }
+
+// read from proto    
+func (this *HeroPack)FromProto(pdata *netproto.HeroPack) {
+        // Limit getter and setter
+            if pdata.Limit != nil {
+                this.SetLimit(*pdata.Limit)
+            }
+        // Heros getter and setter
+                for _,val := range pdata.Heros {
+                        ele := NewHero()
+                        ele.FromProto(val.Val)
+                        this._heros.Set(*val.Key, ele)
+                }
+}
+
+// write to proto    
+func (this *HeroPack)ToProto() *netproto.HeroPack {
+    pdata := &netproto.HeroPack{}
+        pdata.Limit = proto.Int32(this._limit)
+        this._heros.Foreach(func (k int32, v *Hero) {
+            pdata.Heros = append(pdata.Heros, NewHeroPackherosProto(k,v))
+            })
+    return pdata
+}
+
+// write dirty to proto
+func (this *HeroPack)ToProtoDirty() *netproto.HeroPack {
+    if (this.IsAllDirty()) {
+        return this.ToProto()
+    }
+    pdata := &netproto.HeroPack{}
+    if this.IsDirty(1) {
+            pdata.Limit = proto.Int32(this._limit)
+    }
+    if this.IsDirty(2) {
+            this._heros.ForeachDirty(func (k int32, v *Hero) {
+                    pdata.Heros = append(pdata.Heros, NewHeroPackherosProtoDirty(k,v))
+                    })
+    }
+    return pdata
+}
+    type Equip struct {
+        *datasync.DirtyContainerMarkVector
+                _id int32
+                _level int32
+                _status int64
+                _num int32
+    }
+    // ctor
+    func NewEquip() *Equip {
+        ins := &Equip {
             DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
         }
         return ins
     }
 // Id getter and setter
-            func (this *Pack)GetId() int64 {
+            func (this *Equip)GetId() int32 {
                 return this._id
             }
-            func (this *Pack)SetId(val int64) {
+            func (this *Equip)SetId(val int32) {
                 this._id = val
                 this.MarkDirtyUp(1)
             }
+// Level getter and setter
+            func (this *Equip)GetLevel() int32 {
+                return this._level
+            }
+            func (this *Equip)SetLevel(val int32) {
+                this._level = val
+                this.MarkDirtyUp(2)
+            }
+// Status getter and setter
+            func (this *Equip)GetStatus() int64 {
+                return this._status
+            }
+            func (this *Equip)SetStatus(val int64) {
+                this._status = val
+                this.MarkDirtyUp(3)
+            }
 // Num getter and setter
-            func (this *Pack)GetNum() int64 {
+            func (this *Equip)GetNum() int32 {
                 return this._num
             }
-            func (this *Pack)SetNum(val int64) {
+            func (this *Equip)SetNum(val int32) {
                 this._num = val
-                this.MarkDirtyUp(2)
+                this.MarkDirtyUp(4)
             }
 
 // read from proto    
-func (this *Pack)FromProto(pdata *netproto.Pack) {
+func (this *Equip)FromProto(pdata *netproto.Equip) {
         // Id getter and setter
             if pdata.Id != nil {
                 this.SetId(*pdata.Id)
+            }
+        // Level getter and setter
+            if pdata.Level != nil {
+                this.SetLevel(*pdata.Level)
+            }
+        // Status getter and setter
+            if pdata.Status != nil {
+                this.SetStatus(*pdata.Status)
             }
         // Num getter and setter
             if pdata.Num != nil {
@@ -884,24 +1414,101 @@ func (this *Pack)FromProto(pdata *netproto.Pack) {
 }
 
 // write to proto    
-func (this *Pack)ToProto() *netproto.Pack {
-    pdata := &netproto.Pack{}
-        pdata.Id = proto.Int64(this._id)
-        pdata.Num = proto.Int64(this._num)
+func (this *Equip)ToProto() *netproto.Equip {
+    pdata := &netproto.Equip{}
+        pdata.Id = proto.Int32(this._id)
+        pdata.Level = proto.Int32(this._level)
+        pdata.Status = proto.Int64(this._status)
+        pdata.Num = proto.Int32(this._num)
     return pdata
 }
 
 // write dirty to proto
-func (this *Pack)ToProtoDirty() *netproto.Pack {
+func (this *Equip)ToProtoDirty() *netproto.Equip {
     if (this.IsAllDirty()) {
         return this.ToProto()
     }
-    pdata := &netproto.Pack{}
+    pdata := &netproto.Equip{}
     if this.IsDirty(1) {
-            pdata.Id = proto.Int64(this._id)
+            pdata.Id = proto.Int32(this._id)
     }
     if this.IsDirty(2) {
-            pdata.Num = proto.Int64(this._num)
+            pdata.Level = proto.Int32(this._level)
+    }
+    if this.IsDirty(3) {
+            pdata.Status = proto.Int64(this._status)
+    }
+    if this.IsDirty(4) {
+            pdata.Num = proto.Int32(this._num)
+    }
+    return pdata
+}
+    type EquipPack struct {
+        *datasync.DirtyContainerMarkVector
+                _limit int32
+                _equips *ContainerEquipPackequips
+    }
+    // ctor
+    func NewEquipPack() *EquipPack {
+        ins := &EquipPack {
+            DirtyContainerMarkVector:datasync.NewDirtyContainerMarkVector(),
+        }
+                ins._equips = &ContainerEquipPackequips {
+                    _impl : datasync.NewDirtyContainerMap(),
+                }
+                ins._equips._impl.Init(ins, 2)
+        return ins
+    }
+// Limit getter and setter
+            func (this *EquipPack)GetLimit() int32 {
+                return this._limit
+            }
+            func (this *EquipPack)SetLimit(val int32) {
+                this._limit = val
+                this.MarkDirtyUp(1)
+            }
+// Equips getter and setter
+            func (this *EquipPack)GetEquips() *ContainerEquipPackequips {
+                return this._equips
+            }
+
+// read from proto    
+func (this *EquipPack)FromProto(pdata *netproto.EquipPack) {
+        // Limit getter and setter
+            if pdata.Limit != nil {
+                this.SetLimit(*pdata.Limit)
+            }
+        // Equips getter and setter
+                for _,val := range pdata.Equips {
+                        ele := NewEquip()
+                        ele.FromProto(val.Val)
+                        this._equips.Set(*val.Key, ele)
+                }
+}
+
+// write to proto    
+func (this *EquipPack)ToProto() *netproto.EquipPack {
+    pdata := &netproto.EquipPack{}
+        pdata.Limit = proto.Int32(this._limit)
+        this._equips.Foreach(func (k int32, v *Equip) {
+            pdata.Equips = append(pdata.Equips, NewEquipPackequipsProto(k,v))
+            })
+    return pdata
+}
+
+// write dirty to proto
+func (this *EquipPack)ToProtoDirty() *netproto.EquipPack {
+    if (this.IsAllDirty()) {
+        return this.ToProto()
+    }
+    pdata := &netproto.EquipPack{}
+    if this.IsDirty(1) {
+            pdata.Limit = proto.Int32(this._limit)
+    }
+    if this.IsDirty(2) {
+            this._equips.ForeachDirty(func (k int32, v *Equip) {
+                    pdata.Equips = append(pdata.Equips, NewEquipPackequipsProtoDirty(k,v))
+                    })
     }
     return pdata
 }
@@ -909,6 +1516,7 @@ func (this *Pack)ToProtoDirty() *netproto.Pack {
         *datasync.DirtyContainerMarkVector
                 _lastUpdateTime int64
                 _sign bool
+                _totalSign int32
     }
     // ctor
     func NewDaily() *Daily {
@@ -933,6 +1541,14 @@ func (this *Pack)ToProtoDirty() *netproto.Pack {
                 this._sign = val
                 this.MarkDirtyUp(2)
             }
+// TotalSign getter and setter
+            func (this *Daily)GetTotalSign() int32 {
+                return this._totalSign
+            }
+            func (this *Daily)SetTotalSign(val int32) {
+                this._totalSign = val
+                this.MarkDirtyUp(3)
+            }
 
 // read from proto    
 func (this *Daily)FromProto(pdata *netproto.Daily) {
@@ -944,6 +1560,10 @@ func (this *Daily)FromProto(pdata *netproto.Daily) {
             if pdata.Sign != nil {
                 this.SetSign(*pdata.Sign)
             }
+        // TotalSign getter and setter
+            if pdata.TotalSign != nil {
+                this.SetTotalSign(*pdata.TotalSign)
+            }
 }
 
 // write to proto    
@@ -951,6 +1571,7 @@ func (this *Daily)ToProto() *netproto.Daily {
     pdata := &netproto.Daily{}
         pdata.LastUpdateTime = proto.Int64(this._lastUpdateTime)
         pdata.Sign = proto.Bool(this._sign)
+        pdata.TotalSign = proto.Int32(this._totalSign)
     return pdata
 }
 
@@ -965,6 +1586,9 @@ func (this *Daily)ToProtoDirty() *netproto.Daily {
     }
     if this.IsDirty(2) {
             pdata.Sign = proto.Bool(this._sign)
+    }
+    if this.IsDirty(3) {
+            pdata.TotalSign = proto.Int32(this._totalSign)
     }
     return pdata
 }

@@ -4,17 +4,21 @@ package netproto;
     optional int32 key = 1;
     optional BaseInfo val  = 2;
 }
- message PlayerDatapets {
+ message PlayerDatavipInfo {
     optional int32 key = 1;
-    optional Pet val  = 2;
+    optional VipInfo val  = 2;
 }
- message PlayerDatadaily {
+ message PlayerDataheroPack {
     optional int32 key = 1;
-    optional Daily val  = 2;
+    optional HeroPack val  = 2;
 }
- message PlayerDatapacks {
+ message PlayerDataequipPack {
     optional int32 key = 1;
-    optional Pack val  = 2;
+    optional EquipPack val  = 2;
+}
+ message PlayerDataguide {
+    optional int32 key = 1;
+    optional Guide val  = 2;
 }
  message PlayerInfoserverTime {
     optional int32 key = 1;
@@ -36,33 +40,105 @@ package netproto;
     optional int32 key = 1;
     optional int32 val  = 2;
 }
- message BaseInfogold {
-    optional int32 key = 1;
-    optional int32 val  = 2;
-}
  message BaseInfoexp {
     optional int32 key = 1;
     optional int32 val  = 2;
 }
- message Petid {
-    optional int32 key = 1;
-    optional int64 val  = 2;
-}
- message Petlevel {
+ message BaseInfogold {
     optional int32 key = 1;
     optional int32 val  = 2;
 }
- message Petpack {
+ message BaseInfohead {
     optional int32 key = 1;
     optional int32 val  = 2;
 }
- message Packid {
+ message BaseInfodiamond {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Guideid {
     optional int32 key = 1;
     optional int64 val  = 2;
 }
- message Packnum {
+ message Chapterheros {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Chapterlevel {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message ChapterprizeGoldCheckTime {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message ChapterprizeEquipCheckTime {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message ChapterprizeEquip {
+    optional int32 key = 1;
+    optional Equip val  = 2;
+}
+ message VipInfolevel {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message VipInfoexp {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message VipInfototalRecharge {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Heroid {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Herolevel {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Herostatus {
     optional int32 key = 1;
     optional int64 val  = 2;
+}
+ message Heroequips {
+    optional int32 key = 1;
+    optional Equip val  = 2;
+}
+ message HeroPacklimit {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+message HeroPackheros {
+    optional int32 key = 1;
+    optional Hero val  = 2;
+}
+ message Equipid {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Equiplevel {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message Equipstatus {
+    optional int32 key = 1;
+    optional int64 val  = 2;
+}
+ message Equipnum {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+ message EquipPacklimit {
+    optional int32 key = 1;
+    optional int32 val  = 2;
+}
+message EquipPackequips {
+    optional int32 key = 1;
+    optional Equip val  = 2;
 }
  message DailylastUpdateTime {
     optional int32 key = 1;
@@ -71,6 +147,10 @@ package netproto;
  message Dailysign {
     optional int32 key = 1;
     optional bool val  = 2;
+}
+ message DailytotalSign {
+    optional int32 key = 1;
+    optional int32 val  = 2;
 }
  message TestListid {
     optional int32 key = 1;
@@ -118,9 +198,10 @@ message TestMapMapPrimitiveStrCom {
 }
 message PlayerData {
         optional BaseInfo baseInfo = 1;
-        repeated PlayerDatapets pets = 2;
-        optional Daily daily = 3;
-        repeated PlayerDatapacks packs = 4;
+        optional VipInfo vipInfo = 2;
+        optional HeroPack heroPack = 3;
+        optional EquipPack equipPack = 4;
+        optional Guide guide = 5;
 }
 message PlayerInfo {
         optional int64 serverTime = 1;
@@ -130,21 +211,50 @@ message BaseInfo {
         optional int64 id = 1;
         optional string name = 2;
         optional int32 level = 3;
-        optional int32 gold = 4;
-        optional int32 exp = 5;
+        optional int32 exp = 4;
+        optional int32 gold = 5;
+        optional int32 head = 6;
+        optional int32 diamond = 7;
 }
-message Pet {
+message Guide {
         optional int64 id = 1;
+}
+message Chapter {
+        repeated Chapterheros heros = 1;
         optional int32 level = 2;
-        optional int32 pack = 3;
+        optional int32 prizeGoldCheckTime = 3;
+        optional int32 prizeEquipCheckTime = 4;
+        repeated ChapterprizeEquip prizeEquip = 5;
 }
-message Pack {
-        optional int64 id = 1;
-        optional int64 num = 2;
+message VipInfo {
+        optional int32 level = 1;
+        optional int32 exp = 2;
+        optional int32 totalRecharge = 3;
+}
+message Hero {
+        optional int32 id = 1;
+        optional int32 level = 2;
+        optional int64 status = 3;
+        repeated Heroequips equips = 4;
+}
+message HeroPack {
+        optional int32 limit = 1;
+        repeated HeroPackheros heros = 2;
+}
+message Equip {
+        optional int32 id = 1;
+        optional int32 level = 2;
+        optional int64 status = 3;
+        optional int32 num = 4;
+}
+message EquipPack {
+        optional int32 limit = 1;
+        repeated EquipPackequips equips = 2;
 }
 message Daily {
         optional int64 lastUpdateTime = 1;
         optional bool sign = 2;
+        optional int32 totalSign = 3;
 }
 message TestList {
         optional int64 id = 7;

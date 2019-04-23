@@ -1,0 +1,52 @@
+// generate by excelreader
+
+using System.Collections.Generic;
+using System.IO;
+using ProtoBuf;
+
+{{range .}}
+[ProtoContract]
+public class {{.Name}} {
+	{{range .Fields -}}
+	[ProtoMember({{.Idx}})]
+	public {{if .Arr}}List<{{.Type}}> {{.Name}};{{else}}{{.Type}} {{.Name}};{{end}} // {{.Desc}}
+	{{end}}
+}
+[ProtoContract]
+public class {{.Name}}Array {
+    [ProtoMember(1)]
+	public List<int> Keys;
+	[ProtoMember(2)]
+   	public List<{{.Name}}> Items;
+}
+{{end}}
+
+public class TableMgr {
+    public static TableMgr ins;
+    {{range . -}}
+    public Dictionary<int, {{.Name}}> table{{.Name}};
+    {{end}}
+
+    {{range . -}}
+    public void load{{.Name}}() {
+        MemoryStream stream = new MemoryStream();
+        byte[] data = DataLoader.Load("{{.Name}}");
+        stream.SetLength(0);
+        stream.Write(data, 0, data.Length);
+        stream.Seek(0, SeekOrigin.Begin);
+        {{.Name}}Array itemArray = Serializer.Deserialize<{{.Name}}Array>(stream);
+        this.table{{.Name}} = new Dictionary<int,{{.Name}}>();
+        for (int i = 0; i < itemArray.Keys.Count; i++) {
+            this.table{{.Name}}[itemArray.Keys[i]] = itemArray.Items[i];
+        }
+    }
+    {{end }}
+    public void Load() {
+        {{range . -}}
+        this.load{{.Name}}();
+        {{end}}
+    }
+}
+
+
+

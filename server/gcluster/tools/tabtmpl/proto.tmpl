@@ -1,0 +1,15 @@
+// generate by excelreader
+syntax = "proto3";
+
+{{range .}}
+message {{.Name}} {
+	{{range .Fields -}}
+	{{if .Arr}}repeated {{end}}{{.Type}} {{.Name}} = {{.Idx}}; // {{.Desc}}
+	{{end}}
+}
+
+message {{.Name}}Array {
+	repeated int32 Keys = 1;
+   	repeated {{.Name}} Items = 2;
+}
+{{end}}

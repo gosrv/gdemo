@@ -30,7 +30,7 @@ func (m *PlayerDatabaseInfo) Reset()         { *m = PlayerDatabaseInfo{} }
 func (m *PlayerDatabaseInfo) String() string { return proto.CompactTextString(m) }
 func (*PlayerDatabaseInfo) ProtoMessage()    {}
 func (*PlayerDatabaseInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{0}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{0}
 }
 func (m *PlayerDatabaseInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerDatabaseInfo.Unmarshal(m, b)
@@ -64,138 +64,184 @@ func (m *PlayerDatabaseInfo) GetVal() *BaseInfo {
 	return nil
 }
 
-type PlayerDatapets struct {
+type PlayerDatavipInfo struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
-	Val                  *Pet     `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	Val                  *VipInfo `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PlayerDatapets) Reset()         { *m = PlayerDatapets{} }
-func (m *PlayerDatapets) String() string { return proto.CompactTextString(m) }
-func (*PlayerDatapets) ProtoMessage()    {}
-func (*PlayerDatapets) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{1}
+func (m *PlayerDatavipInfo) Reset()         { *m = PlayerDatavipInfo{} }
+func (m *PlayerDatavipInfo) String() string { return proto.CompactTextString(m) }
+func (*PlayerDatavipInfo) ProtoMessage()    {}
+func (*PlayerDatavipInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{1}
 }
-func (m *PlayerDatapets) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlayerDatapets.Unmarshal(m, b)
+func (m *PlayerDatavipInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PlayerDatavipInfo.Unmarshal(m, b)
 }
-func (m *PlayerDatapets) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlayerDatapets.Marshal(b, m, deterministic)
+func (m *PlayerDatavipInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PlayerDatavipInfo.Marshal(b, m, deterministic)
 }
-func (dst *PlayerDatapets) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlayerDatapets.Merge(dst, src)
+func (dst *PlayerDatavipInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PlayerDatavipInfo.Merge(dst, src)
 }
-func (m *PlayerDatapets) XXX_Size() int {
-	return xxx_messageInfo_PlayerDatapets.Size(m)
+func (m *PlayerDatavipInfo) XXX_Size() int {
+	return xxx_messageInfo_PlayerDatavipInfo.Size(m)
 }
-func (m *PlayerDatapets) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlayerDatapets.DiscardUnknown(m)
+func (m *PlayerDatavipInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_PlayerDatavipInfo.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PlayerDatapets proto.InternalMessageInfo
+var xxx_messageInfo_PlayerDatavipInfo proto.InternalMessageInfo
 
-func (m *PlayerDatapets) GetKey() int32 {
+func (m *PlayerDatavipInfo) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *PlayerDatapets) GetVal() *Pet {
+func (m *PlayerDatavipInfo) GetVal() *VipInfo {
 	if m != nil {
 		return m.Val
 	}
 	return nil
 }
 
-type PlayerDatadaily struct {
-	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
-	Val                  *Daily   `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+type PlayerDataheroPack struct {
+	Key                  *int32    `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *HeroPack `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *PlayerDatadaily) Reset()         { *m = PlayerDatadaily{} }
-func (m *PlayerDatadaily) String() string { return proto.CompactTextString(m) }
-func (*PlayerDatadaily) ProtoMessage()    {}
-func (*PlayerDatadaily) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{2}
+func (m *PlayerDataheroPack) Reset()         { *m = PlayerDataheroPack{} }
+func (m *PlayerDataheroPack) String() string { return proto.CompactTextString(m) }
+func (*PlayerDataheroPack) ProtoMessage()    {}
+func (*PlayerDataheroPack) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{2}
 }
-func (m *PlayerDatadaily) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlayerDatadaily.Unmarshal(m, b)
+func (m *PlayerDataheroPack) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PlayerDataheroPack.Unmarshal(m, b)
 }
-func (m *PlayerDatadaily) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlayerDatadaily.Marshal(b, m, deterministic)
+func (m *PlayerDataheroPack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PlayerDataheroPack.Marshal(b, m, deterministic)
 }
-func (dst *PlayerDatadaily) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlayerDatadaily.Merge(dst, src)
+func (dst *PlayerDataheroPack) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PlayerDataheroPack.Merge(dst, src)
 }
-func (m *PlayerDatadaily) XXX_Size() int {
-	return xxx_messageInfo_PlayerDatadaily.Size(m)
+func (m *PlayerDataheroPack) XXX_Size() int {
+	return xxx_messageInfo_PlayerDataheroPack.Size(m)
 }
-func (m *PlayerDatadaily) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlayerDatadaily.DiscardUnknown(m)
+func (m *PlayerDataheroPack) XXX_DiscardUnknown() {
+	xxx_messageInfo_PlayerDataheroPack.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PlayerDatadaily proto.InternalMessageInfo
+var xxx_messageInfo_PlayerDataheroPack proto.InternalMessageInfo
 
-func (m *PlayerDatadaily) GetKey() int32 {
+func (m *PlayerDataheroPack) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *PlayerDatadaily) GetVal() *Daily {
+func (m *PlayerDataheroPack) GetVal() *HeroPack {
 	if m != nil {
 		return m.Val
 	}
 	return nil
 }
 
-type PlayerDatapacks struct {
-	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
-	Val                  *Pack    `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+type PlayerDataequipPack struct {
+	Key                  *int32     `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *EquipPack `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *PlayerDatapacks) Reset()         { *m = PlayerDatapacks{} }
-func (m *PlayerDatapacks) String() string { return proto.CompactTextString(m) }
-func (*PlayerDatapacks) ProtoMessage()    {}
-func (*PlayerDatapacks) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{3}
+func (m *PlayerDataequipPack) Reset()         { *m = PlayerDataequipPack{} }
+func (m *PlayerDataequipPack) String() string { return proto.CompactTextString(m) }
+func (*PlayerDataequipPack) ProtoMessage()    {}
+func (*PlayerDataequipPack) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{3}
 }
-func (m *PlayerDatapacks) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlayerDatapacks.Unmarshal(m, b)
+func (m *PlayerDataequipPack) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PlayerDataequipPack.Unmarshal(m, b)
 }
-func (m *PlayerDatapacks) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlayerDatapacks.Marshal(b, m, deterministic)
+func (m *PlayerDataequipPack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PlayerDataequipPack.Marshal(b, m, deterministic)
 }
-func (dst *PlayerDatapacks) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlayerDatapacks.Merge(dst, src)
+func (dst *PlayerDataequipPack) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PlayerDataequipPack.Merge(dst, src)
 }
-func (m *PlayerDatapacks) XXX_Size() int {
-	return xxx_messageInfo_PlayerDatapacks.Size(m)
+func (m *PlayerDataequipPack) XXX_Size() int {
+	return xxx_messageInfo_PlayerDataequipPack.Size(m)
 }
-func (m *PlayerDatapacks) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlayerDatapacks.DiscardUnknown(m)
+func (m *PlayerDataequipPack) XXX_DiscardUnknown() {
+	xxx_messageInfo_PlayerDataequipPack.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PlayerDatapacks proto.InternalMessageInfo
+var xxx_messageInfo_PlayerDataequipPack proto.InternalMessageInfo
 
-func (m *PlayerDatapacks) GetKey() int32 {
+func (m *PlayerDataequipPack) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *PlayerDatapacks) GetVal() *Pack {
+func (m *PlayerDataequipPack) GetVal() *EquipPack {
+	if m != nil {
+		return m.Val
+	}
+	return nil
+}
+
+type PlayerDataguide struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *Guide   `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *PlayerDataguide) Reset()         { *m = PlayerDataguide{} }
+func (m *PlayerDataguide) String() string { return proto.CompactTextString(m) }
+func (*PlayerDataguide) ProtoMessage()    {}
+func (*PlayerDataguide) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{4}
+}
+func (m *PlayerDataguide) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PlayerDataguide.Unmarshal(m, b)
+}
+func (m *PlayerDataguide) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PlayerDataguide.Marshal(b, m, deterministic)
+}
+func (dst *PlayerDataguide) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PlayerDataguide.Merge(dst, src)
+}
+func (m *PlayerDataguide) XXX_Size() int {
+	return xxx_messageInfo_PlayerDataguide.Size(m)
+}
+func (m *PlayerDataguide) XXX_DiscardUnknown() {
+	xxx_messageInfo_PlayerDataguide.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PlayerDataguide proto.InternalMessageInfo
+
+func (m *PlayerDataguide) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *PlayerDataguide) GetVal() *Guide {
 	if m != nil {
 		return m.Val
 	}
@@ -214,7 +260,7 @@ func (m *PlayerInfoserverTime) Reset()         { *m = PlayerInfoserverTime{} }
 func (m *PlayerInfoserverTime) String() string { return proto.CompactTextString(m) }
 func (*PlayerInfoserverTime) ProtoMessage()    {}
 func (*PlayerInfoserverTime) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{4}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{5}
 }
 func (m *PlayerInfoserverTime) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerInfoserverTime.Unmarshal(m, b)
@@ -260,7 +306,7 @@ func (m *PlayerInfoserverName) Reset()         { *m = PlayerInfoserverName{} }
 func (m *PlayerInfoserverName) String() string { return proto.CompactTextString(m) }
 func (*PlayerInfoserverName) ProtoMessage()    {}
 func (*PlayerInfoserverName) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{5}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{6}
 }
 func (m *PlayerInfoserverName) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerInfoserverName.Unmarshal(m, b)
@@ -306,7 +352,7 @@ func (m *BaseInfoid) Reset()         { *m = BaseInfoid{} }
 func (m *BaseInfoid) String() string { return proto.CompactTextString(m) }
 func (*BaseInfoid) ProtoMessage()    {}
 func (*BaseInfoid) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{6}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{7}
 }
 func (m *BaseInfoid) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BaseInfoid.Unmarshal(m, b)
@@ -352,7 +398,7 @@ func (m *BaseInfoname) Reset()         { *m = BaseInfoname{} }
 func (m *BaseInfoname) String() string { return proto.CompactTextString(m) }
 func (*BaseInfoname) ProtoMessage()    {}
 func (*BaseInfoname) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{7}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{8}
 }
 func (m *BaseInfoname) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BaseInfoname.Unmarshal(m, b)
@@ -398,7 +444,7 @@ func (m *BaseInfolevel) Reset()         { *m = BaseInfolevel{} }
 func (m *BaseInfolevel) String() string { return proto.CompactTextString(m) }
 func (*BaseInfolevel) ProtoMessage()    {}
 func (*BaseInfolevel) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{8}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{9}
 }
 func (m *BaseInfolevel) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BaseInfolevel.Unmarshal(m, b)
@@ -432,52 +478,6 @@ func (m *BaseInfolevel) GetVal() int32 {
 	return 0
 }
 
-type BaseInfogold struct {
-	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
-	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *BaseInfogold) Reset()         { *m = BaseInfogold{} }
-func (m *BaseInfogold) String() string { return proto.CompactTextString(m) }
-func (*BaseInfogold) ProtoMessage()    {}
-func (*BaseInfogold) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{9}
-}
-func (m *BaseInfogold) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BaseInfogold.Unmarshal(m, b)
-}
-func (m *BaseInfogold) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BaseInfogold.Marshal(b, m, deterministic)
-}
-func (dst *BaseInfogold) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BaseInfogold.Merge(dst, src)
-}
-func (m *BaseInfogold) XXX_Size() int {
-	return xxx_messageInfo_BaseInfogold.Size(m)
-}
-func (m *BaseInfogold) XXX_DiscardUnknown() {
-	xxx_messageInfo_BaseInfogold.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BaseInfogold proto.InternalMessageInfo
-
-func (m *BaseInfogold) GetKey() int32 {
-	if m != nil && m.Key != nil {
-		return *m.Key
-	}
-	return 0
-}
-
-func (m *BaseInfogold) GetVal() int32 {
-	if m != nil && m.Val != nil {
-		return *m.Val
-	}
-	return 0
-}
-
 type BaseInfoexp struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
@@ -490,7 +490,7 @@ func (m *BaseInfoexp) Reset()         { *m = BaseInfoexp{} }
 func (m *BaseInfoexp) String() string { return proto.CompactTextString(m) }
 func (*BaseInfoexp) ProtoMessage()    {}
 func (*BaseInfoexp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{10}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{10}
 }
 func (m *BaseInfoexp) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BaseInfoexp.Unmarshal(m, b)
@@ -524,53 +524,7 @@ func (m *BaseInfoexp) GetVal() int32 {
 	return 0
 }
 
-type Petid struct {
-	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
-	Val                  *int64   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *Petid) Reset()         { *m = Petid{} }
-func (m *Petid) String() string { return proto.CompactTextString(m) }
-func (*Petid) ProtoMessage()    {}
-func (*Petid) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{11}
-}
-func (m *Petid) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Petid.Unmarshal(m, b)
-}
-func (m *Petid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Petid.Marshal(b, m, deterministic)
-}
-func (dst *Petid) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Petid.Merge(dst, src)
-}
-func (m *Petid) XXX_Size() int {
-	return xxx_messageInfo_Petid.Size(m)
-}
-func (m *Petid) XXX_DiscardUnknown() {
-	xxx_messageInfo_Petid.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Petid proto.InternalMessageInfo
-
-func (m *Petid) GetKey() int32 {
-	if m != nil && m.Key != nil {
-		return *m.Key
-	}
-	return 0
-}
-
-func (m *Petid) GetVal() int64 {
-	if m != nil && m.Val != nil {
-		return *m.Val
-	}
-	return 0
-}
-
-type Petlevel struct {
+type BaseInfogold struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -578,45 +532,45 @@ type Petlevel struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Petlevel) Reset()         { *m = Petlevel{} }
-func (m *Petlevel) String() string { return proto.CompactTextString(m) }
-func (*Petlevel) ProtoMessage()    {}
-func (*Petlevel) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{12}
+func (m *BaseInfogold) Reset()         { *m = BaseInfogold{} }
+func (m *BaseInfogold) String() string { return proto.CompactTextString(m) }
+func (*BaseInfogold) ProtoMessage()    {}
+func (*BaseInfogold) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{11}
 }
-func (m *Petlevel) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Petlevel.Unmarshal(m, b)
+func (m *BaseInfogold) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BaseInfogold.Unmarshal(m, b)
 }
-func (m *Petlevel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Petlevel.Marshal(b, m, deterministic)
+func (m *BaseInfogold) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BaseInfogold.Marshal(b, m, deterministic)
 }
-func (dst *Petlevel) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Petlevel.Merge(dst, src)
+func (dst *BaseInfogold) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BaseInfogold.Merge(dst, src)
 }
-func (m *Petlevel) XXX_Size() int {
-	return xxx_messageInfo_Petlevel.Size(m)
+func (m *BaseInfogold) XXX_Size() int {
+	return xxx_messageInfo_BaseInfogold.Size(m)
 }
-func (m *Petlevel) XXX_DiscardUnknown() {
-	xxx_messageInfo_Petlevel.DiscardUnknown(m)
+func (m *BaseInfogold) XXX_DiscardUnknown() {
+	xxx_messageInfo_BaseInfogold.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Petlevel proto.InternalMessageInfo
+var xxx_messageInfo_BaseInfogold proto.InternalMessageInfo
 
-func (m *Petlevel) GetKey() int32 {
+func (m *BaseInfogold) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *Petlevel) GetVal() int32 {
+func (m *BaseInfogold) GetVal() int32 {
 	if m != nil && m.Val != nil {
 		return *m.Val
 	}
 	return 0
 }
 
-type Petpack struct {
+type BaseInfohead struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -624,45 +578,91 @@ type Petpack struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Petpack) Reset()         { *m = Petpack{} }
-func (m *Petpack) String() string { return proto.CompactTextString(m) }
-func (*Petpack) ProtoMessage()    {}
-func (*Petpack) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{13}
+func (m *BaseInfohead) Reset()         { *m = BaseInfohead{} }
+func (m *BaseInfohead) String() string { return proto.CompactTextString(m) }
+func (*BaseInfohead) ProtoMessage()    {}
+func (*BaseInfohead) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{12}
 }
-func (m *Petpack) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Petpack.Unmarshal(m, b)
+func (m *BaseInfohead) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BaseInfohead.Unmarshal(m, b)
 }
-func (m *Petpack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Petpack.Marshal(b, m, deterministic)
+func (m *BaseInfohead) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BaseInfohead.Marshal(b, m, deterministic)
 }
-func (dst *Petpack) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Petpack.Merge(dst, src)
+func (dst *BaseInfohead) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BaseInfohead.Merge(dst, src)
 }
-func (m *Petpack) XXX_Size() int {
-	return xxx_messageInfo_Petpack.Size(m)
+func (m *BaseInfohead) XXX_Size() int {
+	return xxx_messageInfo_BaseInfohead.Size(m)
 }
-func (m *Petpack) XXX_DiscardUnknown() {
-	xxx_messageInfo_Petpack.DiscardUnknown(m)
+func (m *BaseInfohead) XXX_DiscardUnknown() {
+	xxx_messageInfo_BaseInfohead.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Petpack proto.InternalMessageInfo
+var xxx_messageInfo_BaseInfohead proto.InternalMessageInfo
 
-func (m *Petpack) GetKey() int32 {
+func (m *BaseInfohead) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *Petpack) GetVal() int32 {
+func (m *BaseInfohead) GetVal() int32 {
 	if m != nil && m.Val != nil {
 		return *m.Val
 	}
 	return 0
 }
 
-type Packid struct {
+type BaseInfodiamond struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BaseInfodiamond) Reset()         { *m = BaseInfodiamond{} }
+func (m *BaseInfodiamond) String() string { return proto.CompactTextString(m) }
+func (*BaseInfodiamond) ProtoMessage()    {}
+func (*BaseInfodiamond) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{13}
+}
+func (m *BaseInfodiamond) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BaseInfodiamond.Unmarshal(m, b)
+}
+func (m *BaseInfodiamond) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BaseInfodiamond.Marshal(b, m, deterministic)
+}
+func (dst *BaseInfodiamond) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BaseInfodiamond.Merge(dst, src)
+}
+func (m *BaseInfodiamond) XXX_Size() int {
+	return xxx_messageInfo_BaseInfodiamond.Size(m)
+}
+func (m *BaseInfodiamond) XXX_DiscardUnknown() {
+	xxx_messageInfo_BaseInfodiamond.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BaseInfodiamond proto.InternalMessageInfo
+
+func (m *BaseInfodiamond) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *BaseInfodiamond) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Guideid struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int64   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -670,45 +670,505 @@ type Packid struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Packid) Reset()         { *m = Packid{} }
-func (m *Packid) String() string { return proto.CompactTextString(m) }
-func (*Packid) ProtoMessage()    {}
-func (*Packid) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{14}
+func (m *Guideid) Reset()         { *m = Guideid{} }
+func (m *Guideid) String() string { return proto.CompactTextString(m) }
+func (*Guideid) ProtoMessage()    {}
+func (*Guideid) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{14}
 }
-func (m *Packid) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Packid.Unmarshal(m, b)
+func (m *Guideid) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Guideid.Unmarshal(m, b)
 }
-func (m *Packid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Packid.Marshal(b, m, deterministic)
+func (m *Guideid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Guideid.Marshal(b, m, deterministic)
 }
-func (dst *Packid) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Packid.Merge(dst, src)
+func (dst *Guideid) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Guideid.Merge(dst, src)
 }
-func (m *Packid) XXX_Size() int {
-	return xxx_messageInfo_Packid.Size(m)
+func (m *Guideid) XXX_Size() int {
+	return xxx_messageInfo_Guideid.Size(m)
 }
-func (m *Packid) XXX_DiscardUnknown() {
-	xxx_messageInfo_Packid.DiscardUnknown(m)
+func (m *Guideid) XXX_DiscardUnknown() {
+	xxx_messageInfo_Guideid.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Packid proto.InternalMessageInfo
+var xxx_messageInfo_Guideid proto.InternalMessageInfo
 
-func (m *Packid) GetKey() int32 {
+func (m *Guideid) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *Packid) GetVal() int64 {
+func (m *Guideid) GetVal() int64 {
 	if m != nil && m.Val != nil {
 		return *m.Val
 	}
 	return 0
 }
 
-type Packnum struct {
+type Chapterheros struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Chapterheros) Reset()         { *m = Chapterheros{} }
+func (m *Chapterheros) String() string { return proto.CompactTextString(m) }
+func (*Chapterheros) ProtoMessage()    {}
+func (*Chapterheros) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{15}
+}
+func (m *Chapterheros) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Chapterheros.Unmarshal(m, b)
+}
+func (m *Chapterheros) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Chapterheros.Marshal(b, m, deterministic)
+}
+func (dst *Chapterheros) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Chapterheros.Merge(dst, src)
+}
+func (m *Chapterheros) XXX_Size() int {
+	return xxx_messageInfo_Chapterheros.Size(m)
+}
+func (m *Chapterheros) XXX_DiscardUnknown() {
+	xxx_messageInfo_Chapterheros.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Chapterheros proto.InternalMessageInfo
+
+func (m *Chapterheros) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Chapterheros) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Chapterlevel struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Chapterlevel) Reset()         { *m = Chapterlevel{} }
+func (m *Chapterlevel) String() string { return proto.CompactTextString(m) }
+func (*Chapterlevel) ProtoMessage()    {}
+func (*Chapterlevel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{16}
+}
+func (m *Chapterlevel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Chapterlevel.Unmarshal(m, b)
+}
+func (m *Chapterlevel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Chapterlevel.Marshal(b, m, deterministic)
+}
+func (dst *Chapterlevel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Chapterlevel.Merge(dst, src)
+}
+func (m *Chapterlevel) XXX_Size() int {
+	return xxx_messageInfo_Chapterlevel.Size(m)
+}
+func (m *Chapterlevel) XXX_DiscardUnknown() {
+	xxx_messageInfo_Chapterlevel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Chapterlevel proto.InternalMessageInfo
+
+func (m *Chapterlevel) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Chapterlevel) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type ChapterprizeGoldCheckTime struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ChapterprizeGoldCheckTime) Reset()         { *m = ChapterprizeGoldCheckTime{} }
+func (m *ChapterprizeGoldCheckTime) String() string { return proto.CompactTextString(m) }
+func (*ChapterprizeGoldCheckTime) ProtoMessage()    {}
+func (*ChapterprizeGoldCheckTime) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{17}
+}
+func (m *ChapterprizeGoldCheckTime) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChapterprizeGoldCheckTime.Unmarshal(m, b)
+}
+func (m *ChapterprizeGoldCheckTime) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChapterprizeGoldCheckTime.Marshal(b, m, deterministic)
+}
+func (dst *ChapterprizeGoldCheckTime) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChapterprizeGoldCheckTime.Merge(dst, src)
+}
+func (m *ChapterprizeGoldCheckTime) XXX_Size() int {
+	return xxx_messageInfo_ChapterprizeGoldCheckTime.Size(m)
+}
+func (m *ChapterprizeGoldCheckTime) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChapterprizeGoldCheckTime.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChapterprizeGoldCheckTime proto.InternalMessageInfo
+
+func (m *ChapterprizeGoldCheckTime) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *ChapterprizeGoldCheckTime) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type ChapterprizeEquipCheckTime struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ChapterprizeEquipCheckTime) Reset()         { *m = ChapterprizeEquipCheckTime{} }
+func (m *ChapterprizeEquipCheckTime) String() string { return proto.CompactTextString(m) }
+func (*ChapterprizeEquipCheckTime) ProtoMessage()    {}
+func (*ChapterprizeEquipCheckTime) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{18}
+}
+func (m *ChapterprizeEquipCheckTime) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChapterprizeEquipCheckTime.Unmarshal(m, b)
+}
+func (m *ChapterprizeEquipCheckTime) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChapterprizeEquipCheckTime.Marshal(b, m, deterministic)
+}
+func (dst *ChapterprizeEquipCheckTime) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChapterprizeEquipCheckTime.Merge(dst, src)
+}
+func (m *ChapterprizeEquipCheckTime) XXX_Size() int {
+	return xxx_messageInfo_ChapterprizeEquipCheckTime.Size(m)
+}
+func (m *ChapterprizeEquipCheckTime) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChapterprizeEquipCheckTime.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChapterprizeEquipCheckTime proto.InternalMessageInfo
+
+func (m *ChapterprizeEquipCheckTime) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *ChapterprizeEquipCheckTime) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type ChapterprizeEquip struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *Equip   `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ChapterprizeEquip) Reset()         { *m = ChapterprizeEquip{} }
+func (m *ChapterprizeEquip) String() string { return proto.CompactTextString(m) }
+func (*ChapterprizeEquip) ProtoMessage()    {}
+func (*ChapterprizeEquip) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{19}
+}
+func (m *ChapterprizeEquip) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChapterprizeEquip.Unmarshal(m, b)
+}
+func (m *ChapterprizeEquip) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChapterprizeEquip.Marshal(b, m, deterministic)
+}
+func (dst *ChapterprizeEquip) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChapterprizeEquip.Merge(dst, src)
+}
+func (m *ChapterprizeEquip) XXX_Size() int {
+	return xxx_messageInfo_ChapterprizeEquip.Size(m)
+}
+func (m *ChapterprizeEquip) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChapterprizeEquip.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChapterprizeEquip proto.InternalMessageInfo
+
+func (m *ChapterprizeEquip) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *ChapterprizeEquip) GetVal() *Equip {
+	if m != nil {
+		return m.Val
+	}
+	return nil
+}
+
+type VipInfolevel struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *VipInfolevel) Reset()         { *m = VipInfolevel{} }
+func (m *VipInfolevel) String() string { return proto.CompactTextString(m) }
+func (*VipInfolevel) ProtoMessage()    {}
+func (*VipInfolevel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{20}
+}
+func (m *VipInfolevel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VipInfolevel.Unmarshal(m, b)
+}
+func (m *VipInfolevel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VipInfolevel.Marshal(b, m, deterministic)
+}
+func (dst *VipInfolevel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VipInfolevel.Merge(dst, src)
+}
+func (m *VipInfolevel) XXX_Size() int {
+	return xxx_messageInfo_VipInfolevel.Size(m)
+}
+func (m *VipInfolevel) XXX_DiscardUnknown() {
+	xxx_messageInfo_VipInfolevel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VipInfolevel proto.InternalMessageInfo
+
+func (m *VipInfolevel) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *VipInfolevel) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type VipInfoexp struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *VipInfoexp) Reset()         { *m = VipInfoexp{} }
+func (m *VipInfoexp) String() string { return proto.CompactTextString(m) }
+func (*VipInfoexp) ProtoMessage()    {}
+func (*VipInfoexp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{21}
+}
+func (m *VipInfoexp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VipInfoexp.Unmarshal(m, b)
+}
+func (m *VipInfoexp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VipInfoexp.Marshal(b, m, deterministic)
+}
+func (dst *VipInfoexp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VipInfoexp.Merge(dst, src)
+}
+func (m *VipInfoexp) XXX_Size() int {
+	return xxx_messageInfo_VipInfoexp.Size(m)
+}
+func (m *VipInfoexp) XXX_DiscardUnknown() {
+	xxx_messageInfo_VipInfoexp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VipInfoexp proto.InternalMessageInfo
+
+func (m *VipInfoexp) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *VipInfoexp) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type VipInfototalRecharge struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *VipInfototalRecharge) Reset()         { *m = VipInfototalRecharge{} }
+func (m *VipInfototalRecharge) String() string { return proto.CompactTextString(m) }
+func (*VipInfototalRecharge) ProtoMessage()    {}
+func (*VipInfototalRecharge) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{22}
+}
+func (m *VipInfototalRecharge) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VipInfototalRecharge.Unmarshal(m, b)
+}
+func (m *VipInfototalRecharge) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VipInfototalRecharge.Marshal(b, m, deterministic)
+}
+func (dst *VipInfototalRecharge) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VipInfototalRecharge.Merge(dst, src)
+}
+func (m *VipInfototalRecharge) XXX_Size() int {
+	return xxx_messageInfo_VipInfototalRecharge.Size(m)
+}
+func (m *VipInfototalRecharge) XXX_DiscardUnknown() {
+	xxx_messageInfo_VipInfototalRecharge.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VipInfototalRecharge proto.InternalMessageInfo
+
+func (m *VipInfototalRecharge) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *VipInfototalRecharge) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Heroid struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Heroid) Reset()         { *m = Heroid{} }
+func (m *Heroid) String() string { return proto.CompactTextString(m) }
+func (*Heroid) ProtoMessage()    {}
+func (*Heroid) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{23}
+}
+func (m *Heroid) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Heroid.Unmarshal(m, b)
+}
+func (m *Heroid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Heroid.Marshal(b, m, deterministic)
+}
+func (dst *Heroid) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Heroid.Merge(dst, src)
+}
+func (m *Heroid) XXX_Size() int {
+	return xxx_messageInfo_Heroid.Size(m)
+}
+func (m *Heroid) XXX_DiscardUnknown() {
+	xxx_messageInfo_Heroid.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Heroid proto.InternalMessageInfo
+
+func (m *Heroid) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Heroid) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Herolevel struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Herolevel) Reset()         { *m = Herolevel{} }
+func (m *Herolevel) String() string { return proto.CompactTextString(m) }
+func (*Herolevel) ProtoMessage()    {}
+func (*Herolevel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{24}
+}
+func (m *Herolevel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Herolevel.Unmarshal(m, b)
+}
+func (m *Herolevel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Herolevel.Marshal(b, m, deterministic)
+}
+func (dst *Herolevel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Herolevel.Merge(dst, src)
+}
+func (m *Herolevel) XXX_Size() int {
+	return xxx_messageInfo_Herolevel.Size(m)
+}
+func (m *Herolevel) XXX_DiscardUnknown() {
+	xxx_messageInfo_Herolevel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Herolevel proto.InternalMessageInfo
+
+func (m *Herolevel) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Herolevel) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Herostatus struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int64   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -716,42 +1176,456 @@ type Packnum struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Packnum) Reset()         { *m = Packnum{} }
-func (m *Packnum) String() string { return proto.CompactTextString(m) }
-func (*Packnum) ProtoMessage()    {}
-func (*Packnum) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{15}
+func (m *Herostatus) Reset()         { *m = Herostatus{} }
+func (m *Herostatus) String() string { return proto.CompactTextString(m) }
+func (*Herostatus) ProtoMessage()    {}
+func (*Herostatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{25}
 }
-func (m *Packnum) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Packnum.Unmarshal(m, b)
+func (m *Herostatus) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Herostatus.Unmarshal(m, b)
 }
-func (m *Packnum) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Packnum.Marshal(b, m, deterministic)
+func (m *Herostatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Herostatus.Marshal(b, m, deterministic)
 }
-func (dst *Packnum) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Packnum.Merge(dst, src)
+func (dst *Herostatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Herostatus.Merge(dst, src)
 }
-func (m *Packnum) XXX_Size() int {
-	return xxx_messageInfo_Packnum.Size(m)
+func (m *Herostatus) XXX_Size() int {
+	return xxx_messageInfo_Herostatus.Size(m)
 }
-func (m *Packnum) XXX_DiscardUnknown() {
-	xxx_messageInfo_Packnum.DiscardUnknown(m)
+func (m *Herostatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_Herostatus.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Packnum proto.InternalMessageInfo
+var xxx_messageInfo_Herostatus proto.InternalMessageInfo
 
-func (m *Packnum) GetKey() int32 {
+func (m *Herostatus) GetKey() int32 {
 	if m != nil && m.Key != nil {
 		return *m.Key
 	}
 	return 0
 }
 
-func (m *Packnum) GetVal() int64 {
+func (m *Herostatus) GetVal() int64 {
 	if m != nil && m.Val != nil {
 		return *m.Val
 	}
 	return 0
+}
+
+type Heroequips struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *Equip   `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Heroequips) Reset()         { *m = Heroequips{} }
+func (m *Heroequips) String() string { return proto.CompactTextString(m) }
+func (*Heroequips) ProtoMessage()    {}
+func (*Heroequips) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{26}
+}
+func (m *Heroequips) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Heroequips.Unmarshal(m, b)
+}
+func (m *Heroequips) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Heroequips.Marshal(b, m, deterministic)
+}
+func (dst *Heroequips) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Heroequips.Merge(dst, src)
+}
+func (m *Heroequips) XXX_Size() int {
+	return xxx_messageInfo_Heroequips.Size(m)
+}
+func (m *Heroequips) XXX_DiscardUnknown() {
+	xxx_messageInfo_Heroequips.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Heroequips proto.InternalMessageInfo
+
+func (m *Heroequips) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Heroequips) GetVal() *Equip {
+	if m != nil {
+		return m.Val
+	}
+	return nil
+}
+
+type HeroPacklimit struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *HeroPacklimit) Reset()         { *m = HeroPacklimit{} }
+func (m *HeroPacklimit) String() string { return proto.CompactTextString(m) }
+func (*HeroPacklimit) ProtoMessage()    {}
+func (*HeroPacklimit) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{27}
+}
+func (m *HeroPacklimit) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HeroPacklimit.Unmarshal(m, b)
+}
+func (m *HeroPacklimit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HeroPacklimit.Marshal(b, m, deterministic)
+}
+func (dst *HeroPacklimit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HeroPacklimit.Merge(dst, src)
+}
+func (m *HeroPacklimit) XXX_Size() int {
+	return xxx_messageInfo_HeroPacklimit.Size(m)
+}
+func (m *HeroPacklimit) XXX_DiscardUnknown() {
+	xxx_messageInfo_HeroPacklimit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HeroPacklimit proto.InternalMessageInfo
+
+func (m *HeroPacklimit) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *HeroPacklimit) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type HeroPackheros struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *Hero    `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *HeroPackheros) Reset()         { *m = HeroPackheros{} }
+func (m *HeroPackheros) String() string { return proto.CompactTextString(m) }
+func (*HeroPackheros) ProtoMessage()    {}
+func (*HeroPackheros) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{28}
+}
+func (m *HeroPackheros) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HeroPackheros.Unmarshal(m, b)
+}
+func (m *HeroPackheros) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HeroPackheros.Marshal(b, m, deterministic)
+}
+func (dst *HeroPackheros) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HeroPackheros.Merge(dst, src)
+}
+func (m *HeroPackheros) XXX_Size() int {
+	return xxx_messageInfo_HeroPackheros.Size(m)
+}
+func (m *HeroPackheros) XXX_DiscardUnknown() {
+	xxx_messageInfo_HeroPackheros.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HeroPackheros proto.InternalMessageInfo
+
+func (m *HeroPackheros) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *HeroPackheros) GetVal() *Hero {
+	if m != nil {
+		return m.Val
+	}
+	return nil
+}
+
+type Equipid struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Equipid) Reset()         { *m = Equipid{} }
+func (m *Equipid) String() string { return proto.CompactTextString(m) }
+func (*Equipid) ProtoMessage()    {}
+func (*Equipid) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{29}
+}
+func (m *Equipid) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Equipid.Unmarshal(m, b)
+}
+func (m *Equipid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Equipid.Marshal(b, m, deterministic)
+}
+func (dst *Equipid) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Equipid.Merge(dst, src)
+}
+func (m *Equipid) XXX_Size() int {
+	return xxx_messageInfo_Equipid.Size(m)
+}
+func (m *Equipid) XXX_DiscardUnknown() {
+	xxx_messageInfo_Equipid.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Equipid proto.InternalMessageInfo
+
+func (m *Equipid) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Equipid) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Equiplevel struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Equiplevel) Reset()         { *m = Equiplevel{} }
+func (m *Equiplevel) String() string { return proto.CompactTextString(m) }
+func (*Equiplevel) ProtoMessage()    {}
+func (*Equiplevel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{30}
+}
+func (m *Equiplevel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Equiplevel.Unmarshal(m, b)
+}
+func (m *Equiplevel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Equiplevel.Marshal(b, m, deterministic)
+}
+func (dst *Equiplevel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Equiplevel.Merge(dst, src)
+}
+func (m *Equiplevel) XXX_Size() int {
+	return xxx_messageInfo_Equiplevel.Size(m)
+}
+func (m *Equiplevel) XXX_DiscardUnknown() {
+	xxx_messageInfo_Equiplevel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Equiplevel proto.InternalMessageInfo
+
+func (m *Equiplevel) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Equiplevel) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Equipstatus struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int64   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Equipstatus) Reset()         { *m = Equipstatus{} }
+func (m *Equipstatus) String() string { return proto.CompactTextString(m) }
+func (*Equipstatus) ProtoMessage()    {}
+func (*Equipstatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{31}
+}
+func (m *Equipstatus) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Equipstatus.Unmarshal(m, b)
+}
+func (m *Equipstatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Equipstatus.Marshal(b, m, deterministic)
+}
+func (dst *Equipstatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Equipstatus.Merge(dst, src)
+}
+func (m *Equipstatus) XXX_Size() int {
+	return xxx_messageInfo_Equipstatus.Size(m)
+}
+func (m *Equipstatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_Equipstatus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Equipstatus proto.InternalMessageInfo
+
+func (m *Equipstatus) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Equipstatus) GetVal() int64 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type Equipnum struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Equipnum) Reset()         { *m = Equipnum{} }
+func (m *Equipnum) String() string { return proto.CompactTextString(m) }
+func (*Equipnum) ProtoMessage()    {}
+func (*Equipnum) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{32}
+}
+func (m *Equipnum) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Equipnum.Unmarshal(m, b)
+}
+func (m *Equipnum) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Equipnum.Marshal(b, m, deterministic)
+}
+func (dst *Equipnum) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Equipnum.Merge(dst, src)
+}
+func (m *Equipnum) XXX_Size() int {
+	return xxx_messageInfo_Equipnum.Size(m)
+}
+func (m *Equipnum) XXX_DiscardUnknown() {
+	xxx_messageInfo_Equipnum.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Equipnum proto.InternalMessageInfo
+
+func (m *Equipnum) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *Equipnum) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type EquipPacklimit struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EquipPacklimit) Reset()         { *m = EquipPacklimit{} }
+func (m *EquipPacklimit) String() string { return proto.CompactTextString(m) }
+func (*EquipPacklimit) ProtoMessage()    {}
+func (*EquipPacklimit) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{33}
+}
+func (m *EquipPacklimit) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EquipPacklimit.Unmarshal(m, b)
+}
+func (m *EquipPacklimit) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EquipPacklimit.Marshal(b, m, deterministic)
+}
+func (dst *EquipPacklimit) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EquipPacklimit.Merge(dst, src)
+}
+func (m *EquipPacklimit) XXX_Size() int {
+	return xxx_messageInfo_EquipPacklimit.Size(m)
+}
+func (m *EquipPacklimit) XXX_DiscardUnknown() {
+	xxx_messageInfo_EquipPacklimit.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EquipPacklimit proto.InternalMessageInfo
+
+func (m *EquipPacklimit) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *EquipPacklimit) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
+type EquipPackequips struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *Equip   `protobuf:"bytes,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EquipPackequips) Reset()         { *m = EquipPackequips{} }
+func (m *EquipPackequips) String() string { return proto.CompactTextString(m) }
+func (*EquipPackequips) ProtoMessage()    {}
+func (*EquipPackequips) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{34}
+}
+func (m *EquipPackequips) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EquipPackequips.Unmarshal(m, b)
+}
+func (m *EquipPackequips) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EquipPackequips.Marshal(b, m, deterministic)
+}
+func (dst *EquipPackequips) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EquipPackequips.Merge(dst, src)
+}
+func (m *EquipPackequips) XXX_Size() int {
+	return xxx_messageInfo_EquipPackequips.Size(m)
+}
+func (m *EquipPackequips) XXX_DiscardUnknown() {
+	xxx_messageInfo_EquipPackequips.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EquipPackequips proto.InternalMessageInfo
+
+func (m *EquipPackequips) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *EquipPackequips) GetVal() *Equip {
+	if m != nil {
+		return m.Val
+	}
+	return nil
 }
 
 type DailylastUpdateTime struct {
@@ -766,7 +1640,7 @@ func (m *DailylastUpdateTime) Reset()         { *m = DailylastUpdateTime{} }
 func (m *DailylastUpdateTime) String() string { return proto.CompactTextString(m) }
 func (*DailylastUpdateTime) ProtoMessage()    {}
 func (*DailylastUpdateTime) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{16}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{35}
 }
 func (m *DailylastUpdateTime) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DailylastUpdateTime.Unmarshal(m, b)
@@ -812,7 +1686,7 @@ func (m *Dailysign) Reset()         { *m = Dailysign{} }
 func (m *Dailysign) String() string { return proto.CompactTextString(m) }
 func (*Dailysign) ProtoMessage()    {}
 func (*Dailysign) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{17}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{36}
 }
 func (m *Dailysign) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Dailysign.Unmarshal(m, b)
@@ -846,6 +1720,52 @@ func (m *Dailysign) GetVal() bool {
 	return false
 }
 
+type DailytotalSign struct {
+	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
+	Val                  *int32   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DailytotalSign) Reset()         { *m = DailytotalSign{} }
+func (m *DailytotalSign) String() string { return proto.CompactTextString(m) }
+func (*DailytotalSign) ProtoMessage()    {}
+func (*DailytotalSign) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{37}
+}
+func (m *DailytotalSign) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DailytotalSign.Unmarshal(m, b)
+}
+func (m *DailytotalSign) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DailytotalSign.Marshal(b, m, deterministic)
+}
+func (dst *DailytotalSign) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DailytotalSign.Merge(dst, src)
+}
+func (m *DailytotalSign) XXX_Size() int {
+	return xxx_messageInfo_DailytotalSign.Size(m)
+}
+func (m *DailytotalSign) XXX_DiscardUnknown() {
+	xxx_messageInfo_DailytotalSign.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DailytotalSign proto.InternalMessageInfo
+
+func (m *DailytotalSign) GetKey() int32 {
+	if m != nil && m.Key != nil {
+		return *m.Key
+	}
+	return 0
+}
+
+func (m *DailytotalSign) GetVal() int32 {
+	if m != nil && m.Val != nil {
+		return *m.Val
+	}
+	return 0
+}
+
 type TestListid struct {
 	Key                  *int32   `protobuf:"varint,1,opt,name=key" json:"key,omitempty"`
 	Val                  *int64   `protobuf:"varint,2,opt,name=val" json:"val,omitempty"`
@@ -858,7 +1778,7 @@ func (m *TestListid) Reset()         { *m = TestListid{} }
 func (m *TestListid) String() string { return proto.CompactTextString(m) }
 func (*TestListid) ProtoMessage()    {}
 func (*TestListid) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{18}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{38}
 }
 func (m *TestListid) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestListid.Unmarshal(m, b)
@@ -904,7 +1824,7 @@ func (m *TestListListPrimitiveInt) Reset()         { *m = TestListListPrimitiveI
 func (m *TestListListPrimitiveInt) String() string { return proto.CompactTextString(m) }
 func (*TestListListPrimitiveInt) ProtoMessage()    {}
 func (*TestListListPrimitiveInt) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{19}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{39}
 }
 func (m *TestListListPrimitiveInt) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestListListPrimitiveInt.Unmarshal(m, b)
@@ -950,7 +1870,7 @@ func (m *TestListListPrimitiveStr) Reset()         { *m = TestListListPrimitiveS
 func (m *TestListListPrimitiveStr) String() string { return proto.CompactTextString(m) }
 func (*TestListListPrimitiveStr) ProtoMessage()    {}
 func (*TestListListPrimitiveStr) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{20}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{40}
 }
 func (m *TestListListPrimitiveStr) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestListListPrimitiveStr.Unmarshal(m, b)
@@ -996,7 +1916,7 @@ func (m *TestListListPrimitiveCom) Reset()         { *m = TestListListPrimitiveC
 func (m *TestListListPrimitiveCom) String() string { return proto.CompactTextString(m) }
 func (*TestListListPrimitiveCom) ProtoMessage()    {}
 func (*TestListListPrimitiveCom) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{21}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{41}
 }
 func (m *TestListListPrimitiveCom) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestListListPrimitiveCom.Unmarshal(m, b)
@@ -1042,7 +1962,7 @@ func (m *TestMapid) Reset()         { *m = TestMapid{} }
 func (m *TestMapid) String() string { return proto.CompactTextString(m) }
 func (*TestMapid) ProtoMessage()    {}
 func (*TestMapid) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{22}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{42}
 }
 func (m *TestMapid) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapid.Unmarshal(m, b)
@@ -1088,7 +2008,7 @@ func (m *TestMapMapPrimitiveIntInt) Reset()         { *m = TestMapMapPrimitiveIn
 func (m *TestMapMapPrimitiveIntInt) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveIntInt) ProtoMessage()    {}
 func (*TestMapMapPrimitiveIntInt) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{23}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{43}
 }
 func (m *TestMapMapPrimitiveIntInt) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveIntInt.Unmarshal(m, b)
@@ -1134,7 +2054,7 @@ func (m *TestMapMapPrimitiveIntStr) Reset()         { *m = TestMapMapPrimitiveIn
 func (m *TestMapMapPrimitiveIntStr) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveIntStr) ProtoMessage()    {}
 func (*TestMapMapPrimitiveIntStr) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{24}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{44}
 }
 func (m *TestMapMapPrimitiveIntStr) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveIntStr.Unmarshal(m, b)
@@ -1180,7 +2100,7 @@ func (m *TestMapMapPrimitiveStrInt) Reset()         { *m = TestMapMapPrimitiveSt
 func (m *TestMapMapPrimitiveStrInt) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveStrInt) ProtoMessage()    {}
 func (*TestMapMapPrimitiveStrInt) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{25}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{45}
 }
 func (m *TestMapMapPrimitiveStrInt) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveStrInt.Unmarshal(m, b)
@@ -1226,7 +2146,7 @@ func (m *TestMapMapPrimitiveStrStr) Reset()         { *m = TestMapMapPrimitiveSt
 func (m *TestMapMapPrimitiveStrStr) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveStrStr) ProtoMessage()    {}
 func (*TestMapMapPrimitiveStrStr) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{26}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{46}
 }
 func (m *TestMapMapPrimitiveStrStr) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveStrStr.Unmarshal(m, b)
@@ -1272,7 +2192,7 @@ func (m *TestMapMapPrimitiveIntCom) Reset()         { *m = TestMapMapPrimitiveIn
 func (m *TestMapMapPrimitiveIntCom) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveIntCom) ProtoMessage()    {}
 func (*TestMapMapPrimitiveIntCom) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{27}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{47}
 }
 func (m *TestMapMapPrimitiveIntCom) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveIntCom.Unmarshal(m, b)
@@ -1318,7 +2238,7 @@ func (m *TestMapMapPrimitiveStrCom) Reset()         { *m = TestMapMapPrimitiveSt
 func (m *TestMapMapPrimitiveStrCom) String() string { return proto.CompactTextString(m) }
 func (*TestMapMapPrimitiveStrCom) ProtoMessage()    {}
 func (*TestMapMapPrimitiveStrCom) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{28}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{48}
 }
 func (m *TestMapMapPrimitiveStrCom) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMapMapPrimitiveStrCom.Unmarshal(m, b)
@@ -1353,20 +2273,21 @@ func (m *TestMapMapPrimitiveStrCom) GetVal() *PlayerData {
 }
 
 type PlayerData struct {
-	BaseInfo             *BaseInfo          `protobuf:"bytes,1,opt,name=baseInfo" json:"baseInfo,omitempty"`
-	Pets                 []*PlayerDatapets  `protobuf:"bytes,2,rep,name=pets" json:"pets,omitempty"`
-	Daily                *Daily             `protobuf:"bytes,3,opt,name=daily" json:"daily,omitempty"`
-	Packs                []*PlayerDatapacks `protobuf:"bytes,4,rep,name=packs" json:"packs,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	BaseInfo             *BaseInfo  `protobuf:"bytes,1,opt,name=baseInfo" json:"baseInfo,omitempty"`
+	VipInfo              *VipInfo   `protobuf:"bytes,2,opt,name=vipInfo" json:"vipInfo,omitempty"`
+	HeroPack             *HeroPack  `protobuf:"bytes,3,opt,name=heroPack" json:"heroPack,omitempty"`
+	EquipPack            *EquipPack `protobuf:"bytes,4,opt,name=equipPack" json:"equipPack,omitempty"`
+	Guide                *Guide     `protobuf:"bytes,5,opt,name=guide" json:"guide,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
 func (m *PlayerData) Reset()         { *m = PlayerData{} }
 func (m *PlayerData) String() string { return proto.CompactTextString(m) }
 func (*PlayerData) ProtoMessage()    {}
 func (*PlayerData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{29}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{49}
 }
 func (m *PlayerData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerData.Unmarshal(m, b)
@@ -1393,23 +2314,30 @@ func (m *PlayerData) GetBaseInfo() *BaseInfo {
 	return nil
 }
 
-func (m *PlayerData) GetPets() []*PlayerDatapets {
+func (m *PlayerData) GetVipInfo() *VipInfo {
 	if m != nil {
-		return m.Pets
+		return m.VipInfo
 	}
 	return nil
 }
 
-func (m *PlayerData) GetDaily() *Daily {
+func (m *PlayerData) GetHeroPack() *HeroPack {
 	if m != nil {
-		return m.Daily
+		return m.HeroPack
 	}
 	return nil
 }
 
-func (m *PlayerData) GetPacks() []*PlayerDatapacks {
+func (m *PlayerData) GetEquipPack() *EquipPack {
 	if m != nil {
-		return m.Packs
+		return m.EquipPack
+	}
+	return nil
+}
+
+func (m *PlayerData) GetGuide() *Guide {
+	if m != nil {
+		return m.Guide
 	}
 	return nil
 }
@@ -1426,7 +2354,7 @@ func (m *PlayerInfo) Reset()         { *m = PlayerInfo{} }
 func (m *PlayerInfo) String() string { return proto.CompactTextString(m) }
 func (*PlayerInfo) ProtoMessage()    {}
 func (*PlayerInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{30}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{50}
 }
 func (m *PlayerInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerInfo.Unmarshal(m, b)
@@ -1464,8 +2392,10 @@ type BaseInfo struct {
 	Id                   *int64   `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
 	Name                 *string  `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 	Level                *int32   `protobuf:"varint,3,opt,name=level" json:"level,omitempty"`
-	Gold                 *int32   `protobuf:"varint,4,opt,name=gold" json:"gold,omitempty"`
-	Exp                  *int32   `protobuf:"varint,5,opt,name=exp" json:"exp,omitempty"`
+	Exp                  *int32   `protobuf:"varint,4,opt,name=exp" json:"exp,omitempty"`
+	Gold                 *int32   `protobuf:"varint,5,opt,name=gold" json:"gold,omitempty"`
+	Head                 *int32   `protobuf:"varint,6,opt,name=head" json:"head,omitempty"`
+	Diamond              *int32   `protobuf:"varint,7,opt,name=diamond" json:"diamond,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1475,7 +2405,7 @@ func (m *BaseInfo) Reset()         { *m = BaseInfo{} }
 func (m *BaseInfo) String() string { return proto.CompactTextString(m) }
 func (*BaseInfo) ProtoMessage()    {}
 func (*BaseInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{31}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{51}
 }
 func (m *BaseInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BaseInfo.Unmarshal(m, b)
@@ -1516,13 +2446,6 @@ func (m *BaseInfo) GetLevel() int32 {
 	return 0
 }
 
-func (m *BaseInfo) GetGold() int32 {
-	if m != nil && m.Gold != nil {
-		return *m.Gold
-	}
-	return 0
-}
-
 func (m *BaseInfo) GetExp() int32 {
 	if m != nil && m.Exp != nil {
 		return *m.Exp
@@ -1530,109 +2453,409 @@ func (m *BaseInfo) GetExp() int32 {
 	return 0
 }
 
-type Pet struct {
+func (m *BaseInfo) GetGold() int32 {
+	if m != nil && m.Gold != nil {
+		return *m.Gold
+	}
+	return 0
+}
+
+func (m *BaseInfo) GetHead() int32 {
+	if m != nil && m.Head != nil {
+		return *m.Head
+	}
+	return 0
+}
+
+func (m *BaseInfo) GetDiamond() int32 {
+	if m != nil && m.Diamond != nil {
+		return *m.Diamond
+	}
+	return 0
+}
+
+type Guide struct {
 	Id                   *int64   `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
-	Level                *int32   `protobuf:"varint,2,opt,name=level" json:"level,omitempty"`
-	Pack                 *int32   `protobuf:"varint,3,opt,name=pack" json:"pack,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Pet) Reset()         { *m = Pet{} }
-func (m *Pet) String() string { return proto.CompactTextString(m) }
-func (*Pet) ProtoMessage()    {}
-func (*Pet) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{32}
+func (m *Guide) Reset()         { *m = Guide{} }
+func (m *Guide) String() string { return proto.CompactTextString(m) }
+func (*Guide) ProtoMessage()    {}
+func (*Guide) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{52}
 }
-func (m *Pet) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Pet.Unmarshal(m, b)
+func (m *Guide) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Guide.Unmarshal(m, b)
 }
-func (m *Pet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Pet.Marshal(b, m, deterministic)
+func (m *Guide) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Guide.Marshal(b, m, deterministic)
 }
-func (dst *Pet) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Pet.Merge(dst, src)
+func (dst *Guide) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Guide.Merge(dst, src)
 }
-func (m *Pet) XXX_Size() int {
-	return xxx_messageInfo_Pet.Size(m)
+func (m *Guide) XXX_Size() int {
+	return xxx_messageInfo_Guide.Size(m)
 }
-func (m *Pet) XXX_DiscardUnknown() {
-	xxx_messageInfo_Pet.DiscardUnknown(m)
+func (m *Guide) XXX_DiscardUnknown() {
+	xxx_messageInfo_Guide.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Pet proto.InternalMessageInfo
+var xxx_messageInfo_Guide proto.InternalMessageInfo
 
-func (m *Pet) GetId() int64 {
+func (m *Guide) GetId() int64 {
 	if m != nil && m.Id != nil {
 		return *m.Id
 	}
 	return 0
 }
 
-func (m *Pet) GetLevel() int32 {
+type Chapter struct {
+	Heros                []*Chapterheros      `protobuf:"bytes,1,rep,name=heros" json:"heros,omitempty"`
+	Level                *int32               `protobuf:"varint,2,opt,name=level" json:"level,omitempty"`
+	PrizeGoldCheckTime   *int32               `protobuf:"varint,3,opt,name=prizeGoldCheckTime" json:"prizeGoldCheckTime,omitempty"`
+	PrizeEquipCheckTime  *int32               `protobuf:"varint,4,opt,name=prizeEquipCheckTime" json:"prizeEquipCheckTime,omitempty"`
+	PrizeEquip           []*ChapterprizeEquip `protobuf:"bytes,5,rep,name=prizeEquip" json:"prizeEquip,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *Chapter) Reset()         { *m = Chapter{} }
+func (m *Chapter) String() string { return proto.CompactTextString(m) }
+func (*Chapter) ProtoMessage()    {}
+func (*Chapter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{53}
+}
+func (m *Chapter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Chapter.Unmarshal(m, b)
+}
+func (m *Chapter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Chapter.Marshal(b, m, deterministic)
+}
+func (dst *Chapter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Chapter.Merge(dst, src)
+}
+func (m *Chapter) XXX_Size() int {
+	return xxx_messageInfo_Chapter.Size(m)
+}
+func (m *Chapter) XXX_DiscardUnknown() {
+	xxx_messageInfo_Chapter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Chapter proto.InternalMessageInfo
+
+func (m *Chapter) GetHeros() []*Chapterheros {
+	if m != nil {
+		return m.Heros
+	}
+	return nil
+}
+
+func (m *Chapter) GetLevel() int32 {
 	if m != nil && m.Level != nil {
 		return *m.Level
 	}
 	return 0
 }
 
-func (m *Pet) GetPack() int32 {
-	if m != nil && m.Pack != nil {
-		return *m.Pack
+func (m *Chapter) GetPrizeGoldCheckTime() int32 {
+	if m != nil && m.PrizeGoldCheckTime != nil {
+		return *m.PrizeGoldCheckTime
 	}
 	return 0
 }
 
-type Pack struct {
-	Id                   *int64   `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
-	Num                  *int64   `protobuf:"varint,2,opt,name=num" json:"num,omitempty"`
+func (m *Chapter) GetPrizeEquipCheckTime() int32 {
+	if m != nil && m.PrizeEquipCheckTime != nil {
+		return *m.PrizeEquipCheckTime
+	}
+	return 0
+}
+
+func (m *Chapter) GetPrizeEquip() []*ChapterprizeEquip {
+	if m != nil {
+		return m.PrizeEquip
+	}
+	return nil
+}
+
+type VipInfo struct {
+	Level                *int32   `protobuf:"varint,1,opt,name=level" json:"level,omitempty"`
+	Exp                  *int32   `protobuf:"varint,2,opt,name=exp" json:"exp,omitempty"`
+	TotalRecharge        *int32   `protobuf:"varint,3,opt,name=totalRecharge" json:"totalRecharge,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Pack) Reset()         { *m = Pack{} }
-func (m *Pack) String() string { return proto.CompactTextString(m) }
-func (*Pack) ProtoMessage()    {}
-func (*Pack) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{33}
+func (m *VipInfo) Reset()         { *m = VipInfo{} }
+func (m *VipInfo) String() string { return proto.CompactTextString(m) }
+func (*VipInfo) ProtoMessage()    {}
+func (*VipInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{54}
 }
-func (m *Pack) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Pack.Unmarshal(m, b)
+func (m *VipInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VipInfo.Unmarshal(m, b)
 }
-func (m *Pack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Pack.Marshal(b, m, deterministic)
+func (m *VipInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VipInfo.Marshal(b, m, deterministic)
 }
-func (dst *Pack) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Pack.Merge(dst, src)
+func (dst *VipInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VipInfo.Merge(dst, src)
 }
-func (m *Pack) XXX_Size() int {
-	return xxx_messageInfo_Pack.Size(m)
+func (m *VipInfo) XXX_Size() int {
+	return xxx_messageInfo_VipInfo.Size(m)
 }
-func (m *Pack) XXX_DiscardUnknown() {
-	xxx_messageInfo_Pack.DiscardUnknown(m)
+func (m *VipInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_VipInfo.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Pack proto.InternalMessageInfo
+var xxx_messageInfo_VipInfo proto.InternalMessageInfo
 
-func (m *Pack) GetId() int64 {
+func (m *VipInfo) GetLevel() int32 {
+	if m != nil && m.Level != nil {
+		return *m.Level
+	}
+	return 0
+}
+
+func (m *VipInfo) GetExp() int32 {
+	if m != nil && m.Exp != nil {
+		return *m.Exp
+	}
+	return 0
+}
+
+func (m *VipInfo) GetTotalRecharge() int32 {
+	if m != nil && m.TotalRecharge != nil {
+		return *m.TotalRecharge
+	}
+	return 0
+}
+
+type Hero struct {
+	Id                   *int32        `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Level                *int32        `protobuf:"varint,2,opt,name=level" json:"level,omitempty"`
+	Status               *int64        `protobuf:"varint,3,opt,name=status" json:"status,omitempty"`
+	Equips               []*Heroequips `protobuf:"bytes,4,rep,name=equips" json:"equips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
+}
+
+func (m *Hero) Reset()         { *m = Hero{} }
+func (m *Hero) String() string { return proto.CompactTextString(m) }
+func (*Hero) ProtoMessage()    {}
+func (*Hero) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{55}
+}
+func (m *Hero) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Hero.Unmarshal(m, b)
+}
+func (m *Hero) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Hero.Marshal(b, m, deterministic)
+}
+func (dst *Hero) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Hero.Merge(dst, src)
+}
+func (m *Hero) XXX_Size() int {
+	return xxx_messageInfo_Hero.Size(m)
+}
+func (m *Hero) XXX_DiscardUnknown() {
+	xxx_messageInfo_Hero.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Hero proto.InternalMessageInfo
+
+func (m *Hero) GetId() int32 {
 	if m != nil && m.Id != nil {
 		return *m.Id
 	}
 	return 0
 }
 
-func (m *Pack) GetNum() int64 {
+func (m *Hero) GetLevel() int32 {
+	if m != nil && m.Level != nil {
+		return *m.Level
+	}
+	return 0
+}
+
+func (m *Hero) GetStatus() int64 {
+	if m != nil && m.Status != nil {
+		return *m.Status
+	}
+	return 0
+}
+
+func (m *Hero) GetEquips() []*Heroequips {
+	if m != nil {
+		return m.Equips
+	}
+	return nil
+}
+
+type HeroPack struct {
+	Limit                *int32           `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Heros                []*HeroPackheros `protobuf:"bytes,2,rep,name=heros" json:"heros,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *HeroPack) Reset()         { *m = HeroPack{} }
+func (m *HeroPack) String() string { return proto.CompactTextString(m) }
+func (*HeroPack) ProtoMessage()    {}
+func (*HeroPack) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{56}
+}
+func (m *HeroPack) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_HeroPack.Unmarshal(m, b)
+}
+func (m *HeroPack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_HeroPack.Marshal(b, m, deterministic)
+}
+func (dst *HeroPack) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HeroPack.Merge(dst, src)
+}
+func (m *HeroPack) XXX_Size() int {
+	return xxx_messageInfo_HeroPack.Size(m)
+}
+func (m *HeroPack) XXX_DiscardUnknown() {
+	xxx_messageInfo_HeroPack.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HeroPack proto.InternalMessageInfo
+
+func (m *HeroPack) GetLimit() int32 {
+	if m != nil && m.Limit != nil {
+		return *m.Limit
+	}
+	return 0
+}
+
+func (m *HeroPack) GetHeros() []*HeroPackheros {
+	if m != nil {
+		return m.Heros
+	}
+	return nil
+}
+
+type Equip struct {
+	Id                   *int32   `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Level                *int32   `protobuf:"varint,2,opt,name=level" json:"level,omitempty"`
+	Status               *int64   `protobuf:"varint,3,opt,name=status" json:"status,omitempty"`
+	Num                  *int32   `protobuf:"varint,4,opt,name=num" json:"num,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Equip) Reset()         { *m = Equip{} }
+func (m *Equip) String() string { return proto.CompactTextString(m) }
+func (*Equip) ProtoMessage()    {}
+func (*Equip) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{57}
+}
+func (m *Equip) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Equip.Unmarshal(m, b)
+}
+func (m *Equip) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Equip.Marshal(b, m, deterministic)
+}
+func (dst *Equip) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Equip.Merge(dst, src)
+}
+func (m *Equip) XXX_Size() int {
+	return xxx_messageInfo_Equip.Size(m)
+}
+func (m *Equip) XXX_DiscardUnknown() {
+	xxx_messageInfo_Equip.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Equip proto.InternalMessageInfo
+
+func (m *Equip) GetId() int32 {
+	if m != nil && m.Id != nil {
+		return *m.Id
+	}
+	return 0
+}
+
+func (m *Equip) GetLevel() int32 {
+	if m != nil && m.Level != nil {
+		return *m.Level
+	}
+	return 0
+}
+
+func (m *Equip) GetStatus() int64 {
+	if m != nil && m.Status != nil {
+		return *m.Status
+	}
+	return 0
+}
+
+func (m *Equip) GetNum() int32 {
 	if m != nil && m.Num != nil {
 		return *m.Num
 	}
 	return 0
 }
 
+type EquipPack struct {
+	Limit                *int32             `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Equips               []*EquipPackequips `protobuf:"bytes,2,rep,name=equips" json:"equips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
+}
+
+func (m *EquipPack) Reset()         { *m = EquipPack{} }
+func (m *EquipPack) String() string { return proto.CompactTextString(m) }
+func (*EquipPack) ProtoMessage()    {}
+func (*EquipPack) Descriptor() ([]byte, []int) {
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{58}
+}
+func (m *EquipPack) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EquipPack.Unmarshal(m, b)
+}
+func (m *EquipPack) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EquipPack.Marshal(b, m, deterministic)
+}
+func (dst *EquipPack) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EquipPack.Merge(dst, src)
+}
+func (m *EquipPack) XXX_Size() int {
+	return xxx_messageInfo_EquipPack.Size(m)
+}
+func (m *EquipPack) XXX_DiscardUnknown() {
+	xxx_messageInfo_EquipPack.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EquipPack proto.InternalMessageInfo
+
+func (m *EquipPack) GetLimit() int32 {
+	if m != nil && m.Limit != nil {
+		return *m.Limit
+	}
+	return 0
+}
+
+func (m *EquipPack) GetEquips() []*EquipPackequips {
+	if m != nil {
+		return m.Equips
+	}
+	return nil
+}
+
 type Daily struct {
 	LastUpdateTime       *int64   `protobuf:"varint,1,opt,name=lastUpdateTime" json:"lastUpdateTime,omitempty"`
 	Sign                 *bool    `protobuf:"varint,2,opt,name=sign" json:"sign,omitempty"`
+	TotalSign            *int32   `protobuf:"varint,3,opt,name=totalSign" json:"totalSign,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1642,7 +2865,7 @@ func (m *Daily) Reset()         { *m = Daily{} }
 func (m *Daily) String() string { return proto.CompactTextString(m) }
 func (*Daily) ProtoMessage()    {}
 func (*Daily) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{34}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{59}
 }
 func (m *Daily) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Daily.Unmarshal(m, b)
@@ -1676,6 +2899,13 @@ func (m *Daily) GetSign() bool {
 	return false
 }
 
+func (m *Daily) GetTotalSign() int32 {
+	if m != nil && m.TotalSign != nil {
+		return *m.TotalSign
+	}
+	return 0
+}
+
 type TestList struct {
 	Id                   *int64                      `protobuf:"varint,7,opt,name=id" json:"id,omitempty"`
 	ListPrimitiveInt     []*TestListListPrimitiveInt `protobuf:"bytes,1,rep,name=ListPrimitiveInt" json:"ListPrimitiveInt,omitempty"`
@@ -1690,7 +2920,7 @@ func (m *TestList) Reset()         { *m = TestList{} }
 func (m *TestList) String() string { return proto.CompactTextString(m) }
 func (*TestList) ProtoMessage()    {}
 func (*TestList) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{35}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{60}
 }
 func (m *TestList) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestList.Unmarshal(m, b)
@@ -1755,7 +2985,7 @@ func (m *TestMap) Reset()         { *m = TestMap{} }
 func (m *TestMap) String() string { return proto.CompactTextString(m) }
 func (*TestMap) ProtoMessage()    {}
 func (*TestMap) Descriptor() ([]byte, []int) {
-	return fileDescriptor_playerdata_15942434989900d1, []int{36}
+	return fileDescriptor_playerdata_ff952c509b6e9197, []int{61}
 }
 func (m *TestMap) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestMap.Unmarshal(m, b)
@@ -1826,23 +3056,43 @@ func (m *TestMap) GetMapPrimitiveStrCom() []*TestMapMapPrimitiveStrCom {
 
 func init() {
 	proto.RegisterType((*PlayerDatabaseInfo)(nil), "netproto.PlayerDatabaseInfo")
-	proto.RegisterType((*PlayerDatapets)(nil), "netproto.PlayerDatapets")
-	proto.RegisterType((*PlayerDatadaily)(nil), "netproto.PlayerDatadaily")
-	proto.RegisterType((*PlayerDatapacks)(nil), "netproto.PlayerDatapacks")
+	proto.RegisterType((*PlayerDatavipInfo)(nil), "netproto.PlayerDatavipInfo")
+	proto.RegisterType((*PlayerDataheroPack)(nil), "netproto.PlayerDataheroPack")
+	proto.RegisterType((*PlayerDataequipPack)(nil), "netproto.PlayerDataequipPack")
+	proto.RegisterType((*PlayerDataguide)(nil), "netproto.PlayerDataguide")
 	proto.RegisterType((*PlayerInfoserverTime)(nil), "netproto.PlayerInfoserverTime")
 	proto.RegisterType((*PlayerInfoserverName)(nil), "netproto.PlayerInfoserverName")
 	proto.RegisterType((*BaseInfoid)(nil), "netproto.BaseInfoid")
 	proto.RegisterType((*BaseInfoname)(nil), "netproto.BaseInfoname")
 	proto.RegisterType((*BaseInfolevel)(nil), "netproto.BaseInfolevel")
-	proto.RegisterType((*BaseInfogold)(nil), "netproto.BaseInfogold")
 	proto.RegisterType((*BaseInfoexp)(nil), "netproto.BaseInfoexp")
-	proto.RegisterType((*Petid)(nil), "netproto.Petid")
-	proto.RegisterType((*Petlevel)(nil), "netproto.Petlevel")
-	proto.RegisterType((*Petpack)(nil), "netproto.Petpack")
-	proto.RegisterType((*Packid)(nil), "netproto.Packid")
-	proto.RegisterType((*Packnum)(nil), "netproto.Packnum")
+	proto.RegisterType((*BaseInfogold)(nil), "netproto.BaseInfogold")
+	proto.RegisterType((*BaseInfohead)(nil), "netproto.BaseInfohead")
+	proto.RegisterType((*BaseInfodiamond)(nil), "netproto.BaseInfodiamond")
+	proto.RegisterType((*Guideid)(nil), "netproto.Guideid")
+	proto.RegisterType((*Chapterheros)(nil), "netproto.Chapterheros")
+	proto.RegisterType((*Chapterlevel)(nil), "netproto.Chapterlevel")
+	proto.RegisterType((*ChapterprizeGoldCheckTime)(nil), "netproto.ChapterprizeGoldCheckTime")
+	proto.RegisterType((*ChapterprizeEquipCheckTime)(nil), "netproto.ChapterprizeEquipCheckTime")
+	proto.RegisterType((*ChapterprizeEquip)(nil), "netproto.ChapterprizeEquip")
+	proto.RegisterType((*VipInfolevel)(nil), "netproto.VipInfolevel")
+	proto.RegisterType((*VipInfoexp)(nil), "netproto.VipInfoexp")
+	proto.RegisterType((*VipInfototalRecharge)(nil), "netproto.VipInfototalRecharge")
+	proto.RegisterType((*Heroid)(nil), "netproto.Heroid")
+	proto.RegisterType((*Herolevel)(nil), "netproto.Herolevel")
+	proto.RegisterType((*Herostatus)(nil), "netproto.Herostatus")
+	proto.RegisterType((*Heroequips)(nil), "netproto.Heroequips")
+	proto.RegisterType((*HeroPacklimit)(nil), "netproto.HeroPacklimit")
+	proto.RegisterType((*HeroPackheros)(nil), "netproto.HeroPackheros")
+	proto.RegisterType((*Equipid)(nil), "netproto.Equipid")
+	proto.RegisterType((*Equiplevel)(nil), "netproto.Equiplevel")
+	proto.RegisterType((*Equipstatus)(nil), "netproto.Equipstatus")
+	proto.RegisterType((*Equipnum)(nil), "netproto.Equipnum")
+	proto.RegisterType((*EquipPacklimit)(nil), "netproto.EquipPacklimit")
+	proto.RegisterType((*EquipPackequips)(nil), "netproto.EquipPackequips")
 	proto.RegisterType((*DailylastUpdateTime)(nil), "netproto.DailylastUpdateTime")
 	proto.RegisterType((*Dailysign)(nil), "netproto.Dailysign")
+	proto.RegisterType((*DailytotalSign)(nil), "netproto.DailytotalSign")
 	proto.RegisterType((*TestListid)(nil), "netproto.TestListid")
 	proto.RegisterType((*TestListListPrimitiveInt)(nil), "netproto.TestListListPrimitiveInt")
 	proto.RegisterType((*TestListListPrimitiveStr)(nil), "netproto.TestListListPrimitiveStr")
@@ -1857,64 +3107,94 @@ func init() {
 	proto.RegisterType((*PlayerData)(nil), "netproto.PlayerData")
 	proto.RegisterType((*PlayerInfo)(nil), "netproto.PlayerInfo")
 	proto.RegisterType((*BaseInfo)(nil), "netproto.BaseInfo")
-	proto.RegisterType((*Pet)(nil), "netproto.Pet")
-	proto.RegisterType((*Pack)(nil), "netproto.Pack")
+	proto.RegisterType((*Guide)(nil), "netproto.Guide")
+	proto.RegisterType((*Chapter)(nil), "netproto.Chapter")
+	proto.RegisterType((*VipInfo)(nil), "netproto.VipInfo")
+	proto.RegisterType((*Hero)(nil), "netproto.Hero")
+	proto.RegisterType((*HeroPack)(nil), "netproto.HeroPack")
+	proto.RegisterType((*Equip)(nil), "netproto.Equip")
+	proto.RegisterType((*EquipPack)(nil), "netproto.EquipPack")
 	proto.RegisterType((*Daily)(nil), "netproto.Daily")
 	proto.RegisterType((*TestList)(nil), "netproto.TestList")
 	proto.RegisterType((*TestMap)(nil), "netproto.TestMap")
 }
 
-func init() { proto.RegisterFile("playerdata.proto", fileDescriptor_playerdata_15942434989900d1) }
+func init() { proto.RegisterFile("playerdata.proto", fileDescriptor_playerdata_ff952c509b6e9197) }
 
-var fileDescriptor_playerdata_15942434989900d1 = []byte{
-	// 779 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x95, 0xdd, 0x4e, 0xdb, 0x30,
-	0x14, 0xc7, 0xd5, 0x26, 0x81, 0xf6, 0x30, 0x4a, 0xe5, 0x71, 0x11, 0x6e, 0xb6, 0x2e, 0xdb, 0x50,
-	0xa5, 0xb1, 0xb2, 0xb1, 0xab, 0xed, 0x62, 0x48, 0x2b, 0x9b, 0x84, 0x04, 0x28, 0x4a, 0xe0, 0x01,
-	0x3c, 0xe2, 0xa1, 0xac, 0xf9, 0x52, 0x62, 0x2a, 0x78, 0x85, 0xbd, 0xca, 0xde, 0x62, 0x4f, 0x36,
-	0xd9, 0xb1, 0x9b, 0x90, 0x38, 0xd4, 0x5c, 0x54, 0x72, 0xed, 0xf3, 0xff, 0x9d, 0x0f, 0x3b, 0xe7,
-	0xc0, 0x38, 0x8b, 0xf0, 0x3d, 0xc9, 0x03, 0x4c, 0xf1, 0x2c, 0xcb, 0x53, 0x9a, 0xa2, 0x41, 0x42,
-	0x28, 0x5f, 0x39, 0x67, 0x80, 0x5c, 0x7e, 0x7a, 0x82, 0x29, 0xfe, 0x89, 0x0b, 0x72, 0x9a, 0xfc,
-	0x4a, 0xd1, 0x18, 0x8c, 0x05, 0xb9, 0xb7, 0x7b, 0x93, 0xde, 0xd4, 0xf2, 0xd8, 0x12, 0xbd, 0x01,
-	0x63, 0x89, 0x23, 0xbb, 0x3f, 0xe9, 0x4d, 0xb7, 0x8e, 0xd0, 0x4c, 0xea, 0x67, 0xdf, 0x84, 0xc4,
-	0x63, 0xc7, 0xce, 0x1c, 0x46, 0x15, 0x2d, 0x23, 0xb4, 0x50, 0x90, 0x5e, 0xd6, 0x49, 0xdb, 0x15,
-	0xc9, 0x25, 0xb4, 0x84, 0xfc, 0x80, 0x9d, 0x0a, 0x12, 0xe0, 0x30, 0xba, 0x57, 0x50, 0x5e, 0xd5,
-	0x29, 0x3b, 0x15, 0xe5, 0x84, 0xd9, 0x97, 0x9c, 0xef, 0x75, 0x4e, 0x86, 0xaf, 0x17, 0xaa, 0x68,
-	0x26, 0x75, 0xce, 0xa8, 0x16, 0x0d, 0xbe, 0x5e, 0x94, 0x98, 0x2f, 0xb0, 0x5b, 0x62, 0x58, 0x9a,
-	0x05, 0xc9, 0x97, 0x24, 0xbf, 0x0c, 0x63, 0xa2, 0x60, 0x8d, 0x2b, 0x96, 0xd1, 0xa9, 0xbd, 0xc0,
-	0xeb, 0xb4, 0xc3, 0x52, 0xfb, 0x01, 0x40, 0x16, 0x37, 0x0c, 0xb4, 0xbc, 0x1d, 0xc1, 0x33, 0xa9,
-	0x48, 0x74, 0xbd, 0x7c, 0x82, 0x6d, 0xa9, 0x89, 0xc8, 0x92, 0x44, 0x8f, 0x8b, 0xac, 0x96, 0xa3,
-	0x9b, 0x34, 0x0a, 0xb4, 0x34, 0x1f, 0x61, 0x4b, 0x6a, 0xc8, 0x5d, 0xa6, 0x25, 0x79, 0x07, 0x96,
-	0x4b, 0xa8, 0x66, 0xf2, 0x33, 0x18, 0xb8, 0x84, 0xea, 0xe7, 0xf0, 0x1e, 0x36, 0x5d, 0x42, 0xd9,
-	0xb3, 0xd0, 0x32, 0x3f, 0x80, 0x0d, 0xf6, 0x24, 0x34, 0x83, 0x61, 0x70, 0x7c, 0xbd, 0x48, 0x6e,
-	0x63, 0x2d, 0xf3, 0xcf, 0xf0, 0x9c, 0xbf, 0xdb, 0x08, 0x17, 0xf4, 0x2a, 0x0b, 0x30, 0x25, 0xda,
-	0x2f, 0xec, 0x10, 0x86, 0x5c, 0x5a, 0x84, 0x37, 0xc9, 0xe3, 0x82, 0xc1, 0xea, 0x59, 0x5d, 0x92,
-	0x82, 0x9e, 0x85, 0x85, 0x6e, 0x65, 0xbf, 0x82, 0x2d, 0x15, 0xec, 0xe7, 0xe6, 0x61, 0x1c, 0xd2,
-	0x70, 0x49, 0x4e, 0x13, 0xaa, 0x55, 0xba, 0x2e, 0xbd, 0x4f, 0x73, 0xad, 0x27, 0x7a, 0xd9, 0xa1,
-	0x9f, 0xa7, 0xaa, 0xea, 0xee, 0xd7, 0x3f, 0xe8, 0xdd, 0xda, 0x07, 0xbd, 0x6a, 0x05, 0xb2, 0x55,
-	0x0d, 0x19, 0xf5, 0x1c, 0x67, 0xca, 0x32, 0xe8, 0xf5, 0xbb, 0x63, 0xd8, 0x13, 0x90, 0x73, 0x9c,
-	0xd5, 0x0b, 0xa3, 0x5b, 0x9b, 0x4e, 0x80, 0x6e, 0x71, 0xd4, 0x00, 0x9f, 0xe6, 0x8d, 0x08, 0x86,
-	0x4f, 0x8b, 0xc0, 0xa7, 0x79, 0x23, 0x82, 0x61, 0x57, 0x04, 0x7e, 0x57, 0x0a, 0xea, 0xfb, 0xd1,
-	0x2b, 0xec, 0x55, 0x57, 0x54, 0x0d, 0xe8, 0xf0, 0x69, 0x97, 0xfe, 0xaf, 0x07, 0x50, 0xed, 0xa1,
-	0x19, 0x0c, 0xe4, 0xc8, 0xe3, 0x34, 0x75, 0x40, 0x2b, 0x1b, 0x74, 0x00, 0x26, 0x1b, 0x6a, 0x76,
-	0x7f, 0x62, 0x4c, 0xb7, 0x8e, 0x6c, 0x95, 0x1f, 0x76, 0xee, 0x71, 0x2b, 0xf4, 0x16, 0x2c, 0x3e,
-	0xbd, 0x6c, 0x43, 0x3d, 0xa4, 0xca, 0x53, 0x74, 0x08, 0x16, 0x1f, 0x4e, 0xb6, 0xc9, 0xa9, 0x7b,
-	0x4a, 0x2a, 0x33, 0xf0, 0x4a, 0x3b, 0xe7, 0x4c, 0xe6, 0xc0, 0x63, 0x7a, 0x01, 0x50, 0x0d, 0x25,
-	0x9e, 0x85, 0xe1, 0xd5, 0x76, 0xaa, 0x73, 0x36, 0x78, 0xc4, 0xbd, 0xd5, 0x76, 0x9c, 0xdf, 0x30,
-	0x90, 0x99, 0xa2, 0x11, 0xf4, 0xc3, 0x40, 0x30, 0xfa, 0x61, 0x80, 0x10, 0x98, 0x49, 0xa5, 0xe2,
-	0x6b, 0xb4, 0x0b, 0x16, 0x6f, 0xb2, 0x3c, 0x2b, 0xcb, 0x2b, 0xff, 0x30, 0x4b, 0x36, 0x09, 0x6c,
-	0x93, 0x6f, 0x9a, 0x72, 0x2a, 0x90, 0xbb, 0xcc, 0xb6, 0xca, 0xbb, 0x27, 0x77, 0x99, 0x73, 0x0c,
-	0x86, 0x4b, 0x68, 0xcb, 0xcd, 0x0a, 0xd9, 0x6f, 0x20, 0x59, 0xbe, 0xc2, 0x0f, 0x5f, 0x3b, 0x53,
-	0x30, 0x59, 0x5f, 0x6d, 0x11, 0xc6, 0x60, 0x24, 0xb7, 0xb1, 0x6c, 0x5a, 0xc9, 0x6d, 0xec, 0xcc,
-	0xc1, 0xe2, 0x55, 0x46, 0xfb, 0x30, 0x7a, 0xd8, 0x56, 0x85, 0xac, 0xb1, 0xcb, 0xdc, 0xb1, 0x1e,
-	0x2a, 0x5a, 0x25, 0x5f, 0x3b, 0x7f, 0xfa, 0x30, 0x90, 0xad, 0x47, 0xf8, 0xdc, 0x5c, 0xf9, 0xbc,
-	0x80, 0x71, 0xb3, 0x1d, 0xda, 0x3d, 0x7e, 0x85, 0x4e, 0x75, 0x85, 0x5d, 0x8d, 0xd3, 0x6b, 0x69,
-	0x5b, 0x3c, 0x9f, 0xe6, 0xe2, 0xa1, 0xad, 0xe3, 0xf9, 0x34, 0xf7, 0x5a, 0xda, 0x16, 0x6f, 0x9e,
-	0xc6, 0xb6, 0xa1, 0xc5, 0x9b, 0xa7, 0xb1, 0xd7, 0xd2, 0x3a, 0x7f, 0x4d, 0xd8, 0x14, 0xdf, 0x24,
-	0x72, 0x56, 0xb5, 0x50, 0x7f, 0x32, 0xac, 0x3e, 0x3e, 0xa0, 0x76, 0x53, 0x14, 0x15, 0x7a, 0xfd,
-	0x30, 0x02, 0x65, 0xff, 0xf4, 0x14, 0x72, 0x05, 0xb4, 0x2a, 0xd3, 0x5a, 0x28, 0xab, 0x93, 0x42,
-	0xde, 0x84, 0x96, 0xcd, 0x53, 0xd4, 0xea, 0x71, 0x68, 0x69, 0xea, 0x29, 0xe4, 0x0a, 0x28, 0x8b,
-	0xd4, 0xd4, 0x83, 0xb6, 0x22, 0x15, 0xfd, 0xb8, 0x9d, 0x3e, 0xbb, 0x55, 0x4b, 0x2f, 0x7d, 0x76,
-	0xad, 0x0a, 0xb9, 0x22, 0x52, 0x06, 0xdd, 0xd0, 0x8b, 0xb4, 0x05, 0x2d, 0xf7, 0xfe, 0x07, 0x00,
-	0x00, 0xff, 0xff, 0x60, 0x4a, 0x56, 0x15, 0x74, 0x0c, 0x00, 0x00,
+var fileDescriptor_playerdata_ff952c509b6e9197 = []byte{
+	// 1169 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0xeb, 0x6e, 0xe3, 0x44,
+	0x14, 0x56, 0x2e, 0x6e, 0xe2, 0x53, 0x7a, 0x9b, 0x46, 0xbb, 0x2e, 0x20, 0x54, 0xbc, 0x17, 0x55,
+	0xa2, 0x9b, 0x6d, 0xbb, 0xf0, 0x83, 0x45, 0x62, 0x81, 0x2c, 0x7b, 0x41, 0xdd, 0x52, 0x39, 0x5d,
+	0xf6, 0xf7, 0xd0, 0x0c, 0x8d, 0x55, 0xc7, 0x36, 0xf6, 0x24, 0xda, 0xf2, 0x08, 0x3c, 0x01, 0xef,
+	0xc0, 0xab, 0xf1, 0x8f, 0x17, 0x40, 0x73, 0xf3, 0x38, 0xf1, 0xb8, 0x99, 0xb0, 0x3f, 0x22, 0x39,
+	0xe3, 0xf9, 0x3e, 0x9f, 0xf3, 0x9d, 0x39, 0x73, 0x3e, 0xd8, 0x4e, 0x23, 0x7c, 0x43, 0xb2, 0x11,
+	0xa6, 0xb8, 0x9f, 0x66, 0x09, 0x4d, 0x50, 0x37, 0x26, 0x94, 0x3f, 0xf9, 0xa7, 0x80, 0xce, 0xf9,
+	0xdb, 0xe7, 0x98, 0xe2, 0x5f, 0x71, 0x4e, 0x5e, 0xc7, 0xbf, 0x25, 0x68, 0x1b, 0x5a, 0xd7, 0xe4,
+	0xc6, 0x6b, 0xec, 0x37, 0x0e, 0x9c, 0x80, 0x3d, 0xa2, 0xfb, 0xd0, 0x9a, 0xe1, 0xc8, 0x6b, 0xee,
+	0x37, 0x0e, 0xd6, 0x4f, 0x50, 0x5f, 0xe1, 0xfb, 0x3f, 0x48, 0x48, 0xc0, 0x5e, 0xfb, 0x3f, 0xc1,
+	0x8e, 0x66, 0x9b, 0x85, 0x69, 0x0d, 0xd9, 0xbd, 0x32, 0xd9, 0x8e, 0x26, 0xfb, 0x45, 0x20, 0x04,
+	0xd7, 0x5c, 0x64, 0x63, 0x92, 0x25, 0xe7, 0xf8, 0xf2, 0x7a, 0x85, 0xc8, 0x5e, 0x49, 0x88, 0x60,
+	0x3b, 0x83, 0x5d, 0xcd, 0x46, 0x7e, 0x9f, 0x86, 0x69, 0x0d, 0xdd, 0x83, 0x32, 0xdd, 0xae, 0xa6,
+	0xfb, 0x51, 0x61, 0x04, 0xdf, 0x0b, 0xd8, 0xd2, 0x7c, 0x57, 0xd3, 0x70, 0x44, 0x0c, 0x5c, 0x9f,
+	0x97, 0xb9, 0xb6, 0x34, 0xd7, 0x4b, 0xb6, 0x5f, 0xf0, 0x3c, 0x85, 0x9e, 0xe0, 0x61, 0x89, 0xe7,
+	0x24, 0x9b, 0x91, 0xec, 0x22, 0x9c, 0x98, 0xc8, 0xb6, 0x35, 0x59, 0xab, 0x16, 0x7b, 0x86, 0x97,
+	0x61, 0x5d, 0x81, 0x3d, 0x02, 0x50, 0xa5, 0x0b, 0x47, 0x56, 0x5f, 0x3b, 0x81, 0x8f, 0x14, 0x22,
+	0xb6, 0xfd, 0xca, 0x13, 0xd8, 0x50, 0x98, 0x88, 0xcc, 0x48, 0x74, 0x3b, 0xc8, 0x11, 0xa0, 0x63,
+	0x58, 0x57, 0x20, 0xf2, 0x3e, 0xb5, 0x82, 0x94, 0x62, 0xbb, 0x4a, 0xa2, 0xd1, 0xaa, 0x98, 0x31,
+	0xc1, 0x76, 0x98, 0xaf, 0x60, 0x4b, 0x61, 0x46, 0x21, 0x9e, 0x24, 0xb1, 0x1d, 0xec, 0x11, 0x74,
+	0x78, 0xc9, 0xed, 0x95, 0x1e, 0x8c, 0x71, 0x4a, 0x49, 0xc6, 0x8e, 0x7d, 0x6e, 0x9b, 0x8d, 0xc4,
+	0xd8, 0x0b, 0xfd, 0x0c, 0xf6, 0x24, 0x26, 0xcd, 0xc2, 0x3f, 0xc8, 0xcb, 0x24, 0x1a, 0x0d, 0xc6,
+	0xe4, 0xf2, 0x7a, 0xf9, 0x01, 0x94, 0x04, 0xdf, 0xc1, 0xc7, 0x65, 0x02, 0xde, 0x22, 0xab, 0x31,
+	0xbc, 0x82, 0x9d, 0x0a, 0xc3, 0x0a, 0x8d, 0xc4, 0xf7, 0x17, 0x02, 0xc8, 0xeb, 0xc3, 0x5e, 0x80,
+	0x23, 0x00, 0x89, 0xb1, 0x3d, 0x68, 0x4f, 0xa1, 0x27, 0x11, 0x34, 0xa1, 0x38, 0x0a, 0xc8, 0xe5,
+	0x18, 0x67, 0x57, 0x76, 0xb9, 0x1e, 0xc2, 0x1a, 0xbb, 0x93, 0x42, 0xbb, 0x33, 0xf3, 0x18, 0x5c,
+	0xb6, 0x7b, 0xa5, 0x64, 0x18, 0x20, 0xa7, 0x98, 0x4e, 0x73, 0xab, 0x73, 0xf6, 0xbd, 0x40, 0xf0,
+	0xdb, 0x30, 0xff, 0x7f, 0xaa, 0x3f, 0x81, 0x0d, 0x75, 0xcf, 0x46, 0xe1, 0x24, 0xa4, 0x56, 0x91,
+	0x0e, 0x34, 0xa8, 0xee, 0x80, 0xef, 0x97, 0x3f, 0xbd, 0x39, 0x7f, 0xa9, 0x17, 0x3d, 0xc5, 0xe3,
+	0xb0, 0x94, 0xf3, 0x08, 0x80, 0x6f, 0x5f, 0xe9, 0x1a, 0xe2, 0x88, 0x15, 0x04, 0xed, 0x43, 0x97,
+	0x43, 0xe2, 0xe9, 0xc4, 0xea, 0x13, 0x5f, 0xc2, 0x66, 0x31, 0x56, 0xec, 0xe5, 0x7b, 0x01, 0x5b,
+	0x05, 0xea, 0x43, 0x6a, 0xf7, 0x35, 0xec, 0x3e, 0xc7, 0x61, 0x74, 0x13, 0xe1, 0x9c, 0xbe, 0x4d,
+	0x47, 0x98, 0x12, 0xeb, 0xc9, 0xf3, 0x18, 0x5c, 0x0e, 0xcd, 0xc3, 0xab, 0xf8, 0x76, 0x40, 0xb7,
+	0xc8, 0x94, 0x03, 0x78, 0xd7, 0x0c, 0x97, 0xa2, 0x74, 0xd1, 0x2e, 0x48, 0x4e, 0x4f, 0xc3, 0x9c,
+	0x5a, 0x5e, 0x9d, 0xdf, 0x82, 0xa7, 0x10, 0xec, 0x77, 0x9e, 0x31, 0x55, 0xc3, 0x19, 0x79, 0x1d,
+	0xdb, 0x69, 0x5b, 0x87, 0x1f, 0xd2, 0xcc, 0x6a, 0xe0, 0x5d, 0xd4, 0xe0, 0x07, 0x89, 0xe9, 0x44,
+	0x3c, 0x2c, 0x17, 0xa9, 0xa7, 0x8b, 0xa4, 0x9d, 0x85, 0x6a, 0x18, 0x97, 0xb1, 0xbe, 0xc1, 0xe6,
+	0xd3, 0x6e, 0xe7, 0xcd, 0x9e, 0xc1, 0x9e, 0x24, 0x79, 0x83, 0xd3, 0xb2, 0x30, 0xb6, 0xda, 0xd4,
+	0x12, 0xd8, 0x8a, 0x63, 0x26, 0x18, 0xd2, 0x6c, 0x21, 0x02, 0x77, 0xb5, 0x08, 0x86, 0x34, 0x5b,
+	0x88, 0xc0, 0xad, 0x8b, 0x60, 0x58, 0x97, 0x82, 0xb9, 0x3e, 0x76, 0xc2, 0xbe, 0xad, 0x8b, 0x6a,
+	0x81, 0xd4, 0x5d, 0xad, 0xe8, 0xff, 0x36, 0x00, 0xf4, 0x1a, 0xea, 0x43, 0x57, 0xd9, 0x73, 0xce,
+	0x66, 0x0e, 0xa8, 0xd8, 0x83, 0xbe, 0x80, 0x8e, 0x34, 0xe0, 0xf5, 0x3e, 0x5b, 0xed, 0x60, 0xe4,
+	0xca, 0x61, 0x7b, 0xad, 0x5a, 0x23, 0x5d, 0xec, 0x41, 0xc7, 0xe0, 0x16, 0x1e, 0xda, 0x6b, 0xd7,
+	0x5b, 0x65, 0xbd, 0x0b, 0x3d, 0x00, 0x87, 0xdb, 0x64, 0xcf, 0x31, 0xbb, 0x61, 0xf1, 0xd6, 0x3f,
+	0x55, 0x49, 0xf3, 0xb8, 0x3e, 0x03, 0xd0, 0x9e, 0x98, 0xa7, 0xdd, 0x0a, 0x4a, 0x2b, 0xfa, 0x3d,
+	0xf3, 0xbd, 0xb2, 0xd0, 0xa5, 0x15, 0xff, 0xaf, 0x06, 0x74, 0x95, 0x36, 0x68, 0x13, 0x9a, 0xe1,
+	0x48, 0x92, 0x34, 0xc3, 0x11, 0x42, 0xd0, 0x8e, 0x35, 0x8c, 0x3f, 0xa3, 0x1e, 0x38, 0x7c, 0x42,
+	0x70, 0x15, 0x9c, 0xc0, 0x29, 0xc6, 0x05, 0x79, 0x9f, 0xf2, 0x44, 0x9d, 0x80, 0x3d, 0x32, 0x2c,
+	0x33, 0x9a, 0x3c, 0x19, 0x27, 0xe0, 0xcf, 0x6c, 0x8d, 0x19, 0x49, 0x6f, 0x4d, 0xac, 0x71, 0x53,
+	0xe9, 0x41, 0x47, 0x1a, 0x45, 0xaf, 0xc3, 0x97, 0xd5, 0x5f, 0xff, 0x2e, 0x38, 0x3c, 0xf1, 0xc5,
+	0xb0, 0xfc, 0x7f, 0x1a, 0xd0, 0x91, 0x9e, 0x08, 0x1d, 0x82, 0xc3, 0x27, 0xa4, 0xd7, 0xd8, 0x6f,
+	0x1d, 0xac, 0x9f, 0xdc, 0xd1, 0xa2, 0x95, 0x0d, 0x62, 0x20, 0x36, 0xe9, 0xe0, 0x9b, 0xe5, 0xe0,
+	0xfb, 0x80, 0xaa, 0xf6, 0x4e, 0xe6, 0x67, 0x78, 0x83, 0x8e, 0x60, 0xd7, 0xe0, 0xe6, 0x64, 0xf2,
+	0xa6, 0x57, 0xe8, 0x1b, 0x00, 0xbd, 0xec, 0x39, 0x3c, 0xd4, 0x4f, 0x2a, 0xa1, 0xea, 0x2d, 0x41,
+	0x69, 0xbb, 0xff, 0x0e, 0x3a, 0xf2, 0x38, 0xea, 0xf8, 0x1b, 0x06, 0xf1, 0x9b, 0x5a, 0xfc, 0xfb,
+	0xb0, 0x31, 0xe7, 0xbe, 0x64, 0x32, 0xf3, 0x8b, 0x7e, 0x06, 0x6d, 0x76, 0x72, 0x4b, 0xfa, 0x3a,
+	0xbc, 0xec, 0x66, 0x95, 0xee, 0xc0, 0x9a, 0x18, 0xf4, 0x9c, 0xac, 0x15, 0xc8, 0x7f, 0xe8, 0x10,
+	0xd6, 0xc4, 0x8c, 0xf5, 0xda, 0x3c, 0xaf, 0xde, 0x7c, 0x5f, 0x88, 0x77, 0x81, 0xdc, 0xe3, 0xff,
+	0x0c, 0x5d, 0xd5, 0x2d, 0xfc, 0x3b, 0xec, 0x2e, 0x28, 0xb2, 0xe1, 0x03, 0xfe, 0x91, 0xaa, 0x68,
+	0x93, 0xd3, 0xdd, 0xad, 0xb6, 0x59, 0xb9, 0xa4, 0xfe, 0x3b, 0x70, 0x84, 0x27, 0xfe, 0xb0, 0x2c,
+	0xb6, 0xa1, 0x15, 0x4f, 0x27, 0xea, 0x00, 0xc7, 0xd3, 0x89, 0x7f, 0x01, 0x6e, 0xd1, 0xa6, 0x35,
+	0xa1, 0x1e, 0x17, 0xa9, 0x8b, 0x58, 0xf7, 0x0c, 0x1d, 0xbe, 0x90, 0x3f, 0x06, 0x87, 0x8f, 0x79,
+	0xf4, 0x10, 0x36, 0xe7, 0x6d, 0x85, 0x3c, 0xe0, 0x0b, 0xab, 0xac, 0x67, 0x98, 0x87, 0x90, 0x56,
+	0x81, 0x3f, 0xa3, 0x4f, 0xc1, 0x2d, 0x6c, 0x82, 0x2c, 0xad, 0x5e, 0xf0, 0xff, 0x6c, 0x42, 0x57,
+	0x8d, 0x58, 0xa9, 0x4a, 0xa7, 0x68, 0xe9, 0x33, 0xd8, 0x5e, 0x1c, 0xfb, 0xb2, 0x75, 0x7c, 0x1d,
+	0x7c, 0x9d, 0x41, 0x08, 0x2a, 0xd8, 0x0a, 0xdf, 0x90, 0x66, 0x52, 0x8c, 0x65, 0x7c, 0x43, 0x9a,
+	0x05, 0x15, 0x6c, 0x85, 0x6f, 0x90, 0x4c, 0xbc, 0x96, 0x15, 0xdf, 0x20, 0x99, 0x04, 0x15, 0xac,
+	0xff, 0x77, 0x1b, 0x3a, 0x72, 0xf6, 0x20, 0xbf, 0xd0, 0xc2, 0x3c, 0x1a, 0x98, 0x3e, 0x43, 0x40,
+	0xd5, 0xe1, 0x2f, 0x15, 0xba, 0x37, 0x1f, 0x81, 0xd1, 0x27, 0x04, 0x06, 0xb8, 0x81, 0x54, 0xcb,
+	0xb4, 0x94, 0x94, 0xe9, 0x64, 0x80, 0x2f, 0x92, 0x0a, 0x93, 0x20, 0xb5, 0xba, 0x9d, 0x54, 0x6c,
+	0x0d, 0x0c, 0x70, 0x03, 0x29, 0x8b, 0xb4, 0x6d, 0x47, 0x5a, 0x89, 0x54, 0xfa, 0x8e, 0x6a, 0xfa,
+	0xac, 0xaa, 0x8e, 0x5d, 0xfa, 0xac, 0xac, 0x06, 0xb8, 0x21, 0x52, 0x46, 0xba, 0x66, 0x17, 0x69,
+	0x85, 0x54, 0xac, 0xfd, 0x17, 0x00, 0x00, 0xff, 0xff, 0xe9, 0xc0, 0xcd, 0xbd, 0x08, 0x14, 0x00,
+	0x00,
 }

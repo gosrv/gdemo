@@ -1,0 +1,92 @@
+syntax = "proto2";
+
+package netproto;
+
+message PlayerData {
+    optional BaseInfo baseInfo = 1;
+    optional VipInfo vipInfo = 2;
+    optional HeroPack heroPack = 3;
+    optional EquipPack equipPack = 4;
+    optional Guide guide = 5;
+}
+
+message PlayerInfo {
+    optional int64 serverTime = 1;
+    optional string serverName = 2;
+}
+
+message BaseInfo {
+    optional int64 id = 1;
+    optional string name = 2;
+    optional int32 level = 3;
+    optional int32 exp = 4;
+    optional int32 gold = 5;
+    optional int32 head = 6;
+    optional int32 diamond = 7;
+}
+
+message Guide {
+    optional int64 id = 1;
+}
+
+// 关卡
+message Chapter {
+    repeated int32 heros = 1;   // 挂机英雄
+    optional int32 level = 2;   // 挂机关卡
+    optional int32 prizeGoldCheckTime = 3;
+    optional int32 prizeEquipCheckTime = 4;
+    repeated Equip prizeEquip = 5;   // 挂机奖励
+}
+
+message VipInfo {
+    optional int32 level = 1;
+    optional int32 exp = 2;
+    optional int32 totalRecharge = 3;
+}
+
+message Hero {
+    optional int32 id = 1;
+    optional int32 level = 2;
+    optional int64 status = 3;
+    repeated Equip equips = 4;
+}
+
+message HeroPack {
+    optional int32 limit = 1;
+    map<int32, Hero> heros = 2;
+}
+
+message Equip {
+    optional int32 id = 1;
+    optional int32 level = 2;
+    optional int64 status = 3;
+    optional int32 num = 4;
+}
+
+message EquipPack {
+    optional int32 limit = 1;
+    map<int32, Equip> equips = 2;
+}
+
+message Daily {
+    optional int64 lastUpdateTime = 1;  // 上次刷新时间
+    optional bool sign = 2; // 每日签到
+    optional int32 totalSign = 3;   // 累计签到次数
+}
+
+message TestList {
+    optional int64 id = 7;
+    repeated int32 ListPrimitiveInt = 1;
+    repeated string ListPrimitiveStr = 2;
+    repeated PlayerData ListPrimitiveCom = 3;
+}
+
+message TestMap {
+    optional BaseInfo id = 7;
+    map<int32, int32> MapPrimitiveIntInt = 1;
+    map<int32, string> MapPrimitiveIntStr = 2;
+    map<string, int32> MapPrimitiveStrInt = 3;
+    map<string, string> MapPrimitiveStrStr = 4;
+    map<int32, BaseInfo> MapPrimitiveIntCom = 5;
+    map<string, PlayerData> MapPrimitiveStrCom = 6;
+}

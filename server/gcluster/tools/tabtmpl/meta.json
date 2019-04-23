@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "lineName": 0,
+    "lineType": 1,
+    "lineDes": 2,
+    "lineData": 3
+  },
+  "templates": {
+    "proto": {
+      "package": "table",
+      "mapType": {
+        "int": "int32",
+        "str": "string",
+        "float": "float"
+      },
+      "tmpl": "tabtmpl/proto.tmpl"
+    },
+    "go": {
+      "package": "table",
+      "mapType": {
+        "int": "int32",
+        "str": "string",
+        "float": "float"
+      },
+      "tmpl": "tabtmpl/go.tmpl"
+    },
+    "java": {
+      "package": "table",
+      "mapType": {
+        "int": "int",
+        "str": "String",
+        "float": "float"
+      },
+      "tmpl": "tabtmpl/java.tmpl"
+    },
+    "csharp": {
+      "package": "table",
+      "mapType": {
+        "int": "int",
+        "str": "string",
+        "float": "float"
+      },
+      "tmpl": "tabtmpl/csharp.tmpl"
+    }
+  }
+}
