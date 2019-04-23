@@ -12,21 +12,10 @@ public class RouteMethod
     {
         mObj = obj;
         mMethod = method;
-
-        ParameterInfo[] paramInfos = mMethod.GetParameters();
-        mParameterInfo = paramInfos[0];
-
-        if (!typeof(global::ProtoBuf.IExtensible).IsAssignableFrom(mParameterInfo.ParameterType))
-        {
-            throw new System.Exception("argument is not protobuf");
-        }
     }
 
-    public void call(byte[] msg)
+    public void call(object msg)
     {
-        using (System.IO.MemoryStream mem = new System.IO.MemoryStream(msg))
-        {
-            mMethod.Invoke(mObj, new object[] { ProtoBuf.Serializer.Deserialize(mParameterInfo.ParameterType, mem) });
-        }  
+        mMethod.Invoke(mObj, new object[] {msg});
     }
 }

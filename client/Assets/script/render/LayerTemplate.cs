@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 class LayerTemplate : Layer
 {
-    public LayerTemplate(string group, string name) : base(group, name)
+    public LayerTemplate(string group, string name) : base(name)
     {
     }
 

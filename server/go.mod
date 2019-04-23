@@ -3,6 +3,7 @@ module github.com/gosrv/gcluster
 go 1.12
 
 require (
+	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/golang/protobuf v1.2.0
 	github.com/gosrv/gbase v0.0.0-20190422130755-cfa56e047c6e
 	github.com/gosrv/glog v0.0.0-20190405130153-f75ad619edf7

@@ -9,9 +9,9 @@ public class UT{
         mMainMono = mainMono;
     }
 
-    public static GameObject createPrefeb(string group, string name)
+    public static GameObject createPrefeb(string name)
     {
-        string path = group + "/" + name;        
+        string path = name;        
         Object prefab = Resources.Load(path);
         Object obj = mMainMono.createPrefeb(prefab);
         return (GameObject)obj;
@@ -112,6 +112,11 @@ public class UT{
         {
             UT.destroy(child.gameObject);
         }
+    }
+
+    public static void startCoroutine(IEnumerator enumerator)
+    {
+        mMainMono.startCoroutine(enumerator);
     }
 
     /*[min, max)*/

@@ -9,7 +9,7 @@ class LayerShop : Layer
 {
     private ModuleShop mModuleShop = null;
 
-    public LayerShop() : base("ui", "shop")
+    public LayerShop() : base("shop")
     {
     }
 

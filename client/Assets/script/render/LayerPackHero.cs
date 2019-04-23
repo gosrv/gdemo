@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 class LayerPackHero : Layer
 {
-    public LayerPackHero(string group, string name) : base(group, name)
+    public LayerPackHero(string group, string name) : base(name)
     {
     }
 

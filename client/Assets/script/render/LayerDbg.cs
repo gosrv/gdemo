@@ -10,7 +10,7 @@ class LayerDbg : Layer
     private ModuleNetGameServ mModuleNetGameServ = null;
     private Text mTextInfo = null;
 
-    public LayerDbg(string group, string name) : base(group, name)
+    public LayerDbg(string group, string name) : base(name)
     {
     }
 

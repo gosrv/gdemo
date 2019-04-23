@@ -12,7 +12,7 @@ class LayerBattleCopy : Layer
     private GameObject mLevelPrefeb = null;
     private ModuleBattle mModuleBattle = null;
 
-    public LayerBattleCopy() : base("ui", "battlecopy")
+    public LayerBattleCopy() : base("battlecopy")
     {
     }
 

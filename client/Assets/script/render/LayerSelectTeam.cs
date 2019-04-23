@@ -12,7 +12,7 @@ class LayerSelectTeam : Layer
     private GameObject[] mCardObj = null;
     private int mTeamSlot = -1;
 
-    public LayerSelectTeam(string group, string name) : base(group, name)
+    public LayerSelectTeam(string group, string name) : base(name)
     {
     }
 

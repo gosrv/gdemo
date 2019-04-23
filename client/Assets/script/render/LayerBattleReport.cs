@@ -22,7 +22,7 @@ class LayerBattleReport : Layer
     private Vector3 mStartPos;
     private Vector3 mTargetPos;
 
-    public LayerBattleReport(string group, string name) : base(group, name)
+    public LayerBattleReport(string group, string name) : base(name)
     {
     }
 

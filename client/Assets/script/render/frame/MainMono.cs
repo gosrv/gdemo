@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class MainMono : MonoBehaviour {
-    private static int bt = System.Environment.TickCount;    
+    private static int bt = System.Environment.TickCount;
+    public GameObject uiRoot;
 	// Use this for initialization
 	void Start () {
         UT.setMainMono(this);
-        SceneRoot.instance.setRoot(this.gameObject);
-        FrameWork.instance.init();
+        SceneRoot.instance.setRoot(uiRoot);
+        FrameWork.instance.init();        
     }
 	
 	// Update is called once per frame
@@ -23,7 +24,7 @@ public class MainMono : MonoBehaviour {
         bt = ct;
     }
 
-    public UnityEngine.Object createPrefeb(UnityEngine.Object obj)
+    public Object createPrefeb(Object obj)
     {        
         return Instantiate(obj);
     }
@@ -31,5 +32,10 @@ public class MainMono : MonoBehaviour {
     public void destroy(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    public void startCoroutine(IEnumerator enumerator)
+    {
+        StartCoroutine(enumerator);
     }
 }

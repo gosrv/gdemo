@@ -36,6 +36,11 @@ public class ModuleMgr
         return module;
     }
 
+    public Dictionary<string, IModule> getAllModules()
+    {
+        return mModules;
+    }
+
     public bool init()
     {
         foreach (IModule module in mModules.Values)
@@ -53,24 +58,7 @@ public class ModuleMgr
                 }
 
                 field.SetValue(module, getModule(field.FieldType.Name));      
-            }
-
-            /*检查网络路由消息*/
-            MethodInfo[] allMethod = moduleType.GetMethods(
-                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-            foreach (MethodInfo method in allMethod)
-            {
-                object[] attrs = method.GetCustomAttributes(typeof(MsgRouteAttribute), false);
-                if (attrs == null || attrs.Length == 0)
-                {
-                    continue;
-                }
-
-                if(!MsgRouteMgr.instance.addRoute(module, method))
-                {
-                    return false;
-                }
-            }
+            }           
         }
 
         foreach (IModule module in mModules.Values)

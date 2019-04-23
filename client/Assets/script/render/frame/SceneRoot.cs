@@ -8,10 +8,6 @@ public class SceneRoot : Layer
     public static SceneRoot instance = new SceneRoot();
     private Layer mRootLayer = null;
 
-    public SceneRoot() : base("", "")
-    {
-    }
-
     public void setRoot(GameObject obj)
     {
         mRoot = obj;
@@ -26,7 +22,6 @@ public class SceneRoot : Layer
     {
         Layer login = new LayerLogin();
         switchLayer(login);
-
         return true;
     }
 

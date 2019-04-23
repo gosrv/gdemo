@@ -40,28 +40,27 @@ public abstract class Layer
         return true;
     }
 
-    public Layer(string group, string name)
+    public Layer(string name)
     {
-        if (group.Length > 0 && name.Length > 0)
+        if (name.Length > 0)
         {
-            mRoot = UT.createPrefeb(group, name);
+            mRoot = UT.createPrefeb(name);
         }
 
         connectModule();
 
         if (!init())
         {
-            SysLog.error("layer " + group + ":" + name + " init failed.");
+            SysLog.error("layer " + name + " init failed.");
         }
     }
 
     private void connectModule()
     {
-        /**/
         System.Type type = this.GetType();
-        System.Reflection.FieldInfo[] allField = type.GetFields(
+        FieldInfo[] allField = type.GetFields(
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.ExactBinding);
-        foreach (System.Reflection.FieldInfo field in allField)
+        foreach (FieldInfo field in allField)
         {
             if (!typeof(IModule).IsAssignableFrom(field.FieldType))
             {

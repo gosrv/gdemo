@@ -12,7 +12,7 @@ class LayerFriend : Layer
     private GameObject mFriendPrefeb = null;
     private GameObject mFriendPane = null;
 
-    public LayerFriend() : base("ui", "friend")
+    public LayerFriend() : base("friend")
     {
     }
 

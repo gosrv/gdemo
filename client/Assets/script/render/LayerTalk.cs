@@ -10,7 +10,7 @@ class LayerTalk : Layer
 {
     private ModuleTalk mModuleTalk = null;
     
-    public LayerTalk(string group, string name) : base(group, name)
+    public LayerTalk(string name) : base(name)
     {
     }
 

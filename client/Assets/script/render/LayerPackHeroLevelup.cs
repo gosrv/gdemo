@@ -11,7 +11,7 @@ class LayerPackHeroLevelup : Layer
     private GameObject mHeroPrefb;
     private GameObject[] mCardObj = null;
 
-    public LayerPackHeroLevelup(string group, string name) : base(group, name)
+    public LayerPackHeroLevelup(string group, string name) : base(name)
     {
     }
 

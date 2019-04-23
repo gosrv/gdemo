@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 class LayerHelp : Layer
 {
-    public LayerHelp() : base("ui", "help")
+    public LayerHelp() : base("help")
     {
     }
 

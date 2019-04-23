@@ -4,8 +4,7 @@ using System;
 
 public class ModuleLogin : IModule
 {
-    private ModuleNetGameServ mGameServer = null;
-    private bool mIsLogined = false;
+    private ModuleNetGameServ gameServer = null;
 
     public override bool init()
     {
@@ -27,4 +26,18 @@ public class ModuleLogin : IModule
         
     }
 
+    public void requestLogin(string token)
+    {
+        netproto.CS_Login login = new netproto.CS_Login
+        {
+            token = token,
+        };
+        gameServer.send(login);
+    }
+
+    [MsgRoute]
+    public void response(netproto.SC_Login login)
+    {
+        SysLog.debug("login get code {0}", login.code);
+    }
 }

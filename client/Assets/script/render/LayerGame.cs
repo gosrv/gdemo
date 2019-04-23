@@ -12,7 +12,7 @@ class LayerGame : Layer
     private ModuleBattle mModuleBattle = null;
     private ModuleServerTime mModuleServerTime = null;
 
-    public LayerGame() : base("ui", "game")
+    public LayerGame() : base("game")
     {
 
     }

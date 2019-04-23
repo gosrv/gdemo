@@ -10,7 +10,7 @@ class LayerSystem : Layer
 {
     private Dictionary<string, GameObject> mSubPlane = new Dictionary<string, GameObject>();
 
-    public LayerSystem() : base("ui", "sysconfig")
+    public LayerSystem() : base("sysconfig")
     {
 
     }

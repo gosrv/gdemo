@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 class LayerFight : Layer
 {
-    public LayerFight() : base("ui", "fight")
+    public LayerFight() : base("fight")
     {
     }
 

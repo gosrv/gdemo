@@ -23,4 +23,16 @@ public class ModuleDataSync : IModule
     {
 
     }
+
+    [MsgRoute]
+    public void responsePlayerData(netproto.PlayerData playerData)
+    {
+        Player.playerData.FromProto(playerData);
+    }
+
+    [MsgRoute]
+    public void responsePlayerData(netproto.PlayerInfo playerInfo)
+    {
+        Player.playerInfo.FromProto(playerInfo);
+    }
 }

@@ -1,31 +1,26 @@
 ﻿
-
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using System.Collections;
 using UnityEngine.UI;
 
 class LayerLogin : Layer
 {
-    private ModuleLogin mModuleLogin = null;
+    private ModuleLogin moduleLogin = null;
+    private ModuleNetGameServ moduleNetGameServ = null;
 
-    private string mLoginId = "";
-
-    public LayerLogin() : base("ui", "login")
+    private InputField account;
+    public LayerLogin() : base("ui/login")
     {
     }
 
     protected override bool init()
     {
-        BtnEventListener listener = UT.addComponentTo<BtnEventListener>(rootObject(), "login");
-        listener.setClickCallback(this.OnBtnClickLogin);
+        account = UT.getComponent<InputField>(rootObject(), "account");
+        account.text = SaveData.data.account;
 
-        mLoginId = PlayerPrefs.GetString("_my_cardgameid");
-        if (mLoginId.Length != 0)
-        {
-            UT.getComponent<InputField>(rootObject(), "name").text = mLoginId;
-        }        
-                
+        Button btnLogin = UT.getComponent<Button>(rootObject(), "BtnLogin");
+        btnLogin.onClick.AddListener(this.OnBtnClickLogin);
+
         return true;
     }
 
@@ -34,14 +29,27 @@ class LayerLogin : Layer
         
     }
 
-    public void OnBtnClickLogin(PointerEventData eventData, object data)
+    public void OnBtnClickLogin()
     {
-        mLoginId = UT.getComponent<Text>(rootObject(), "name/Text").text;
-        SysLog.debug("start login by " + mLoginId);
+        string strAccount = account.text;
+        SysLog.debug("start login by " + strAccount);
+
+        UT.startCoroutine(StartLogin(strAccount));
     }
 
     public override void update(float delta)
     {
+        
 
+    }
+
+    private IEnumerator StartLogin(string strAccount)
+    {
+        SaveData.data.account = strAccount;
+        WWW requestToken = new WWW("http://127.0.0.1:18080/login/login?account=" + strAccount);
+        yield return requestToken;
+        SysLog.debug("get token {0}", requestToken.text);
+        moduleNetGameServ.startConnect(Config.ins.gameServerHost.ip, Config.ins.gameServerHost.port);
+        moduleLogin.requestLogin(requestToken.text);
     }
 }

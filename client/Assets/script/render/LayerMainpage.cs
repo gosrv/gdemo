@@ -9,7 +9,7 @@ class LayerMainpage : Layer
 {
     private GameObject[] mTeamMembers = new GameObject[5];
 
-    public LayerMainpage() : base("ui", "mainpage")
+    public LayerMainpage() : base("mainpage")
     {
 
     }
@@ -78,6 +78,6 @@ class LayerMainpage : Layer
 
     public void OnBtnClickTalk(PointerEventData eventData, object data)
     {
-        addChild(new LayerTalk("ui", "chat"));
+        addChild(new LayerTalk("chat"));
     }
 }
