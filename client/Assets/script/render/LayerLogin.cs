@@ -39,8 +39,10 @@ class LayerLogin : Layer
 
     public override void update(float delta)
     {
-        
-
+        if (Player.playerData.baseInfo.id > 0)
+        {
+            SceneRoot.instance.switchLayer(new LayerMainpage());
+        }
     }
 
     public class LoginResult{
@@ -48,8 +50,11 @@ class LayerLogin : Layer
         public string Token;
     }
 
-private IEnumerator StartLogin(string strAccount)
+    private IEnumerator StartLogin(string strAccount)
     {
+        Player.playerData = new proto.PlayerData();
+        Player.playerInfo = new proto.PlayerInfo();
+
         SaveData.data.account = strAccount;
         WWW requestToken = new WWW("http://127.0.0.1:18080/login/login?account=" + strAccount);
         yield return requestToken;

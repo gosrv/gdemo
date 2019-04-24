@@ -15,23 +15,6 @@ class LayerShop : Layer
 
     protected override bool init()
     {
-        for (int i = 0; i < 2; i++)
-        {
-            BtnEventListener listener = UT.addComponentTo<BtnEventListener>(rootObject(), "hero/item" + (i + 1) + "/buy");
-            listener.setClickCallback(this.onBtnHero, i + 1);
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            BtnEventListener listener = UT.addComponentTo<BtnEventListener>(rootObject(), "shop/item" + (i + 1) + "/buy");
-            listener.setClickCallback(this.onBtnShop, i + 1);
-        }
-
-        for (int i=0; i<6; i++)
-        {
-            BtnEventListener listener = UT.addComponentTo<BtnEventListener>(rootObject(), "charge/item"+(i+1)+"/buy");
-            listener.setClickCallback(this.onBtnCharge, i);
-        }
         return true;
     }
 

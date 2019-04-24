@@ -6,6 +6,7 @@ import (
 	"github.com/gosrv/gbase/gdb"
 	"github.com/gosrv/gbase/gl"
 	"github.com/gosrv/gbase/gproto"
+	"reflect"
 	"time"
 )
 
@@ -42,6 +43,7 @@ type PlayerDataSync struct {
 	// 设置缓存超时时间的接口
 	dataExpireable gdb.IDataExpireable
 }
+var PPlayerDataSyncType = reflect.TypeOf((*PlayerDataSync)(nil))
 
 func NewPlayerDataSync(data *PlayerData, info *PlayerInfo, cacheFlushGapSec int64,
 	dbFlushGapSec int64, netChannel gproto.INetChannel,

@@ -87,6 +87,9 @@ func (this *PlayerMgr) InitPlayerData(playerId int64, playerData *entity.PlayerD
 	baseInfo := playerData.GetBaseInfo()
 	baseInfo.SetId(playerId)
 	baseInfo.SetLevel(1)
+
+	playerData.GetChapter().SetLevel(1)
+
 	baseInfo.SetName("name" + strconv.FormatInt(playerId, 10))
 }
 

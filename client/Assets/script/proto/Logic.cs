@@ -12,43 +12,6 @@
 // Generated from: logic.proto
 namespace netproto
 {
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_TestSyncBaseInfo")]
-  public partial class CS_TestSyncBaseInfo : global::ProtoBuf.IExtensible
-  {
-    public CS_TestSyncBaseInfo() {}
-    
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_TestSyncBaseInfo")]
-  public partial class SC_TestSyncBaseInfo : global::ProtoBuf.IExtensible
-  {
-    public SC_TestSyncBaseInfo() {}
-    
-    private netproto.E_Code? _code;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public netproto.E_Code? code
-    {
-      get { return _code; }
-      set { _code = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool codeSpecified
-    {
-      get { return this._code != null; }
-      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
-    }
-    private bool ShouldSerializecode() { return codeSpecified; }
-    private void Resetcode() { codeSpecified = false; }
-    
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_Tick")]
   public partial class CS_Tick : global::ProtoBuf.IExtensible
   {
@@ -101,25 +64,8 @@ namespace netproto
   {
     public SC_Login() {}
     
-    private long? _id;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"id", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? id
-    {
-      get { return _id; }
-      set { _id = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool idSpecified
-    {
-      get { return this._id != null; }
-      set { if (value == (this._id== null)) this._id = value ? this.id : (long?)null; }
-    }
-    private bool ShouldSerializeid() { return idSpecified; }
-    private void Resetid() { idSpecified = false; }
-    
     private netproto.E_Code? _code;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public netproto.E_Code? code
     {
       get { return _code; }
@@ -140,166 +86,344 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_P2P")]
-  public partial class CS_P2P : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_ShopAddDiamond")]
+  public partial class CS_ShopAddDiamond : global::ProtoBuf.IExtensible
   {
-    public CS_P2P() {}
+    public CS_ShopAddDiamond() {}
     
-    private long? _from;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"from", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? from
+    private int? _idx;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"idx", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? idx
     {
-      get { return _from; }
-      set { _from = value; }
+      get { return _idx; }
+      set { _idx = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool fromSpecified
+    public bool idxSpecified
     {
-      get { return this._from != null; }
-      set { if (value == (this._from== null)) this._from = value ? this.from : (long?)null; }
+      get { return this._idx != null; }
+      set { if (value == (this._idx== null)) this._idx = value ? this.idx : (int?)null; }
     }
-    private bool ShouldSerializefrom() { return fromSpecified; }
-    private void Resetfrom() { fromSpecified = false; }
-    
-    private long? _to;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"to", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? to
-    {
-      get { return _to; }
-      set { _to = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool toSpecified
-    {
-      get { return this._to != null; }
-      set { if (value == (this._to== null)) this._to = value ? this.to : (long?)null; }
-    }
-    private bool ShouldSerializeto() { return toSpecified; }
-    private void Resetto() { toSpecified = false; }
-    
-    private byte[] _msg;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"msg", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public byte[] msg
-    {
-      get { return _msg; }
-      set { _msg = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool msgSpecified
-    {
-      get { return this._msg != null; }
-      set { if (value == (this._msg== null)) this._msg = value ? this.msg : (byte[])null; }
-    }
-    private bool ShouldSerializemsg() { return msgSpecified; }
-    private void Resetmsg() { msgSpecified = false; }
+    private bool ShouldSerializeidx() { return idxSpecified; }
+    private void Resetidx() { idxSpecified = false; }
     
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_P2P")]
-  public partial class SC_P2P : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_ShopAddDiamond")]
+  public partial class SC_ShopAddDiamond : global::ProtoBuf.IExtensible
   {
-    public SC_P2P() {}
+    public SC_ShopAddDiamond() {}
     
-    private long? _from;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"from", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? from
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
     {
-      get { return _from; }
-      set { _from = value; }
+      get { return _code; }
+      set { _code = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool fromSpecified
+    public bool codeSpecified
     {
-      get { return this._from != null; }
-      set { if (value == (this._from== null)) this._from = value ? this.from : (long?)null; }
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
     }
-    private bool ShouldSerializefrom() { return fromSpecified; }
-    private void Resetfrom() { fromSpecified = false; }
-    
-    private long? _to;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"to", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? to
-    {
-      get { return _to; }
-      set { _to = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool toSpecified
-    {
-      get { return this._to != null; }
-      set { if (value == (this._to== null)) this._to = value ? this.to : (long?)null; }
-    }
-    private bool ShouldSerializeto() { return toSpecified; }
-    private void Resetto() { toSpecified = false; }
-    
-    private byte[] _msg;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"msg", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public byte[] msg
-    {
-      get { return _msg; }
-      set { _msg = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool msgSpecified
-    {
-      get { return this._msg != null; }
-      set { if (value == (this._msg== null)) this._msg = value ? this.msg : (byte[])null; }
-    }
-    private bool ShouldSerializemsg() { return msgSpecified; }
-    private void Resetmsg() { msgSpecified = false; }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
     
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_GuideDonate")]
-  public partial class CS_GuideDonate : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_ShopBuyGold")]
+  public partial class CS_ShopBuyGold : global::ProtoBuf.IExtensible
   {
-    public CS_GuideDonate() {}
+    public CS_ShopBuyGold() {}
     
-    private long? _guideId;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"guideId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? guideId
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_ShopBuyGold")]
+  public partial class SC_ShopBuyGold : global::ProtoBuf.IExtensible
+  {
+    public SC_ShopBuyGold() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
     {
-      get { return _guideId; }
-      set { _guideId = value; }
+      get { return _code; }
+      set { _code = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool guideIdSpecified
+    public bool codeSpecified
     {
-      get { return this._guideId != null; }
-      set { if (value == (this._guideId== null)) this._guideId = value ? this.guideId : (long?)null; }
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
     }
-    private bool ShouldSerializeguideId() { return guideIdSpecified; }
-    private void ResetguideId() { guideIdSpecified = false; }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
     
-    private int? _gold;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"gold", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? gold
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_HeroDraw")]
+  public partial class CS_HeroDraw : global::ProtoBuf.IExtensible
+  {
+    public CS_HeroDraw() {}
+    
+    private int? _num;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? num
     {
-      get { return _gold; }
-      set { _gold = value; }
+      get { return _num; }
+      set { _num = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool goldSpecified
+    public bool numSpecified
     {
-      get { return this._gold != null; }
-      set { if (value == (this._gold== null)) this._gold = value ? this.gold : (int?)null; }
+      get { return this._num != null; }
+      set { if (value == (this._num== null)) this._num = value ? this.num : (int?)null; }
     }
-    private bool ShouldSerializegold() { return goldSpecified; }
-    private void Resetgold() { goldSpecified = false; }
+    private bool ShouldSerializenum() { return numSpecified; }
+    private void Resetnum() { numSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_HeroDraw")]
+  public partial class SC_HeroDraw : global::ProtoBuf.IExtensible
+  {
+    public SC_HeroDraw() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
+    {
+      get { return _code; }
+      set { _code = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool codeSpecified
+    {
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
+    }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_HeroUplevel")]
+  public partial class CS_HeroUplevel : global::ProtoBuf.IExtensible
+  {
+    public CS_HeroUplevel() {}
+    
+    private int? _heroId;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"heroId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? heroId
+    {
+      get { return _heroId; }
+      set { _heroId = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool heroIdSpecified
+    {
+      get { return this._heroId != null; }
+      set { if (value == (this._heroId== null)) this._heroId = value ? this.heroId : (int?)null; }
+    }
+    private bool ShouldSerializeheroId() { return heroIdSpecified; }
+    private void ResetheroId() { heroIdSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_HeroUpLevel")]
+  public partial class SC_HeroUpLevel : global::ProtoBuf.IExtensible
+  {
+    public SC_HeroUpLevel() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
+    {
+      get { return _code; }
+      set { _code = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool codeSpecified
+    {
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
+    }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_HeroEquip")]
+  public partial class CS_HeroEquip : global::ProtoBuf.IExtensible
+  {
+    public CS_HeroEquip() {}
+    
+    private int? _heroId;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"heroId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? heroId
+    {
+      get { return _heroId; }
+      set { _heroId = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool heroIdSpecified
+    {
+      get { return this._heroId != null; }
+      set { if (value == (this._heroId== null)) this._heroId = value ? this.heroId : (int?)null; }
+    }
+    private bool ShouldSerializeheroId() { return heroIdSpecified; }
+    private void ResetheroId() { heroIdSpecified = false; }
+    
+    private int? _equipId;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"equipId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? equipId
+    {
+      get { return _equipId; }
+      set { _equipId = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool equipIdSpecified
+    {
+      get { return this._equipId != null; }
+      set { if (value == (this._equipId== null)) this._equipId = value ? this.equipId : (int?)null; }
+    }
+    private bool ShouldSerializeequipId() { return equipIdSpecified; }
+    private void ResetequipId() { equipIdSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_HeroEquip")]
+  public partial class SC_HeroEquip : global::ProtoBuf.IExtensible
+  {
+    public SC_HeroEquip() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
+    {
+      get { return _code; }
+      set { _code = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool codeSpecified
+    {
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
+    }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_ChapterGetPrize")]
+  public partial class CS_ChapterGetPrize : global::ProtoBuf.IExtensible
+  {
+    public CS_ChapterGetPrize() {}
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_ChapterGetPrize")]
+  public partial class SC_ChapterGetPrize : global::ProtoBuf.IExtensible
+  {
+    public SC_ChapterGetPrize() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
+    {
+      get { return _code; }
+      set { _code = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool codeSpecified
+    {
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
+    }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_ChapterChallenge")]
+  public partial class CS_ChapterChallenge : global::ProtoBuf.IExtensible
+  {
+    public CS_ChapterChallenge() {}
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_ChapterChallenge")]
+  public partial class SC_ChapterChallenge : global::ProtoBuf.IExtensible
+  {
+    public SC_ChapterChallenge() {}
+    
+    private netproto.E_Code? _code;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"code", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public netproto.E_Code? code
+    {
+      get { return _code; }
+      set { _code = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool codeSpecified
+    {
+      get { return this._code != null; }
+      set { if (value == (this._code== null)) this._code = value ? this.code : (netproto.E_Code?)null; }
+    }
+    private bool ShouldSerializecode() { return codeSpecified; }
+    private void Resetcode() { codeSpecified = false; }
     
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -342,7 +466,22 @@ namespace netproto
       E_INVALID_PARAM = 6,
             
       [global::ProtoBuf.ProtoEnum(Name=@"E_INVALID_OPT", Value=7)]
-      E_INVALID_OPT = 7
+      E_INVALID_OPT = 7,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_GOLD", Value=20)]
+      E_LIMIT_GOLD = 20,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_DIAMOND", Value=21)]
+      E_LIMIT_DIAMOND = 21,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_TIMES", Value=22)]
+      E_LIMIT_TIMES = 22,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_CHAPTER_LEVEL", Value=23)]
+      E_LIMIT_CHAPTER_LEVEL = 23,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_PLAYER_LEVEL", Value=24)]
+      E_LIMIT_PLAYER_LEVEL = 24
     }
   
     [global::ProtoBuf.ProtoContract(Name=@"EMsgIds")]
@@ -352,32 +491,59 @@ namespace netproto
       [global::ProtoBuf.ProtoEnum(Name=@"ECS_None", Value=0)]
       ECS_None = 0,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_TestSyncBaseInfo", Value=90)]
-      ECS_TestSyncBaseInfo = 90,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Tick", Value=101)]
+      ECS_Tick = 101,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_TestSyncBaseInfo", Value=91)]
-      ESC_TestSyncBaseInfo = 91,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Tick", Value=102)]
+      ESC_Tick = 102,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Login", Value=101)]
-      ECS_Login = 101,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Login", Value=103)]
+      ECS_Login = 103,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Login", Value=103)]
-      ESC_Login = 103,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Login", Value=104)]
+      ESC_Login = 104,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Tick", Value=104)]
-      ECS_Tick = 104,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopAddDiamond", Value=105)]
+      ECS_ShopAddDiamond = 105,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Tick", Value=105)]
-      ESC_Tick = 105,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopAddDiamond", Value=106)]
+      ESC_ShopAddDiamond = 106,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_P2P", Value=106)]
-      ECS_P2P = 106,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopBuyGold", Value=107)]
+      ECS_ShopBuyGold = 107,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_P2P", Value=107)]
-      ESC_P2P = 107,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopBuyGold", Value=108)]
+      ESC_ShopBuyGold = 108,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_GuideDonate", Value=108)]
-      ECS_GuideDonate = 108
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroDraw", Value=109)]
+      ECS_HeroDraw = 109,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroDraw", Value=110)]
+      ESC_HeroDraw = 110,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroUplevel", Value=111)]
+      ECS_HeroUplevel = 111,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroUpLevel", Value=112)]
+      ESC_HeroUpLevel = 112,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroEquip", Value=113)]
+      ECS_HeroEquip = 113,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroEquip", Value=114)]
+      ESC_HeroEquip = 114,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterGetPrize", Value=115)]
+      ECS_ChapterGetPrize = 115,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterGetPrize", Value=116)]
+      ESC_ChapterGetPrize = 116,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterChallenge", Value=117)]
+      ECS_ChapterChallenge = 117,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterChallenge", Value=118)]
+      ESC_ChapterChallenge = 118
     }
   
 }

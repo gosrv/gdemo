@@ -62,10 +62,8 @@ public class FrameWork  {
 
     public void latetick(int delta)
     {
-        /*if (Player.data != null)
-        {
-            Player.data.clearDirty();
-        }*/
         ModuleMgr.instance.tick(delta);
+        Player.playerData.ClearDirty();
+        Player.playerInfo.ClearDirty();
     }
 }

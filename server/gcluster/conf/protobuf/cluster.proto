@@ -13,10 +13,10 @@ message SS_ClusterRegister {
     string signCode = 1;
     string uuid = 2;
 }
+
 message SS_KickPlayer {
     int64 playerId = 1;
 }
-
 // 玩家之间的消息
 message SS_Player2Player {
     int64 fromPlayerId = 1;

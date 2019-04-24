@@ -25,14 +25,16 @@ public class ModuleDataSync : IModule
     }
 
     [MsgRoute]
-    public void responsePlayerData(netproto.PlayerData playerData)
+    public void response(netproto.PlayerData playerData)
     {
         Player.playerData.FromProto(playerData);
+        SysLog.debug("merge playerData");
     }
 
     [MsgRoute]
-    public void responsePlayerData(netproto.PlayerInfo playerInfo)
+    public void response(netproto.PlayerInfo playerInfo)
     {
         Player.playerInfo.FromProto(playerInfo);
+        SysLog.debug("merge playerInfo");
     }
 }

@@ -12,17 +12,17 @@ import (
 	"github.com/gosrv/glog"
 )
 
-type ServiceLogin struct {
-	log                   glog.IFieldLogger      `log:"app"`
-	net                   *tcpnet.TcpNetServer   `bean:""`
-	playerMgr             *PlayerMgr             `bean:""`
-	nodeUuid              string                 `bean:""`
-	nodeMgr			      *cluster.NodeMgr		 `bean:""`
-	nodeMq				  *cluster.NodeMQ		`bean:""`
-	servicePlayerMsgQueue *ServicePlayerMsgQueue `bean:""`
+type Login struct {
+	log                   glog.IFieldLogger    `log:"app"`
+	net                   *tcpnet.TcpNetServer `bean:""`
+	playerMgr             *PlayerMgr           `bean:""`
+	nodeUuid              string               `bean:""`
+	nodeMgr			      *cluster.NodeMgr  `bean:""`
+	nodeMq				  *cluster.NodeMQ    `bean:""`
+	servicePlayerMsgQueue *PlayerMsgQueue      `bean:""`
 }
 
-func (this *ServiceLogin) BeanInit() {
+func (this *Login) BeanInit() {
 	eventRoute := this.net.GetEventRoute()
 	eventRoute.Connect(gnet.NetEventConnect, func(from interface{}, key interface{}, data interface{}) interface{} {
 		return nil
@@ -43,15 +43,15 @@ func (this *ServiceLogin) BeanInit() {
 	})
 }
 
-func (this *ServiceLogin) BeanUninit() {
+func (this *Login) BeanUninit() {
 
 }
 
-func NewServiceLogin() *ServiceLogin {
-	return &ServiceLogin{}
+func NewLogin() *Login {
+	return &Login{}
 }
 
-func (this *ServiceLogin) ProcessLogin(netChannel gproto.INetChannel, ctx gnet.ISessionCtx, playerId int64) netproto.E_Code {
+func (this *Login) ProcessLogin(netChannel gproto.INetChannel, ctx gnet.ISessionCtx, playerId int64) netproto.E_Code {
 	// 重复登陆请求
 	if ctx.Get(gdb.IDBAttributeGroupType) != nil {
 		this.log.Debug("player %v login failed, relogin in same connection.", playerId)
@@ -91,7 +91,7 @@ func (this *ServiceLogin) ProcessLogin(netChannel gproto.INetChannel, ctx gnet.I
 	return netproto.E_Code_E_OK
 }
 
-func (this *ServiceLogin) doClusterLogin(playerId int64, attributeGroup gdb.IDBAttributeGroup) netproto.E_Code {
+func (this *Login) doClusterLogin(playerId int64, attributeGroup gdb.IDBAttributeGroup) netproto.E_Code {
 	// 异服重复登陆检查
 	if attributeGroup.CasSetAttribute(meta.BaseApp, "", this.nodeUuid) {
 		return netproto.E_Code_E_OK

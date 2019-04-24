@@ -187,6 +187,41 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerDatachapter")]
+  public partial class PlayerDatachapter : global::ProtoBuf.IExtensible
+  {
+    public PlayerDatachapter() {}
+    
+    private int? _key;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"key", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? key
+    {
+      get { return _key; }
+      set { _key = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool keySpecified
+    {
+      get { return this._key != null; }
+      set { if (value == (this._key== null)) this._key = value ? this.key : (int?)null; }
+    }
+    private bool ShouldSerializekey() { return keySpecified; }
+    private void Resetkey() { keySpecified = false; }
+    
+    private netproto.Chapter _val = null;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"val", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public netproto.Chapter val
+    {
+      get { return _val; }
+      set { _val = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerInfoserverTime")]
   public partial class PlayerInfoserverTime : global::ProtoBuf.IExtensible
   {
@@ -715,10 +750,10 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ChapterprizeGoldCheckTime")]
-  public partial class ChapterprizeGoldCheckTime : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ChapterprizeCheckTime")]
+  public partial class ChapterprizeCheckTime : global::ProtoBuf.IExtensible
   {
-    public ChapterprizeGoldCheckTime() {}
+    public ChapterprizeCheckTime() {}
     
     private int? _key;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"key", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -737,9 +772,9 @@ namespace netproto
     private bool ShouldSerializekey() { return keySpecified; }
     private void Resetkey() { keySpecified = false; }
     
-    private int? _val;
+    private long? _val;
     [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"val", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? val
+    public long? val
     {
       get { return _val; }
       set { _val = value; }
@@ -749,51 +784,7 @@ namespace netproto
     public bool valSpecified
     {
       get { return this._val != null; }
-      set { if (value == (this._val== null)) this._val = value ? this.val : (int?)null; }
-    }
-    private bool ShouldSerializeval() { return valSpecified; }
-    private void Resetval() { valSpecified = false; }
-    
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ChapterprizeEquipCheckTime")]
-  public partial class ChapterprizeEquipCheckTime : global::ProtoBuf.IExtensible
-  {
-    public ChapterprizeEquipCheckTime() {}
-    
-    private int? _key;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"key", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? key
-    {
-      get { return _key; }
-      set { _key = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool keySpecified
-    {
-      get { return this._key != null; }
-      set { if (value == (this._key== null)) this._key = value ? this.key : (int?)null; }
-    }
-    private bool ShouldSerializekey() { return keySpecified; }
-    private void Resetkey() { keySpecified = false; }
-    
-    private int? _val;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"val", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? val
-    {
-      get { return _val; }
-      set { _val = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool valSpecified
-    {
-      get { return this._val != null; }
-      set { if (value == (this._val== null)) this._val = value ? this.val : (int?)null; }
+      set { if (value == (this._val== null)) this._val = value ? this.val : (long?)null; }
     }
     private bool ShouldSerializeval() { return valSpecified; }
     private void Resetval() { valSpecified = false; }
@@ -1132,6 +1123,50 @@ namespace netproto
       get { return _val; }
       set { _val = value; }
     }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Heronum")]
+  public partial class Heronum : global::ProtoBuf.IExtensible
+  {
+    public Heronum() {}
+    
+    private int? _key;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"key", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? key
+    {
+      get { return _key; }
+      set { _key = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool keySpecified
+    {
+      get { return this._key != null; }
+      set { if (value == (this._key== null)) this._key = value ? this.key : (int?)null; }
+    }
+    private bool ShouldSerializekey() { return keySpecified; }
+    private void Resetkey() { keySpecified = false; }
+    
+    private int? _val;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"val", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? val
+    {
+      get { return _val; }
+      set { _val = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool valSpecified
+    {
+      get { return this._val != null; }
+      set { if (value == (this._val== null)) this._val = value ? this.val : (int?)null; }
+    }
+    private bool ShouldSerializeval() { return valSpecified; }
+    private void Resetval() { valSpecified = false; }
+    
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -2096,6 +2131,14 @@ namespace netproto
       get { return _guide; }
       set { _guide = value; }
     }
+    private netproto.Chapter _chapter = null;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"chapter", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public netproto.Chapter chapter
+    {
+      get { return _chapter; }
+      set { _chapter = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -2330,39 +2373,22 @@ namespace netproto
     private bool ShouldSerializelevel() { return levelSpecified; }
     private void Resetlevel() { levelSpecified = false; }
     
-    private int? _prizeGoldCheckTime;
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"prizeGoldCheckTime", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? prizeGoldCheckTime
+    private long? _prizeCheckTime;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"prizeCheckTime", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? prizeCheckTime
     {
-      get { return _prizeGoldCheckTime; }
-      set { _prizeGoldCheckTime = value; }
+      get { return _prizeCheckTime; }
+      set { _prizeCheckTime = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool prizeGoldCheckTimeSpecified
+    public bool prizeCheckTimeSpecified
     {
-      get { return this._prizeGoldCheckTime != null; }
-      set { if (value == (this._prizeGoldCheckTime== null)) this._prizeGoldCheckTime = value ? this.prizeGoldCheckTime : (int?)null; }
+      get { return this._prizeCheckTime != null; }
+      set { if (value == (this._prizeCheckTime== null)) this._prizeCheckTime = value ? this.prizeCheckTime : (long?)null; }
     }
-    private bool ShouldSerializeprizeGoldCheckTime() { return prizeGoldCheckTimeSpecified; }
-    private void ResetprizeGoldCheckTime() { prizeGoldCheckTimeSpecified = false; }
-    
-    private int? _prizeEquipCheckTime;
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"prizeEquipCheckTime", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public int? prizeEquipCheckTime
-    {
-      get { return _prizeEquipCheckTime; }
-      set { _prizeEquipCheckTime = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool prizeEquipCheckTimeSpecified
-    {
-      get { return this._prizeEquipCheckTime != null; }
-      set { if (value == (this._prizeEquipCheckTime== null)) this._prizeEquipCheckTime = value ? this.prizeEquipCheckTime : (int?)null; }
-    }
-    private bool ShouldSerializeprizeEquipCheckTime() { return prizeEquipCheckTimeSpecified; }
-    private void ResetprizeEquipCheckTime() { prizeEquipCheckTimeSpecified = false; }
+    private bool ShouldSerializeprizeCheckTime() { return prizeCheckTimeSpecified; }
+    private void ResetprizeCheckTime() { prizeCheckTimeSpecified = false; }
     
     private readonly global::System.Collections.Generic.List<netproto.ChapterprizeEquip> _prizeEquip = new global::System.Collections.Generic.List<netproto.ChapterprizeEquip>();
     [global::ProtoBuf.ProtoMember(5, Name=@"prizeEquip", DataFormat = global::ProtoBuf.DataFormat.Default)]
@@ -2500,6 +2526,23 @@ namespace netproto
       get { return _equips; }
     }
   
+    private int? _num;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"num", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int? num
+    {
+      get { return _num; }
+      set { _num = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool numSpecified
+    {
+      get { return this._num != null; }
+      set { if (value == (this._num== null)) this._num = value ? this.num : (int?)null; }
+    }
+    private bool ShouldSerializenum() { return numSpecified; }
+    private void Resetnum() { numSpecified = false; }
+    
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

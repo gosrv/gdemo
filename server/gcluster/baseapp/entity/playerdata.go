@@ -616,6 +616,7 @@ func NewTestMapMapPrimitiveStrComProtoDirty(k string, v *PlayerData) *netproto.T
                 _heroPack *HeroPack
                 _equipPack *EquipPack
                 _guide *Guide
+                _chapter *Chapter
     }
     // ctor
     func NewPlayerData() *PlayerData {
@@ -632,6 +633,8 @@ func NewTestMapMapPrimitiveStrComProtoDirty(k string, v *PlayerData) *netproto.T
                 ins._equipPack.Init(ins, 4)
                 ins._guide = NewGuide()
                 ins._guide.Init(ins, 5)
+                ins._chapter = NewChapter()
+                ins._chapter.Init(ins, 6)
         return ins
     }
 // BaseInfo getter and setter
@@ -653,6 +656,10 @@ func NewTestMapMapPrimitiveStrComProtoDirty(k string, v *PlayerData) *netproto.T
 // Guide getter and setter
             func (this *PlayerData)GetGuide() *Guide {
                 return this._guide
+            }
+// Chapter getter and setter
+            func (this *PlayerData)GetChapter() *Chapter {
+                return this._chapter
             }
 
 // read from proto    
@@ -677,6 +684,10 @@ func (this *PlayerData)FromProto(pdata *netproto.PlayerData) {
             if pdata.Guide != nil {
                 this.GetGuide().FromProto(pdata.Guide)
             }
+        // Chapter getter and setter 
+            if pdata.Chapter != nil {
+                this.GetChapter().FromProto(pdata.Chapter)
+            }
 }
 
 // write to proto    
@@ -687,6 +698,7 @@ func (this *PlayerData)ToProto() *netproto.PlayerData {
         pdata.HeroPack = this._heroPack.ToProto()
         pdata.EquipPack = this._equipPack.ToProto()
         pdata.Guide = this._guide.ToProto()
+        pdata.Chapter = this._chapter.ToProto()
     return pdata
 }
 
@@ -710,6 +722,9 @@ func (this *PlayerData)ToProtoDirty() *netproto.PlayerData {
     }
     if this.IsDirty(5) {
             pdata.Guide = this._guide.ToProtoDirty()
+    }
+    if this.IsDirty(6) {
+            pdata.Chapter = this._chapter.ToProtoDirty()
     }
     return pdata
 }
@@ -974,8 +989,7 @@ func (this *Guide)ToProtoDirty() *netproto.Guide {
         *datasync.DirtyContainerMarkVector
                 _heros *ContainerChapterheros
                 _level int32
-                _prizeGoldCheckTime int32
-                _prizeEquipCheckTime int32
+                _prizeCheckTime int64
                 _prizeEquip *ContainerChapterprizeEquip
     }
     // ctor
@@ -1005,21 +1019,13 @@ func (this *Guide)ToProtoDirty() *netproto.Guide {
                 this._level = val
                 this.MarkDirtyUp(2)
             }
-// PrizeGoldCheckTime getter and setter
-            func (this *Chapter)GetPrizeGoldCheckTime() int32 {
-                return this._prizeGoldCheckTime
+// PrizeCheckTime getter and setter
+            func (this *Chapter)GetPrizeCheckTime() int64 {
+                return this._prizeCheckTime
             }
-            func (this *Chapter)SetPrizeGoldCheckTime(val int32) {
-                this._prizeGoldCheckTime = val
+            func (this *Chapter)SetPrizeCheckTime(val int64) {
+                this._prizeCheckTime = val
                 this.MarkDirtyUp(3)
-            }
-// PrizeEquipCheckTime getter and setter
-            func (this *Chapter)GetPrizeEquipCheckTime() int32 {
-                return this._prizeEquipCheckTime
-            }
-            func (this *Chapter)SetPrizeEquipCheckTime(val int32) {
-                this._prizeEquipCheckTime = val
-                this.MarkDirtyUp(4)
             }
 // PrizeEquip getter and setter
             func (this *Chapter)GetPrizeEquip() *ContainerChapterprizeEquip {
@@ -1036,13 +1042,9 @@ func (this *Chapter)FromProto(pdata *netproto.Chapter) {
             if pdata.Level != nil {
                 this.SetLevel(*pdata.Level)
             }
-        // PrizeGoldCheckTime getter and setter
-            if pdata.PrizeGoldCheckTime != nil {
-                this.SetPrizeGoldCheckTime(*pdata.PrizeGoldCheckTime)
-            }
-        // PrizeEquipCheckTime getter and setter
-            if pdata.PrizeEquipCheckTime != nil {
-                this.SetPrizeEquipCheckTime(*pdata.PrizeEquipCheckTime)
+        // PrizeCheckTime getter and setter
+            if pdata.PrizeCheckTime != nil {
+                this.SetPrizeCheckTime(*pdata.PrizeCheckTime)
             }
         // PrizeEquip getter and setter   
                 for _,val := range pdata.PrizeEquip {
@@ -1059,8 +1061,7 @@ func (this *Chapter)ToProto() *netproto.Chapter {
             pdata.Heros = append(pdata.Heros, NewChapterherosProto(k,v))
         })
         pdata.Level = proto.Int32(this._level)
-        pdata.PrizeGoldCheckTime = proto.Int32(this._prizeGoldCheckTime)
-        pdata.PrizeEquipCheckTime = proto.Int32(this._prizeEquipCheckTime)
+        pdata.PrizeCheckTime = proto.Int64(this._prizeCheckTime)
         this._prizeEquip.Foreach(func (k int32, v *Equip) {
             pdata.PrizeEquip = append(pdata.PrizeEquip, NewChapterprizeEquipProto(k,v))
         })
@@ -1082,10 +1083,7 @@ func (this *Chapter)ToProtoDirty() *netproto.Chapter {
             pdata.Level = proto.Int32(this._level)
     }
     if this.IsDirty(3) {
-            pdata.PrizeGoldCheckTime = proto.Int32(this._prizeGoldCheckTime)
-    }
-    if this.IsDirty(4) {
-            pdata.PrizeEquipCheckTime = proto.Int32(this._prizeEquipCheckTime)
+            pdata.PrizeCheckTime = proto.Int64(this._prizeCheckTime)
     }
     if this.IsDirty(5) {
             this._prizeEquip.ForeachDirty(func (k int32, v *Equip) {
@@ -1180,6 +1178,7 @@ func (this *VipInfo)ToProtoDirty() *netproto.VipInfo {
                 _level int32
                 _status int64
                 _equips *ContainerHeroequips
+                _num int32
     }
     // ctor
     func NewHero() *Hero {
@@ -1220,6 +1219,14 @@ func (this *VipInfo)ToProtoDirty() *netproto.VipInfo {
             func (this *Hero)GetEquips() *ContainerHeroequips {
                 return this._equips
             }
+// Num getter and setter
+            func (this *Hero)GetNum() int32 {
+                return this._num
+            }
+            func (this *Hero)SetNum(val int32) {
+                this._num = val
+                this.MarkDirtyUp(5)
+            }
 
 // read from proto    
 func (this *Hero)FromProto(pdata *netproto.Hero) {
@@ -1241,6 +1248,10 @@ func (this *Hero)FromProto(pdata *netproto.Hero) {
                     ele.FromProto(val.Val)
                     this._equips.Set(*val.Key, ele)
                 }
+        // Num getter and setter
+            if pdata.Num != nil {
+                this.SetNum(*pdata.Num)
+            }
 }
 
 // write to proto    
@@ -1252,6 +1263,7 @@ func (this *Hero)ToProto() *netproto.Hero {
         this._equips.Foreach(func (k int32, v *Equip) {
             pdata.Equips = append(pdata.Equips, NewHeroequipsProto(k,v))
         })
+        pdata.Num = proto.Int32(this._num)
     return pdata
 }
 
@@ -1274,6 +1286,9 @@ func (this *Hero)ToProtoDirty() *netproto.Hero {
             this._equips.ForeachDirty(func (k int32, v *Equip) {
                     pdata.Equips = append(pdata.Equips, NewHeroequipsProtoDirty(k,v))
                 })
+    }
+    if this.IsDirty(5) {
+            pdata.Num = proto.Int32(this._num)
     }
     return pdata
 }

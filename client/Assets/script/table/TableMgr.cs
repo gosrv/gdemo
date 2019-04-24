@@ -26,6 +26,24 @@ public class ChapterArray {
 }
 
 [ProtoContract]
+public class Common {
+	[ProtoMember(1)]
+	public int Id; // ID
+	[ProtoMember(2)]
+	public int Val; // 数值
+	[ProtoMember(3)]
+	public string Des; // 描述
+	
+}
+[ProtoContract]
+public class CommonArray {
+    [ProtoMember(1)]
+	public List<int> Keys;
+	[ProtoMember(2)]
+   	public List<Common> Items;
+}
+
+[ProtoContract]
 public class Equip {
 	[ProtoMember(1)]
 	public int Id; // ID
@@ -77,6 +95,7 @@ public class HeroArray {
 public class TableMgr {
     public static TableMgr ins;
     public Dictionary<int, Chapter> tableChapter;
+    public Dictionary<int, Common> tableCommon;
     public Dictionary<int, Equip> tableEquip;
     public Dictionary<int, Hero> tableHero;
     
@@ -91,6 +110,18 @@ public class TableMgr {
         this.tableChapter = new Dictionary<int,Chapter>();
         for (int i = 0; i < itemArray.Keys.Count; i++) {
             this.tableChapter[itemArray.Keys[i]] = itemArray.Items[i];
+        }
+    }
+    public void loadCommon() {
+        MemoryStream stream = new MemoryStream();
+        byte[] data = DataLoader.Load("Common");
+        stream.SetLength(0);
+        stream.Write(data, 0, data.Length);
+        stream.Seek(0, SeekOrigin.Begin);
+        CommonArray itemArray = Serializer.Deserialize<CommonArray>(stream);
+        this.tableCommon = new Dictionary<int,Common>();
+        for (int i = 0; i < itemArray.Keys.Count; i++) {
+            this.tableCommon[itemArray.Keys[i]] = itemArray.Items[i];
         }
     }
     public void loadEquip() {
@@ -120,11 +151,9 @@ public class TableMgr {
     
     public void Load() {
         this.loadChapter();
+        this.loadCommon();
         this.loadEquip();
         this.loadHero();
         
     }
 }
-
-
-

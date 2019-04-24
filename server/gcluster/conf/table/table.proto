@@ -15,6 +15,18 @@ message ChapterArray {
    	repeated Chapter Items = 2;
 }
 
+message Common {
+	int32 Id = 1; // ID
+	int32 Val = 2; // 数值
+	string Des = 3; // 描述
+	
+}
+
+message CommonArray {
+	repeated int32 Keys = 1;
+   	repeated Common Items = 2;
+}
+
 message Equip {
 	int32 Id = 1; // ID
 	string Name = 2; // 名字

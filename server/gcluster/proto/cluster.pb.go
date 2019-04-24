@@ -56,7 +56,7 @@ func (x ECMsgIds) String() string {
 	return proto.EnumName(ECMsgIds_name, int32(x))
 }
 func (ECMsgIds) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{0}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{0}
 }
 
 type SS_Tick struct {
@@ -69,7 +69,7 @@ func (m *SS_Tick) Reset()         { *m = SS_Tick{} }
 func (m *SS_Tick) String() string { return proto.CompactTextString(m) }
 func (*SS_Tick) ProtoMessage()    {}
 func (*SS_Tick) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{0}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{0}
 }
 func (m *SS_Tick) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_Tick.Unmarshal(m, b)
@@ -101,7 +101,7 @@ func (m *SS_ClusterRegister) Reset()         { *m = SS_ClusterRegister{} }
 func (m *SS_ClusterRegister) String() string { return proto.CompactTextString(m) }
 func (*SS_ClusterRegister) ProtoMessage()    {}
 func (*SS_ClusterRegister) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{1}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{1}
 }
 func (m *SS_ClusterRegister) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_ClusterRegister.Unmarshal(m, b)
@@ -146,7 +146,7 @@ func (m *SS_KickPlayer) Reset()         { *m = SS_KickPlayer{} }
 func (m *SS_KickPlayer) String() string { return proto.CompactTextString(m) }
 func (*SS_KickPlayer) ProtoMessage()    {}
 func (*SS_KickPlayer) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{2}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{2}
 }
 func (m *SS_KickPlayer) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_KickPlayer.Unmarshal(m, b)
@@ -187,7 +187,7 @@ func (m *SS_Player2Player) Reset()         { *m = SS_Player2Player{} }
 func (m *SS_Player2Player) String() string { return proto.CompactTextString(m) }
 func (*SS_Player2Player) ProtoMessage()    {}
 func (*SS_Player2Player) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{3}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{3}
 }
 func (m *SS_Player2Player) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_Player2Player.Unmarshal(m, b)
@@ -241,7 +241,7 @@ func (m *SS_P2PRedirect) Reset()         { *m = SS_P2PRedirect{} }
 func (m *SS_P2PRedirect) String() string { return proto.CompactTextString(m) }
 func (*SS_P2PRedirect) ProtoMessage()    {}
 func (*SS_P2PRedirect) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{4}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{4}
 }
 func (m *SS_P2PRedirect) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_P2PRedirect.Unmarshal(m, b)
@@ -288,7 +288,7 @@ func (m *SS_ForwardPlayerMsg) Reset()         { *m = SS_ForwardPlayerMsg{} }
 func (m *SS_ForwardPlayerMsg) String() string { return proto.CompactTextString(m) }
 func (*SS_ForwardPlayerMsg) ProtoMessage()    {}
 func (*SS_ForwardPlayerMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{5}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{5}
 }
 func (m *SS_ForwardPlayerMsg) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_ForwardPlayerMsg.Unmarshal(m, b)
@@ -343,7 +343,7 @@ func (m *SS_ForwardPlayerGuideMsg) Reset()         { *m = SS_ForwardPlayerGuideM
 func (m *SS_ForwardPlayerGuideMsg) String() string { return proto.CompactTextString(m) }
 func (*SS_ForwardPlayerGuideMsg) ProtoMessage()    {}
 func (*SS_ForwardPlayerGuideMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{6}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{6}
 }
 func (m *SS_ForwardPlayerGuideMsg) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_ForwardPlayerGuideMsg.Unmarshal(m, b)
@@ -401,7 +401,7 @@ func (m *SS_None) Reset()         { *m = SS_None{} }
 func (m *SS_None) String() string { return proto.CompactTextString(m) }
 func (*SS_None) ProtoMessage()    {}
 func (*SS_None) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cluster_ba8206f6d8107823, []int{7}
+	return fileDescriptor_cluster_2eeb6c3d028c3ce9, []int{7}
 }
 func (m *SS_None) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SS_None.Unmarshal(m, b)
@@ -433,9 +433,9 @@ func init() {
 	proto.RegisterEnum("netproto.ECMsgIds", ECMsgIds_name, ECMsgIds_value)
 }
 
-func init() { proto.RegisterFile("cluster.proto", fileDescriptor_cluster_ba8206f6d8107823) }
+func init() { proto.RegisterFile("cluster.proto", fileDescriptor_cluster_2eeb6c3d028c3ce9) }
 
-var fileDescriptor_cluster_ba8206f6d8107823 = []byte{
+var fileDescriptor_cluster_2eeb6c3d028c3ce9 = []byte{
 	// 362 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x52, 0x4d, 0x4f, 0xea, 0x40,
 	0x14, 0x7d, 0xe5, 0xe3, 0x51, 0xee, 0x2b, 0x30, 0xef, 0xc2, 0xcb, 0xab, 0x26, 0x1a, 0x32, 0x2b,

@@ -9,26 +9,23 @@ enum E_Code {
     E_ERROR = 0;
 
     E_OK = 1; // 成功
-
     E_RELOGIN = 2; // 重复登录
     E_NONE_EXIST = 3; // 账号不存在
     E_UNKNOWN = 4;
     E_SERVER_INTERNAL_ERROR = 5;    // 服务器内部错误，一般是服务器的一个bug造成
     E_INVALID_PARAM = 6; // 无效的参数
     E_INVALID_OPT = 7;     // 无效操作
+
+    E_LIMIT_GOLD = 20;       // 金币不足
+    E_LIMIT_DIAMOND = 21;    // 钻石不足
+    E_LIMIT_TIMES = 22;     // 次数限制
+    E_LIMIT_CHAPTER_LEVEL = 23; // 关卡等级不足
+    E_LIMIT_PLAYER_LEVEL = 24; // 人物等级不足
 }
 
-message CS_TestSyncBaseInfo {
-
-}
-
-message SC_TestSyncBaseInfo {
-    E_Code code = 1; // 操作结果
-}
-
+// 心跳
 message CS_Tick {
 }
-
 message SC_Tick {
 }
 
@@ -36,45 +33,86 @@ message SC_Tick {
 message CS_Login {
     string token = 1;
 }
-
-// 登录返回
 message SC_Login {
-    int64 id = 1;
-    E_Code code = 2; // 登录结果
+    E_Code code = 1; // 登录结果
 }
 
-// p2p消息
-message CS_P2P {
-    int64 from = 1;
-    int64 to = 2;
-    bytes msg = 3;
+// 冲钻石
+message CS_ShopAddDiamond {
+    int32 idx = 1;
+}
+message SC_ShopAddDiamond {
+    E_Code code = 1; // 结果
+}
+// 购买金币
+message CS_ShopBuyGold {
+}
+message SC_ShopBuyGold {
+    E_Code code = 1; // 结果
 }
 
-// p2p消息
-message SC_P2P {
-    int64 from = 1;
-    int64 to = 2;
-    bytes msg = 3;
+// 抽英雄
+message CS_HeroDraw {
+    int32 num = 1;
+}
+message SC_HeroDraw {
+    E_Code code = 1; // 结果
 }
 
-message CS_GuideDonate {
-    int64 guideId = 1;
-    int32 gold = 2;
+// 升级英雄等级
+message CS_HeroUplevel {
+    int32 heroId = 1;
+}
+message SC_HeroUpLevel {
+    E_Code code = 1; // 结果
+}
+
+// 装备英雄
+message CS_HeroEquip {
+    int32 heroId = 1;
+    int32 equipId = 2;
+}
+message SC_HeroEquip {
+    E_Code code = 1; // 结果
+}
+
+// 领取挂机奖励
+message CS_ChapterGetPrize {
+}
+message SC_ChapterGetPrize {
+    E_Code code = 1; // 结果
+}
+
+// 关卡挑战
+message CS_ChapterChallenge {
+}
+message SC_ChapterChallenge {
+    E_Code code = 1; // 结果
 }
 
 message CS_None{}
 
+// 前100号的消息留给系统用
 enum EMsgIds {
     ECS_None = 0;
 
-    ECS_TestSyncBaseInfo = 90;
-    ESC_TestSyncBaseInfo = 91;
-
-    ECS_Login = 101;
-    ESC_Login = 103;
-    ECS_Tick = 104;
-    ESC_Tick = 105;
-    ECS_P2P = 106;
-    ESC_P2P = 107;
-    ECS_GuideDonate = 108;
+    // 心跳
+    ECS_Tick = 101;
+    ESC_Tick = 102;
+    ECS_Login = 103;
+    ESC_Login = 104;
+    ECS_ShopAddDiamond = 105;
+    ESC_ShopAddDiamond = 106;
+    ECS_ShopBuyGold = 107;
+    ESC_ShopBuyGold = 108;
+    ECS_HeroDraw = 109;
+    ESC_HeroDraw = 110;
+    ECS_HeroUplevel = 111;
+    ESC_HeroUpLevel = 112;
+    ECS_HeroEquip = 113;
+    ESC_HeroEquip = 114;
+    ECS_ChapterGetPrize = 115;
+    ESC_ChapterGetPrize = 116;
+    ECS_ChapterChallenge = 117;
+    ESC_ChapterChallenge  = 118;
 }

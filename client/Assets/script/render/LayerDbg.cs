@@ -10,14 +10,13 @@ class LayerDbg : Layer
     private ModuleNetGameServ mModuleNetGameServ = null;
     private Text mTextInfo = null;
 
-    public LayerDbg(string group, string name) : base(name)
+    public LayerDbg(string name) : base(name)
     {
     }
 
     protected override bool init()
     {
         mTextInfo = UT.getComponent<Text>(rootObject(), "info");
-
         return true;
     }
 

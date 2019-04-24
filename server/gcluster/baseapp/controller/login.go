@@ -14,14 +14,14 @@ import (
 /**
 登陆消息处理控制器
 */
-type ControllerLogin struct {
+type Login struct {
 	controller.IController
-	loginTokenCheck string                `cfg:"url.login.token.check"`
-	serviceLogin    *service.ServiceLogin `bean:""`
+	loginTokenCheck string         `cfg:"url.login.token.check"`
+	serviceLogin    *service.Login `bean:""`
 }
 
-func NewControllerLogin() *ControllerLogin {
-	return &ControllerLogin{
+func NewLogin() *Login {
+	return &Login{
 		IController: controller.NewTypeController(""),
 	}
 }
@@ -31,9 +31,8 @@ type LoginTokenCheck struct {
 }
 
 // 登陆消息处理
-func (this *ControllerLogin) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
+func (this *Login) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
 	repLogin := &netproto.SC_Login{
-		Id:   -1,
 		Code: netproto.E_Code_E_ERROR,
 	}
 	// 向登录服查询登陆数据
@@ -51,11 +50,7 @@ func (this *ControllerLogin) Login(ctx gnet.ISessionCtx, login *netproto.CS_Logi
 		return repLogin
 	}
 
-	code := this.serviceLogin.ProcessLogin(netChannel, ctx, loginCheck.Id)
+	repLogin.Code = this.serviceLogin.ProcessLogin(netChannel, ctx, loginCheck.Id)
 	// 登陆服授权成功，进入登陆处理
-	repLogin.Code = code
-	if code == netproto.E_Code_E_OK {
-		repLogin.Id = loginCheck.Id
-	}
 	return repLogin
 }

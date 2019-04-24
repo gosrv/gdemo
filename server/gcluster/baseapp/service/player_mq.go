@@ -9,15 +9,15 @@ import (
 	"github.com/gosrv/goioc/util"
 )
 
-type ServicePlayerMsgQueue struct {
+type PlayerMsgQueue struct {
 	msgCenter *common.ClusterMsgCenter `bean:""`
 }
 
-func NewServicePlayerMsgQueue() *ServicePlayerMsgQueue {
-	return &ServicePlayerMsgQueue{}
+func NewPlayerMsgQueue() *PlayerMsgQueue {
+	return &PlayerMsgQueue{}
 }
 
-func (this *ServicePlayerMsgQueue) GoProcessPlayerMsg(ctx gnet.ISessionCtx) {
+func (this *PlayerMsgQueue) GoProcessPlayerMsg(ctx gnet.ISessionCtx) {
 	playerId := ctx.Get(entity.PlayerIdKey).(int64)
 	netChannel := ctx.Get(gproto.INetChannelType).(gproto.INetChannel)
 	util.Verify(playerId > 0)

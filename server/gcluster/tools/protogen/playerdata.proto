@@ -8,6 +8,7 @@ message PlayerData {
     optional HeroPack heroPack = 3;
     optional EquipPack equipPack = 4;
     optional Guide guide = 5;
+    optional Chapter chapter = 6;
 }
 
 message PlayerInfo {
@@ -33,8 +34,7 @@ message Guide {
 message Chapter {
     repeated int32 heros = 1;   // 挂机英雄
     optional int32 level = 2;   // 挂机关卡
-    optional int32 prizeGoldCheckTime = 3;
-    optional int32 prizeEquipCheckTime = 4;
+    optional int64 prizeCheckTime = 3;
     repeated Equip prizeEquip = 5;   // 挂机奖励
 }
 
@@ -49,6 +49,7 @@ message Hero {
     optional int32 level = 2;
     optional int64 status = 3;
     repeated Equip equips = 4;
+    optional int32 num = 5;
 }
 
 message HeroPack {

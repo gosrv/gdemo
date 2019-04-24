@@ -57,13 +57,21 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 		redisNodeMq,
 		cluster.NewNodeMgr(redisNodeMgr),
 		cluster.NewNodeMQ(redisNodeMq),
-		controller.NewControllerLogin(),
-		controller.NewControllerLogic(),
+		
+		// controller
+		controller.NewChapter(),
+		controller.NewHero(),
+		controller.NewLogic(),
+		controller.NewLogin(),
+
+		// service
+		service.NewDataAutoSync(),
+		service.NewHero(),
+		service.NewLogic(),
+		service.NewLogin(),
 		service.NewPlayerMgr(),
-		service.NewServiceDataAutoSync(),
-		service.NewServiceLogic(),
-		service.NewServiceLogin(),
-		service.NewServicePlayerMsgQueue(),
+		service.NewShop(),
+		service.NewPlayerMsgQueue(),
 	)
 }
 

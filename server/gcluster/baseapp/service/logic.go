@@ -7,12 +7,12 @@ import (
 	"github.com/gosrv/glog"
 )
 
-type ServiceLogic struct {
+type Logic struct {
 	log glog.IFieldLogger    `log:"app"`
 	net *tcpnet.TcpNetServer `bean:""`
 }
 
-func (this *ServiceLogic) BeanInit() {
+func (this *Logic) BeanInit() {
 	eventRoute := this.net.GetEventRoute()
 	eventRoute.Connect(gnet.NetEventConnect, func(from interface{}, key interface{}, data interface{}) interface{} {
 		ctx := from.(gnet.ISessionCtx)
@@ -28,9 +28,9 @@ func (this *ServiceLogic) BeanInit() {
 	})
 }
 
-func (this *ServiceLogic) BeanUninit() {
+func (this *Logic) BeanUninit() {
 }
 
-func NewServiceLogic() *ServiceLogic {
-	return &ServiceLogic{}
+func NewLogic() *Logic {
+	return &Logic{}
 }

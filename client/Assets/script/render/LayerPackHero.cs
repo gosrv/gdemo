@@ -13,9 +13,6 @@ class LayerPackHero : Layer
 
     protected override bool init()
     {
-        mapChild<LayerHeroList>("hero");
-        mapChild<LayerHeroSell>("sell");
-
         return true;
     }
 

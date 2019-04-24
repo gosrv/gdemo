@@ -7,15 +7,15 @@ import (
 	"reflect"
 )
 
-type serviceDataAutoSync struct {
+type dataAutoSync struct {
 	net *tcpnet.TcpNetServer `bean:""`
 }
 
-func NewServiceDataAutoSync() *serviceDataAutoSync {
-	return &serviceDataAutoSync{}
+func NewDataAutoSync() *dataAutoSync {
+	return &dataAutoSync{}
 }
 
-func (this *serviceDataAutoSync) BeanInit() {
+func (this *dataAutoSync) BeanInit() {
 	eventRoute := this.net.GetEventRoute()
 	// 心跳时进行数据同步处理
 	eventRoute.Connect(gnet.NetEventTick, func(from interface{}, key interface{}, value interface{}) interface{} {
@@ -38,6 +38,6 @@ func (this *serviceDataAutoSync) BeanInit() {
 	})
 }
 
-func (this *serviceDataAutoSync) BeanUninit() {
+func (this *dataAutoSync) BeanUninit() {
 
 }

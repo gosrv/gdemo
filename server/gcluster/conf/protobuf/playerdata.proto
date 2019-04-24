@@ -20,6 +20,10 @@ package netproto;
     optional int32 key = 1;
     optional Guide val  = 2;
 }
+ message PlayerDatachapter {
+    optional int32 key = 1;
+    optional Chapter val  = 2;
+}
  message PlayerInfoserverTime {
     optional int32 key = 1;
     optional int64 val  = 2;
@@ -68,13 +72,9 @@ package netproto;
     optional int32 key = 1;
     optional int32 val  = 2;
 }
- message ChapterprizeGoldCheckTime {
+ message ChapterprizeCheckTime {
     optional int32 key = 1;
-    optional int32 val  = 2;
-}
- message ChapterprizeEquipCheckTime {
-    optional int32 key = 1;
-    optional int32 val  = 2;
+    optional int64 val  = 2;
 }
  message ChapterprizeEquip {
     optional int32 key = 1;
@@ -107,6 +107,10 @@ package netproto;
  message Heroequips {
     optional int32 key = 1;
     optional Equip val  = 2;
+}
+ message Heronum {
+    optional int32 key = 1;
+    optional int32 val  = 2;
 }
  message HeroPacklimit {
     optional int32 key = 1;
@@ -202,6 +206,7 @@ message PlayerData {
         optional HeroPack heroPack = 3;
         optional EquipPack equipPack = 4;
         optional Guide guide = 5;
+        optional Chapter chapter = 6;
 }
 message PlayerInfo {
         optional int64 serverTime = 1;
@@ -222,8 +227,7 @@ message Guide {
 message Chapter {
         repeated Chapterheros heros = 1;
         optional int32 level = 2;
-        optional int32 prizeGoldCheckTime = 3;
-        optional int32 prizeEquipCheckTime = 4;
+        optional int64 prizeCheckTime = 3;
         repeated ChapterprizeEquip prizeEquip = 5;
 }
 message VipInfo {
@@ -236,6 +240,7 @@ message Hero {
         optional int32 level = 2;
         optional int64 status = 3;
         repeated Heroequips equips = 4;
+        optional int32 num = 5;
 }
 message HeroPack {
         optional int32 limit = 1;
