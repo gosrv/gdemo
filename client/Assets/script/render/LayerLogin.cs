@@ -43,13 +43,25 @@ class LayerLogin : Layer
 
     }
 
-    private IEnumerator StartLogin(string strAccount)
+    public class LoginResult{
+        public string Code;
+        public string Token;
+    }
+
+private IEnumerator StartLogin(string strAccount)
     {
         SaveData.data.account = strAccount;
         WWW requestToken = new WWW("http://127.0.0.1:18080/login/login?account=" + strAccount);
         yield return requestToken;
         SysLog.debug("get token {0}", requestToken.text);
+        LoginResult result = JsonUtility.FromJson<LoginResult>(requestToken.text);
+        if (result.Code != "ok")
+        {
+            SysLog.error("login failed {0}", result.Code);
+            yield return null;
+        }
+        moduleNetGameServ.stopConnect();
         moduleNetGameServ.startConnect(Config.ins.gameServerHost.ip, Config.ins.gameServerHost.port);
-        moduleLogin.requestLogin(requestToken.text);
+        moduleLogin.requestLogin(result.Token);
     }
 }

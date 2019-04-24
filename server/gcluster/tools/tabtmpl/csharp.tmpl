@@ -1,52 +1,144 @@
-// generate by excelreader
 
 using System.Collections.Generic;
-using System.IO;
-using ProtoBuf;
 
-{{range .}}
-[ProtoContract]
-public class {{.Name}} {
-	{{range .Fields -}}
-	[ProtoMember({{.Idx}})]
-	public {{if .Arr}}List<{{.Type}}> {{.Name}};{{else}}{{.Type}} {{.Name}};{{end}} // {{.Desc}}
-	{{end}}
-}
-[ProtoContract]
-public class {{.Name}}Array {
-    [ProtoMember(1)]
-	public List<int> Keys;
-	[ProtoMember(2)]
-   	public List<{{.Name}}> Items;
-}
-{{end}}
 
-public class TableMgr {
-    public static TableMgr ins;
-    {{range . -}}
-    public Dictionary<int, {{.Name}}> table{{.Name}};
-    {{end}}
-
-    {{range . -}}
-    public void load{{.Name}}() {
-        MemoryStream stream = new MemoryStream();
-        byte[] data = DataLoader.Load("{{.Name}}");
-        stream.SetLength(0);
-        stream.Write(data, 0, data.Length);
-        stream.Seek(0, SeekOrigin.Begin);
-        {{.Name}}Array itemArray = Serializer.Deserialize<{{.Name}}Array>(stream);
-        this.table{{.Name}} = new Dictionary<int,{{.Name}}>();
-        for (int i = 0; i < itemArray.Keys.Count; i++) {
-            this.table{{.Name}}[itemArray.Keys[i]] = itemArray.Items[i];
+namespace proto
+{
+{{range $KT, $msgType := .MessageType}}
+public class {{$msgType.Name}} {
+    {{- range $KF, $msgField := .Field -}}
+        {{- if isMap $ $msgField}}
+            public Dictionary<{{mapKey $ $msgField | csType}}, {{mapVal $ $msgField | csType}}> {{$msgField.Name}} = new Dictionary<{{mapKey $ $msgField | csType}}, {{mapVal $ $msgField | csType}}>();
+        {{- else if isRepeated $msgField}}
+            public List<{{$msgField | csType | trimSuffix "[]"}}> {{$msgField.Name}} = new List<{{$msgField | csType | trimSuffix "[]"}}>();
+        {{- else}}
+            public {{csType $msgField}} {{$msgField.Name}} { get; private set; }
+        {{- end}}
+        public bool isDirty{{$msgField.Name}} { get; private set; }
+    {{- end}}
+    
+    public {{$msgType.Name}}() {
+    {{- range $KF, $msgField := .Field -}}
+        {{- if isMap $ $msgField}}
+        {{- else if isRepeated $msgField}}
+        {{- else}}
+            {{- if isPrimitive $msgField}}
+            {{$msgField.Name}} = {{csValue $msgField}};
+            {{- else}}
+            {{$msgField.Name}} = new {{csType $msgField}}();
+            {{- end}}
+        {{- end}}
+        isDirty{{$msgField.Name}} = false;
+    {{- end}}    
+    }
+    
+public void ClearDirty() {
+    {{- range $KF, $msgField := .Field}}
+        if (this.isDirty{{$msgField.Name}})
+        {
+            this.isDirty{{$msgField.Name}} = false;
+            {{- if isRepeated $msgField}}
+                {{- if isPrimitive $msgField}}
+                {{- else if isMap $ $msgField}}
+                    {{- if mapVal $ $msgField | isPrimitive}}
+                    {{- else}}
+                    foreach (var v in this.{{$msgField.Name}}.Values)
+                    {
+                        v.ClearDirty();
+                    }
+                    {{- end}}
+                {{- else}}
+                    foreach (var v in this.{{$msgField.Name}})
+                    {
+                        v.ClearDirty();
+                    }
+                {{- end}}
+            {{- else if isPrimitive $msgField}}
+            {{- else}} 
+                this.{{$msgField.Name}}.ClearDirty();
+            {{- end}}
         }
-    }
-    {{end }}
-    public void Load() {
-        {{range . -}}
-        this.load{{.Name}}();
-        {{end}}
-    }
+    {{end}}
 }
-
-
-
+// read from proto    
+public void FromProto(netproto.{{$msgType.Name}} pdata) {
+    {{- range $KF, $msgField := .Field}}
+        {{- if isRepeated $msgField}}
+            {{- if isPrimitive $msgField}}
+                for (int i=0; i<pdata.{{$msgField.Name}}.Count; i++)
+                {
+                    var val = pdata.{{$msgField.Name}}[i];
+                    if (this.{{$msgField.Name}}.Count <= val.key)
+                    {
+                        for (int j = this.{{$msgField.Name}}.Count; j <= val.key; j++)
+                        {
+                            this.{{$msgField.Name}}.Add(ProtoUtil.DefVal(ProtoUtil.OptVal(val.val)));
+                        }
+                    }
+                    this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)] = ProtoUtil.OptVal(val.val);
+                }
+            {{- else if isMap $ $msgField}}
+                for (int i=0; i<pdata.{{$msgField.Name}}.Count; i++)
+                {
+                    var val = pdata.{{$msgField.Name}}[i];
+                    if (val.val == null)
+                    {
+                        this.{{$msgField.Name}}.Remove(ProtoUtil.OptVal(val.key));
+                    }
+                    else
+                    {
+                        {{- if mapVal $ $msgField | isPrimitive}}
+                            this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)] = ProtoUtil.OptVal(val.val);
+                        {{- else}}
+                            var oval = this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)];
+                            if (oval == null)
+                            {
+                                oval = new {{mapVal $ $msgField | csType}}();
+                                oval.FromProto(val.val);
+                                this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)] = oval;
+                            }
+                            else
+                            {
+                                oval.FromProto(val.val);
+                            }
+                        {{- end}}
+                    }
+                }
+            {{- else}}
+                for (int i=0; i<pdata.{{$msgField.Name}}.Count; i++)
+                {
+                    var val = pdata.{{$msgField.Name}}[i];
+                    if (this.{{$msgField.Name}}.Count <= val.key)
+                    {
+                        for (int j = this.{{$msgField.Name}}.Count; j <= val.key; j++)
+                        {
+                            this.{{$msgField.Name}}.Add(new {{csType $msgField | trimSuffix "[]"}}());
+                        }
+                    }
+                    if (val.val == null)
+                    {
+                        this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)] = null;
+                    }
+                    else
+                    {
+                        this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)].FromProto(val.val);
+                    }
+                }
+            {{- end}}
+            this.isDirty{{$msgField.Name}} = true;
+        {{- else if isPrimitive $msgField}}
+            if (pdata.{{$msgField.Name}} != null) {
+                this.{{$msgField.Name}} = ProtoUtil.OptVal(pdata.{{$msgField.Name}});
+                this.isDirty{{$msgField.Name}} = true;
+            }
+        {{- else}} 
+            if (pdata.{{$msgField.Name}} != null) {
+                this.{{$msgField.Name}}.FromProto(pdata.{{$msgField.Name}});
+                this.isDirty{{$msgField.Name}} = true;
+            }
+        {{- end}}
+    {{- end}}
+}
+}
+{{- end}}
+}

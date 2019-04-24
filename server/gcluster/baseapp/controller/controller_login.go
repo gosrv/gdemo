@@ -2,7 +2,6 @@ package controller
 
 import (
 	"encoding/json"
-	"github.com/golang/protobuf/proto"
 	"github.com/gosrv/gbase/controller"
 	"github.com/gosrv/gbase/gnet"
 	"github.com/gosrv/gbase/gproto"
@@ -34,11 +33,11 @@ type LoginTokenCheck struct {
 // 登陆消息处理
 func (this *ControllerLogin) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
 	repLogin := &netproto.SC_Login{
-		Id:   proto.Int64(-1),
-		Code: netproto.E_Code_E_ERROR.Enum(),
+		Id:   -1,
+		Code: netproto.E_Code_E_ERROR,
 	}
 	// 向登录服查询登陆数据
-	repCheck, err := http.Get(this.loginTokenCheck + *login.Token)
+	repCheck, err := http.Get(this.loginTokenCheck + login.Token)
 	if err != nil {
 		return repLogin
 	}
@@ -54,9 +53,9 @@ func (this *ControllerLogin) Login(ctx gnet.ISessionCtx, login *netproto.CS_Logi
 
 	code := this.serviceLogin.ProcessLogin(netChannel, ctx, loginCheck.Id)
 	// 登陆服授权成功，进入登陆处理
-	repLogin.Code = code.Enum()
+	repLogin.Code = code
 	if code == netproto.E_Code_E_OK {
-		repLogin.Id = &loginCheck.Id
+		repLogin.Id = loginCheck.Id
 	}
 	return repLogin
 }

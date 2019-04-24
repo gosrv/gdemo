@@ -30,8 +30,10 @@ func (this *serviceDataAutoSync) BeanInit() {
 	// 断开连接是，要强制写数据库
 	eventRoute.Connect(gnet.NetEventDisconnect, func(from interface{}, key interface{}, value interface{}) interface{} {
 		ctx := from.(gnet.ISessionCtx)
-		sync := ctx.Get(reflect.TypeOf((*entity.PlayerDataSync)(nil))).(*entity.PlayerDataSync)
-		sync.TrySyncDirtyData(true)
+		sync := ctx.Get(reflect.TypeOf((*entity.PlayerDataSync)(nil)))
+		if sync != nil {
+			sync.(*entity.PlayerDataSync).TrySyncDirtyData(true)
+		}
 		return nil
 	})
 }
