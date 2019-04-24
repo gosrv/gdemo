@@ -19,7 +19,21 @@ public class PlayerData {
             public Chapter chapter { get; private set; }
         public bool isDirtychapter { get; private set; }
     
-
+    public PlayerData() {
+            baseInfo = new BaseInfo();
+        isDirtybaseInfo = false;
+            vipInfo = new VipInfo();
+        isDirtyvipInfo = false;
+            heroPack = new HeroPack();
+        isDirtyheroPack = false;
+            equipPack = new EquipPack();
+        isDirtyequipPack = false;
+            guide = new Guide();
+        isDirtyguide = false;
+            chapter = new Chapter();
+        isDirtychapter = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtybaseInfo)
         {
@@ -92,7 +106,13 @@ public class PlayerInfo {
             public string serverName { get; private set; }
         public bool isDirtyserverName { get; private set; }
     
-
+    public PlayerInfo() {
+            serverTime = 0;
+        isDirtyserverTime = false;
+            serverName = "";
+        isDirtyserverName = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyserverTime)
         {
@@ -133,7 +153,23 @@ public class BaseInfo {
             public int diamond { get; private set; }
         public bool isDirtydiamond { get; private set; }
     
-
+    public BaseInfo() {
+            id = 0;
+        isDirtyid = false;
+            name = "";
+        isDirtyname = false;
+            level = 0;
+        isDirtylevel = false;
+            exp = 0;
+        isDirtyexp = false;
+            gold = 0;
+        isDirtygold = false;
+            head = 0;
+        isDirtyhead = false;
+            diamond = 0;
+        isDirtydiamond = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {
@@ -207,7 +243,11 @@ public class Guide {
             public long id { get; private set; }
         public bool isDirtyid { get; private set; }
     
-
+    public Guide() {
+            id = 0;
+        isDirtyid = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {
@@ -233,7 +273,15 @@ public class Chapter {
             public List<Equip> prizeEquip = new List<Equip>();
         public bool isDirtyprizeEquip { get; private set; }
     
-
+    public Chapter() {
+        isDirtyheros = false;
+            level = 0;
+        isDirtylevel = false;
+            prizeCheckTime = 0;
+        isDirtyprizeCheckTime = false;
+        isDirtyprizeEquip = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyheros)
         {
@@ -313,7 +361,15 @@ public class VipInfo {
             public int totalRecharge { get; private set; }
         public bool isDirtytotalRecharge { get; private set; }
     
-
+    public VipInfo() {
+            level = 0;
+        isDirtylevel = false;
+            exp = 0;
+        isDirtyexp = false;
+            totalRecharge = 0;
+        isDirtytotalRecharge = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtylevel)
         {
@@ -359,7 +415,18 @@ public class Hero {
             public int num { get; private set; }
         public bool isDirtynum { get; private set; }
     
-
+    public Hero() {
+            id = 0;
+        isDirtyid = false;
+            level = 0;
+        isDirtylevel = false;
+            status = 0;
+        isDirtystatus = false;
+        isDirtyequips = false;
+            num = 0;
+        isDirtynum = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {
@@ -437,7 +504,12 @@ public class HeroPack {
             public Dictionary<int, Hero> heros = new Dictionary<int, Hero>();
         public bool isDirtyheros { get; private set; }
     
-
+    public HeroPack() {
+            limit = 0;
+        isDirtylimit = false;
+        isDirtyheros = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtylimit)
         {
@@ -495,7 +567,17 @@ public class Equip {
             public int num { get; private set; }
         public bool isDirtynum { get; private set; }
     
-
+    public Equip() {
+            id = 0;
+        isDirtyid = false;
+            level = 0;
+        isDirtylevel = false;
+            status = 0;
+        isDirtystatus = false;
+            num = 0;
+        isDirtynum = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {
@@ -544,7 +626,12 @@ public class EquipPack {
             public Dictionary<int, Equip> equips = new Dictionary<int, Equip>();
         public bool isDirtyequips { get; private set; }
     
-
+    public EquipPack() {
+            limit = 0;
+        isDirtylimit = false;
+        isDirtyequips = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtylimit)
         {
@@ -600,7 +687,15 @@ public class Daily {
             public int totalSign { get; private set; }
         public bool isDirtytotalSign { get; private set; }
     
-
+    public Daily() {
+            lastUpdateTime = 0;
+        isDirtylastUpdateTime = false;
+            sign = false;
+        isDirtysign = false;
+            totalSign = 0;
+        isDirtytotalSign = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtylastUpdateTime)
         {
@@ -644,7 +739,14 @@ public class TestList {
             public List<PlayerData> ListPrimitiveCom = new List<PlayerData>();
         public bool isDirtyListPrimitiveCom { get; private set; }
     
-
+    public TestList() {
+            id = 0;
+        isDirtyid = false;
+        isDirtyListPrimitiveInt = false;
+        isDirtyListPrimitiveStr = false;
+        isDirtyListPrimitiveCom = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {
@@ -741,7 +843,17 @@ public class TestMap {
             public Dictionary<string, PlayerData> MapPrimitiveStrCom = new Dictionary<string, PlayerData>();
         public bool isDirtyMapPrimitiveStrCom { get; private set; }
     
-
+    public TestMap() {
+            id = new BaseInfo();
+        isDirtyid = false;
+        isDirtyMapPrimitiveIntInt = false;
+        isDirtyMapPrimitiveIntStr = false;
+        isDirtyMapPrimitiveStrInt = false;
+        isDirtyMapPrimitiveStrStr = false;
+        isDirtyMapPrimitiveIntCom = false;
+        isDirtyMapPrimitiveStrCom = false;    
+    }
+    
 public void ClearDirty() {
         if (this.isDirtyid)
         {

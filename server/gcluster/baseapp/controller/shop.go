@@ -17,7 +17,7 @@ type Shop struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
-	serviceShop *service.Shop
+	serviceShop *service.Shop	`bean:""`
 }
 
 func NewShop() *Shop {

@@ -17,7 +17,21 @@ public class {{$msgType.Name}} {
         public bool isDirty{{$msgField.Name}} { get; private set; }
     {{- end}}
     
-
+    public {{$msgType.Name}}() {
+    {{- range $KF, $msgField := .Field -}}
+        {{- if isMap $ $msgField}}
+        {{- else if isRepeated $msgField}}
+        {{- else}}
+            {{- if isPrimitive $msgField}}
+            {{$msgField.Name}} = {{csValue $msgField}};
+            {{- else}}
+            {{$msgField.Name}} = new {{csType $msgField}}();
+            {{- end}}
+        {{- end}}
+        isDirty{{$msgField.Name}} = false;
+    {{- end}}    
+    }
+    
 public void ClearDirty() {
     {{- range $KF, $msgField := .Field}}
         if (this.isDirty{{$msgField.Name}})

@@ -18,8 +18,8 @@ type Hero struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
-	serviceHero *service.Hero
-	serviceShop *service.Shop
+	serviceHero *service.Hero	`bean:""`
+	serviceShop *service.Shop	`bean:""`
 }
 
 func NewHero() *Hero {
@@ -32,6 +32,9 @@ func NewHero() *Hero {
 
 // 抽卡
 func (this *Hero) Draw(ctx gnet.ISessionCtx, msg *netproto.CS_HeroDraw, playerData *entity.PlayerData) *netproto.SC_HeroDraw {
+	if this.serviceHero.IsPackLimit(playerData) {
+		return &netproto.SC_HeroDraw{Code:netproto.E_Code_E_LIMIT_CAPACITY}
+	}
 	switch msg.Num {
 	case 1:
 		// 消耗钻石

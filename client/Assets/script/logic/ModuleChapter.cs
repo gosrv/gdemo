@@ -2,7 +2,7 @@
 
 using System;
 
-public class ModuleShop : IModule
+public class ModuleChapter : IModule
 {
     private ModuleNetGameServ mGameServer = null;
 
@@ -26,32 +26,31 @@ public class ModuleShop : IModule
         
     }
 
-    public void requestBuyDiamond(int idx)
+    public void requestChallenge()
     {
-        netproto.CS_ShopAddDiamond msg = new netproto.CS_ShopAddDiamond
+        netproto.CS_ChapterChallenge msg = new netproto.CS_ChapterChallenge
         {
-            idx = idx,
         };
         this.mGameServer.send(msg);
     }
 
-    public void requestBuyGold()
+    public void requestGetPrize()
     {
-        netproto.CS_ShopBuyGold msg = new netproto.CS_ShopBuyGold
+        netproto.CS_ChapterGetPrize msg = new netproto.CS_ChapterGetPrize
         {
         };
         this.mGameServer.send(msg);
     }
 
     [MsgRoute]
-    public void response(netproto.SC_ShopAddDiamond msg)
+    public void response(netproto.SC_ChapterChallenge msg)
     {
-        SysLog.debug("buy diamond result " + msg.code);
+        SysLog.debug("chapter challenge result " + msg.code);
     }
 
     [MsgRoute]
-    public void response(netproto.SC_ShopBuyGold msg)
+    public void response(netproto.SC_ChapterGetPrize msg)
     {
-        SysLog.debug("buy gold result " + msg.code);
+        SysLog.debug("chapter get prize result " + msg.code);
     }
 }

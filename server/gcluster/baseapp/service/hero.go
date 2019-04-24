@@ -16,7 +16,7 @@ func NewHero() *Hero {
 
 // 背包是否达到上限
 func (this *Hero) IsPackLimit(data *entity.PlayerData) bool {
-	return int(data.GetHeroPack().GetLimit()) >= data.GetHeroPack().GetHeros().Size()
+	return int(data.GetHeroPack().GetLimit()) <= data.GetHeroPack().GetHeros().Size()
 }
 
 func (this *Hero) GiveHero(data *entity.PlayerData, id int32) bool {

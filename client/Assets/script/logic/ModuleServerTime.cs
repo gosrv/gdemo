@@ -1,8 +1,8 @@
 ﻿
 public class ModuleServerTime : IModule
 {
-    private int mServerTime = 0;
-    private int mStartTick = 0;
+    private long serverTime = 0;
+    private int startTick = 0;
 
     public override bool init()
     {
@@ -21,23 +21,15 @@ public class ModuleServerTime : IModule
 
     public override void update(int delta)
     {
-
+        if (Player.playerInfo.isDirtyserverTime)
+        {
+            serverTime = Player.playerInfo.serverTime;
+            startTick = System.Environment.TickCount / 1000;
+        }
     }
     /*单位秒*/
-    public int getServerTime()
+    public long getServerTime()
     {
-        return mServerTime + System.Environment.TickCount / 1000 - mStartTick;
-    }
-
-    public void syncTime(int servertime)
-    {
-        mServerTime = servertime;
-        mStartTick = System.Environment.TickCount / 1000;
-    }
-
-    public bool isSameDay(int time)
-    {
-        int daysecond = 24 * 36000;
-        return time / daysecond == getServerTime() / daysecond;
+        return serverTime + System.Environment.TickCount / 1000 - startTick;
     }
 }

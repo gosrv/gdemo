@@ -18,7 +18,7 @@ type Chapter struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
-	serviceShop *service.Shop
+	serviceShop *service.Shop	`bean:""`
 }
 
 func NewChapter() *Chapter {
@@ -34,6 +34,7 @@ func (this *Chapter) Challenge(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterCha
 	if table.TableMgr.TableChapter[playerData.GetChapter().GetLevel() + 1] == nil {
 		return &netproto.SC_ChapterChallenge{Code:netproto.E_Code_E_INVALID_OPT}
 	}
+	playerData.GetChapter().SetLevel(playerData.GetChapter().GetLevel() + 1)
 	return &netproto.SC_ChapterChallenge{Code:netproto.E_Code_E_OK}
 }
 

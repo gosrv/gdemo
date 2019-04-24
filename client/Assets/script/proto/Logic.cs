@@ -481,7 +481,10 @@ namespace netproto
       E_LIMIT_CHAPTER_LEVEL = 23,
             
       [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_PLAYER_LEVEL", Value=24)]
-      E_LIMIT_PLAYER_LEVEL = 24
+      E_LIMIT_PLAYER_LEVEL = 24,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"E_LIMIT_CAPACITY", Value=25)]
+      E_LIMIT_CAPACITY = 25
     }
   
     [global::ProtoBuf.ProtoContract(Name=@"EMsgIds")]

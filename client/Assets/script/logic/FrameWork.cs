@@ -31,6 +31,8 @@ public class FrameWork  {
 
 	public bool init()
     {
+        TableMgr.ins = new TableMgr();
+        TableMgr.ins.Load();
         if (!installModules())
         {
             return false;
@@ -56,13 +58,13 @@ public class FrameWork  {
     }
 
     public void tick(int delta)
-    {        
-		SceneRoot.instance.update(delta/1000.0f);
+    {
+        ModuleMgr.instance.tick(delta);
+        SceneRoot.instance.update(delta/1000.0f);
     }
 
     public void latetick(int delta)
-    {
-        ModuleMgr.instance.tick(delta);
+    {        
         Player.playerData.ClearDirty();
         Player.playerInfo.ClearDirty();
     }

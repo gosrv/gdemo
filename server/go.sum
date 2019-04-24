@@ -82,6 +82,8 @@ github.com/gosrv/excelreader v0.0.0-20190422122608-44f421a6719a h1:Ks9K9K6mm4rgI
 github.com/gosrv/excelreader v0.0.0-20190422122608-44f421a6719a/go.mod h1:F6+kgDZFRDxJ1/saT6BFFRgY7okZOsJXwb2l2xEy4xo=
 github.com/gosrv/gbase v0.0.0-20190422130755-cfa56e047c6e h1:hKr9kVXlKaI5Uo5XyW5gF1PrcfeTICDoq+wfDUEeILo=
 github.com/gosrv/gbase v0.0.0-20190422130755-cfa56e047c6e/go.mod h1:iHV/sPogs9FJsFlREAwTnw6MlNMCTAE9ZtNU/Sn2z5U=
+github.com/gosrv/gbase v0.0.0-20190424134327-6940a069b37e h1:NOvlYsBkscHxpVYhmp1lVyCiY9eOa8McP3+G5QSGr7k=
+github.com/gosrv/gbase v0.0.0-20190424134327-6940a069b37e/go.mod h1:iHV/sPogs9FJsFlREAwTnw6MlNMCTAE9ZtNU/Sn2z5U=
 github.com/gosrv/glog v0.0.0-20190405130153-f75ad619edf7 h1:NAvDP2OaaPfz/mKRCF+v28Xg37hYUjnmVX6jd4RPbv8=
 github.com/gosrv/glog v0.0.0-20190405130153-f75ad619edf7/go.mod h1:qnqOptAXQqc2DQUatkltISeS+Af/D51QzwLU9RtGdn4=
 github.com/gosrv/gmx v0.0.0-20190407114224-7d073c26b757 h1:9FTfGTR5u9kdSQnZRVPhFyL2UXV+eUFDJ5d6+zKQtrU=

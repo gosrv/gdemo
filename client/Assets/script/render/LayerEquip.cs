@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-class LayerHelp : Layer
+class LayerEquip : Layer
 {
-    public LayerHelp() : base("help")
+    public LayerEquip() : base("ui/equip")
     {
     }
 

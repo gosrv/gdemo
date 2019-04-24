@@ -15,6 +15,7 @@ import (
 	"sort"
 	"strconv"
 	"sync"
+	"time"
 )
 
 const (
@@ -88,8 +89,9 @@ func (this *PlayerMgr) InitPlayerData(playerId int64, playerData *entity.PlayerD
 	baseInfo.SetId(playerId)
 	baseInfo.SetLevel(1)
 
+	playerData.GetHeroPack().SetLimit(100)
 	playerData.GetChapter().SetLevel(1)
-
+	playerData.GetChapter().SetPrizeCheckTime(time.Now().Unix())
 	baseInfo.SetName("name" + strconv.FormatInt(playerId, 10))
 }
 
@@ -108,6 +110,8 @@ func (this *PlayerMgr) PlayerLogin(playerId int64, netChannel gproto.INetChannel
 	// 加载玩家数据
 	playerData := this.LoadPlayerData(playerId, loader)
 	playerInfo := entity.NewPlayerInfo()
+	playerInfo.SetServerTime(time.Now().Unix())
+	playerInfo.SetServerName("gserver")
 	onlineData := entity.NewPlayerOnlineData()
 	// 数据同步
 	syncData := entity.NewPlayerDataSync(playerData, playerInfo,

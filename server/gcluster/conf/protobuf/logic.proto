@@ -21,6 +21,7 @@ enum E_Code {
     E_LIMIT_TIMES = 22;     // 次数限制
     E_LIMIT_CHAPTER_LEVEL = 23; // 关卡等级不足
     E_LIMIT_PLAYER_LEVEL = 24; // 人物等级不足
+    E_LIMIT_CAPACITY = 25; // 容量不足
 }
 
 // 心跳

@@ -22,9 +22,9 @@ func (this *Shop) ConsumeDiamond(data *entity.PlayerData, diamond int32) {
 }
 
 func (this *Shop) GiveGold(data *entity.PlayerData, gold int32) {
-	data.GetBaseInfo().SetDiamond(data.GetBaseInfo().GetDiamond() + gold)
+	data.GetBaseInfo().SetGold(data.GetBaseInfo().GetGold() + gold)
 }
 
 func (this *Shop) ConsumeGold(data *entity.PlayerData, gold int32) {
-	data.GetBaseInfo().SetDiamond(data.GetBaseInfo().GetDiamond() - gold)
+	data.GetBaseInfo().SetGold(data.GetBaseInfo().GetGold() - gold)
 }
