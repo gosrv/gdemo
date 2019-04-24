@@ -541,8 +541,8 @@ public void FromProto(netproto.HeroPack pdata) {
                     }
                     else
                     {
-                            var oval = this.heros[ProtoUtil.OptVal(val.key)];
-                            if (oval == null)
+                            Hero oval;
+                            if (!this.heros.TryGetValue(ProtoUtil.OptVal(val.key), out oval))
                             {
                                 oval = new Hero();
                                 oval.FromProto(val.val);
@@ -663,8 +663,8 @@ public void FromProto(netproto.EquipPack pdata) {
                     }
                     else
                     {
-                            var oval = this.equips[ProtoUtil.OptVal(val.key)];
-                            if (oval == null)
+                            Equip oval;
+                            if (!this.equips.TryGetValue(ProtoUtil.OptVal(val.key), out oval))
                             {
                                 oval = new Equip();
                                 oval.FromProto(val.val);
@@ -967,8 +967,8 @@ public void FromProto(netproto.TestMap pdata) {
                     }
                     else
                     {
-                            var oval = this.MapPrimitiveIntCom[ProtoUtil.OptVal(val.key)];
-                            if (oval == null)
+                            BaseInfo oval;
+                            if (!this.MapPrimitiveIntCom.TryGetValue(ProtoUtil.OptVal(val.key), out oval))
                             {
                                 oval = new BaseInfo();
                                 oval.FromProto(val.val);
@@ -990,8 +990,8 @@ public void FromProto(netproto.TestMap pdata) {
                     }
                     else
                     {
-                            var oval = this.MapPrimitiveStrCom[ProtoUtil.OptVal(val.key)];
-                            if (oval == null)
+                            PlayerData oval;
+                            if (!this.MapPrimitiveStrCom.TryGetValue(ProtoUtil.OptVal(val.key), out oval))
                             {
                                 oval = new PlayerData();
                                 oval.FromProto(val.val);

@@ -14,7 +14,16 @@ type Container{{.msgType.Name}}{{.msgField.Name}} struct {
     _impl {{.implType}}
 }
 func (this *Container{{.msgType.Name}}{{.msgField.Name}})Get(key {{.keyType}}) {{.valType}} {
-    return this._impl.Get(key).({{.valType}})
+    {{- if .isValPriType}}
+        return this._impl.Get(key).({{.valType}})
+    {{- else}}
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.({{.valType}})
+        }
+    {{- end}}
 }
 func (this *Container{{.msgType.Name}}{{.msgField.Name}})Set(key {{.keyType}}, value {{.valType}}) {
     this._impl.Set(key, value)

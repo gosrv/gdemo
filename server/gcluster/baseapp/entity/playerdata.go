@@ -14,7 +14,7 @@ type ContainerChapterheros struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerChapterheros)Get(key int32) int32 {
-    return this._impl.Get(key).(int32)
+        return this._impl.Get(key).(int32)
 }
 func (this *ContainerChapterheros)Set(key int32, value int32) {
     this._impl.Set(key, value)
@@ -57,7 +57,12 @@ type ContainerChapterprizeEquip struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerChapterprizeEquip)Get(key int32) *Equip {
-    return this._impl.Get(key).(*Equip)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*Equip)
+        }
 }
 func (this *ContainerChapterprizeEquip)Set(key int32, value *Equip) {
     this._impl.Set(key, value)
@@ -100,7 +105,12 @@ type ContainerHeroequips struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerHeroequips)Get(key int32) *Equip {
-    return this._impl.Get(key).(*Equip)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*Equip)
+        }
 }
 func (this *ContainerHeroequips)Set(key int32, value *Equip) {
     this._impl.Set(key, value)
@@ -143,7 +153,12 @@ type ContainerHeroPackheros struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerHeroPackheros)Get(key int32) *Hero {
-    return this._impl.Get(key).(*Hero)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*Hero)
+        }
 }
 func (this *ContainerHeroPackheros)Set(key int32, value *Hero) {
     this._impl.Set(key, value)
@@ -186,7 +201,12 @@ type ContainerEquipPackequips struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerEquipPackequips)Get(key int32) *Equip {
-    return this._impl.Get(key).(*Equip)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*Equip)
+        }
 }
 func (this *ContainerEquipPackequips)Set(key int32, value *Equip) {
     this._impl.Set(key, value)
@@ -229,7 +249,7 @@ type ContainerTestListListPrimitiveInt struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerTestListListPrimitiveInt)Get(key int32) int32 {
-    return this._impl.Get(key).(int32)
+        return this._impl.Get(key).(int32)
 }
 func (this *ContainerTestListListPrimitiveInt)Set(key int32, value int32) {
     this._impl.Set(key, value)
@@ -272,7 +292,7 @@ type ContainerTestListListPrimitiveStr struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerTestListListPrimitiveStr)Get(key int32) string {
-    return this._impl.Get(key).(string)
+        return this._impl.Get(key).(string)
 }
 func (this *ContainerTestListListPrimitiveStr)Set(key int32, value string) {
     this._impl.Set(key, value)
@@ -315,7 +335,12 @@ type ContainerTestListListPrimitiveCom struct {
     _impl *datasync.DirtyContainerVector
 }
 func (this *ContainerTestListListPrimitiveCom)Get(key int32) *PlayerData {
-    return this._impl.Get(key).(*PlayerData)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*PlayerData)
+        }
 }
 func (this *ContainerTestListListPrimitiveCom)Set(key int32, value *PlayerData) {
     this._impl.Set(key, value)
@@ -358,7 +383,7 @@ type ContainerTestMapMapPrimitiveIntInt struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveIntInt)Get(key int32) int32 {
-    return this._impl.Get(key).(int32)
+        return this._impl.Get(key).(int32)
 }
 func (this *ContainerTestMapMapPrimitiveIntInt)Set(key int32, value int32) {
     this._impl.Set(key, value)
@@ -401,7 +426,7 @@ type ContainerTestMapMapPrimitiveIntStr struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveIntStr)Get(key int32) string {
-    return this._impl.Get(key).(string)
+        return this._impl.Get(key).(string)
 }
 func (this *ContainerTestMapMapPrimitiveIntStr)Set(key int32, value string) {
     this._impl.Set(key, value)
@@ -444,7 +469,7 @@ type ContainerTestMapMapPrimitiveStrInt struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveStrInt)Get(key string) int32 {
-    return this._impl.Get(key).(int32)
+        return this._impl.Get(key).(int32)
 }
 func (this *ContainerTestMapMapPrimitiveStrInt)Set(key string, value int32) {
     this._impl.Set(key, value)
@@ -487,7 +512,7 @@ type ContainerTestMapMapPrimitiveStrStr struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveStrStr)Get(key string) string {
-    return this._impl.Get(key).(string)
+        return this._impl.Get(key).(string)
 }
 func (this *ContainerTestMapMapPrimitiveStrStr)Set(key string, value string) {
     this._impl.Set(key, value)
@@ -530,7 +555,12 @@ type ContainerTestMapMapPrimitiveIntCom struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveIntCom)Get(key int32) *BaseInfo {
-    return this._impl.Get(key).(*BaseInfo)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*BaseInfo)
+        }
 }
 func (this *ContainerTestMapMapPrimitiveIntCom)Set(key int32, value *BaseInfo) {
     this._impl.Set(key, value)
@@ -573,7 +603,12 @@ type ContainerTestMapMapPrimitiveStrCom struct {
     _impl *datasync.DirtyContainerMap
 }
 func (this *ContainerTestMapMapPrimitiveStrCom)Get(key string) *PlayerData {
-    return this._impl.Get(key).(*PlayerData)
+        val := this._impl.Get(key)
+        if val == nil {
+            return nil
+        } else {
+            return val.(*PlayerData)
+        }
 }
 func (this *ContainerTestMapMapPrimitiveStrCom)Set(key string, value *PlayerData) {
     this._impl.Set(key, value)

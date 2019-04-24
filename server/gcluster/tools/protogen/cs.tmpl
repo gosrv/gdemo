@@ -90,8 +90,8 @@ public void FromProto(netproto.{{$msgType.Name}} pdata) {
                         {{- if mapVal $ $msgField | isPrimitive}}
                             this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)] = ProtoUtil.OptVal(val.val);
                         {{- else}}
-                            var oval = this.{{$msgField.Name}}[ProtoUtil.OptVal(val.key)];
-                            if (oval == null)
+                            {{mapVal $ $msgField | csType}} oval;
+                            if (!this.{{$msgField.Name}}.TryGetValue(ProtoUtil.OptVal(val.key), out oval))
                             {
                                 oval = new {{mapVal $ $msgField | csType}}();
                                 oval.FromProto(val.val);

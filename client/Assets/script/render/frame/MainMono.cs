@@ -5,7 +5,7 @@ public class MainMono : MonoBehaviour {
     private static int bt = System.Environment.TickCount;
     public GameObject uiRoot;
 	// Use this for initialization
-	void Start () {
+	void Start () {        
         UT.setMainMono(this);
         SceneRoot.instance.setRoot(uiRoot);
         FrameWork.instance.init();        

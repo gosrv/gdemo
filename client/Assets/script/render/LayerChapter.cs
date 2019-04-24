@@ -47,7 +47,7 @@ class LayerChapter : Layer
     }
 
     public void updateShow()
-    {
+    {        
         level.text = Player.playerData.chapter.level.ToString();
         long delta = moduleServerTime.getServerTime() - Player.playerData.chapter.prizeCheckTime;
         long prizeGold = TableMgr.ins.tableChapter[Player.playerData.chapter.level].Gold * delta;
