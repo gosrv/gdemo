@@ -13,7 +13,7 @@ import (
 /**
 逻辑消息控制器
 */
-type Logic struct {
+type logic struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
@@ -21,8 +21,8 @@ type Logic struct {
 	serviceLogic *service.Logic `bean:""`
 }
 
-func newLogic() *Logic {
-	return &Logic{
+func newLogic() *logic {
+	return &logic{
 		// 路由收集器，它会收集这样的函数作为路由器：
 		// 第一个变量是gnet.ISessionCtx，第二个是消息，可以返回一个一个消息，也可以不返回
 		IController: controller.NewTypeController(""),
@@ -30,7 +30,7 @@ func newLogic() *Logic {
 }
 
 // 心跳消息处理，playerData和playerInfo是自动注入的，如果你不需要也可以不写，比如下面的写法
-func (this *Logic) Tick(ctx gnet.ISessionCtx, msg *netproto.CS_Tick,
+func (this *logic) Tick(ctx gnet.ISessionCtx, msg *netproto.CS_Tick,
 	playerData *entity.PlayerData, playerInfo *entity.PlayerInfo) *netproto.SC_Tick {
 	return &netproto.SC_Tick{}
 }

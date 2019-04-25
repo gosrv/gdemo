@@ -15,7 +15,7 @@ import (
 /**
 逻辑消息控制器
 */
-type Hero struct {
+type hero struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
@@ -23,8 +23,8 @@ type Hero struct {
 	serviceShop *service.Shop `bean:""`
 }
 
-func newHero() *Hero {
-	return &Hero{
+func newHero() *hero {
+	return &hero{
 		// 路由收集器，它会收集这样的函数作为路由器：
 		// 第一个变量是gnet.ISessionCtx，第二个是消息，可以返回一个一个消息，也可以不返回
 		IController: controller.NewTypeController(""),
@@ -32,7 +32,7 @@ func newHero() *Hero {
 }
 
 // 抽卡
-func (this *Hero) Draw(ctx gnet.ISessionCtx, msg *netproto.CS_HeroDraw, playerData *entity.PlayerData) *netproto.SC_HeroDraw {
+func (this *hero) Draw(ctx gnet.ISessionCtx, msg *netproto.CS_HeroDraw, playerData *entity.PlayerData) *netproto.SC_HeroDraw {
 	if this.serviceHero.IsPackLimit(playerData) {
 		return &netproto.SC_HeroDraw{Code: netproto.E_Code_E_LIMIT_CAPACITY}
 	}
@@ -61,7 +61,7 @@ func (this *Hero) Draw(ctx gnet.ISessionCtx, msg *netproto.CS_HeroDraw, playerDa
 }
 
 // 升级英雄等级
-func (this *Hero) UpLevel(ctx gnet.ISessionCtx, msg *netproto.CS_HeroUplevel, playerData *entity.PlayerData) *netproto.SC_HeroUpLevel {
+func (this *hero) UpLevel(ctx gnet.ISessionCtx, msg *netproto.CS_HeroUplevel, playerData *entity.PlayerData) *netproto.SC_HeroUpLevel {
 	// 消耗金币
 	consumeGold := table.TableMgr.TableCommon[9].Val * playerData.GetBaseInfo().GetLevel() * playerData.GetBaseInfo().GetLevel()
 	if playerData.GetBaseInfo().GetGold() < consumeGold {
@@ -72,7 +72,7 @@ func (this *Hero) UpLevel(ctx gnet.ISessionCtx, msg *netproto.CS_HeroUplevel, pl
 }
 
 // 英雄装备
-func (this *Hero) Equip(ctx gnet.ISessionCtx, msg *netproto.CS_HeroEquip, playerData *entity.PlayerData) *netproto.SC_HeroEquip {
+func (this *hero) Equip(ctx gnet.ISessionCtx, msg *netproto.CS_HeroEquip, playerData *entity.PlayerData) *netproto.SC_HeroEquip {
 	return &netproto.SC_HeroEquip{Code: netproto.E_Code_E_INVALID_OPT}
 }
 

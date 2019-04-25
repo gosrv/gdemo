@@ -1,12 +1,13 @@
-rem Éú³ÉÍ¬²½Êý¾ÝµÄproto
+rem ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½proto
 protogen.exe --proto_path protogen --tmpl_path protogen --tmpl_file proto.tmpl --output ../conf/protobuf/*.proto playerdata.proto
-rem Éú³ÉÍ¬²½Êý¾ÝµÄgo´úÂë
+rem ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½goï¿½ï¿½ï¿½ï¿½
 protogen.exe --proto_path protogen --tmpl_path protogen --tmpl_file go.tmpl --output ../baseapp/entity/*.go playerdata.proto
-rem Éú³ÉÍ¬²½Êý¾ÝµÄprotobuf´úÂë
+rem ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½protobufï¿½ï¿½ï¿½ï¿½
 protoc.exe --plugin=protoc-gen-go.exe --go_out=../proto ../conf/protobuf/logic.proto ../conf/protobuf/battle.proto ../conf/protobuf/cluster.proto ../conf/protobuf/playerdata.proto -I ../conf/protobuf/
-rem Éú³ÉÍ¬²½Êý¾ÝµÄcs´úÂë
+rem ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½csï¿½ï¿½ï¿½ï¿½
 protogen.exe --proto_path protogen --tmpl_path protogen --tmpl_file cs.tmpl --output ../../../client/Assets/script/proto/*.cs playerdata.proto
 
+go fmt ../proto
 cd protocs
 
 del logic.proto

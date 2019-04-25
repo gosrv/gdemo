@@ -1,12 +1,13 @@
-rem Éú³ÉgoÊý¾Ý
+rem ï¿½ï¿½ï¿½ï¿½goï¿½ï¿½ï¿½ï¿½
 excelreader.exe -meta tabtmpl/meta.json -excel ../../../excel -out ../conf/table -data true
-rem Éú³ÉcsharpÊý¾Ý
+rem ï¿½ï¿½ï¿½ï¿½csharpï¿½ï¿½ï¿½ï¿½
 excelreader.exe -meta tabtmpl/meta.json -excel ../../../excel -out ../../../client/Assets/Resources/table -data true
-rem Éú³Éproto
+rem ï¿½ï¿½ï¿½ï¿½proto
 excelreader.exe -meta tabtmpl/meta.json -excel ../../../excel -out ../conf/table/table.proto -tmpl proto
-rem Éú³Égo´úÂë
+rem ï¿½ï¿½ï¿½ï¿½goï¿½ï¿½ï¿½ï¿½
 excelreader.exe -meta tabtmpl/meta.json -excel ../../../excel -out ../table/table.go -tmpl go
-rem Éú³ÉgoµÄprotobuf´úÂë
+go fmt ../table/table.go
+rem ï¿½ï¿½ï¿½ï¿½goï¿½ï¿½protobufï¿½ï¿½ï¿½ï¿½
 protoc --plugin=protoc-gen-go.exe --go_out=../table ../conf/table/table.proto -I ../conf/table
-rem Éú³Écsharp´úÂë
+rem ï¿½ï¿½ï¿½ï¿½csharpï¿½ï¿½ï¿½ï¿½
 excelreader.exe -meta tabtmpl/meta.json -excel ../../../excel -out ../../../client/Assets/script/table/TableMgr.cs -tmpl csharp

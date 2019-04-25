@@ -15,15 +15,15 @@ import (
 /**
 逻辑消息控制器
 */
-type Chapter struct {
+type chapter struct {
 	log glog.IFieldLogger `log:"app"`
 	// 控制器标记
 	controller.IController
 	serviceShop *service.Shop `bean:""`
 }
 
-func newChapter() *Chapter {
-	return &Chapter{
+func newChapter() *chapter {
+	return &chapter{
 		// 路由收集器，它会收集这样的函数作为路由器：
 		// 第一个变量是gnet.ISessionCtx，第二个是消息，可以返回一个一个消息，也可以不返回
 		IController: controller.NewTypeController(""),
@@ -31,7 +31,7 @@ func newChapter() *Chapter {
 }
 
 // 主线关卡挑战
-func (this *Chapter) Challenge(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterChallenge, playerData *entity.PlayerData) *netproto.SC_ChapterChallenge {
+func (this *chapter) Challenge(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterChallenge, playerData *entity.PlayerData) *netproto.SC_ChapterChallenge {
 	if table.TableMgr.TableChapter[playerData.GetChapter().GetLevel()+1] == nil {
 		return &netproto.SC_ChapterChallenge{Code: netproto.E_Code_E_INVALID_OPT}
 	}
@@ -40,7 +40,7 @@ func (this *Chapter) Challenge(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterCha
 }
 
 // 获取挂机奖励
-func (this *Chapter) GetPrize(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterGetPrize, playerData *entity.PlayerData) *netproto.SC_ChapterGetPrize {
+func (this *chapter) GetPrize(ctx gnet.ISessionCtx, msg *netproto.CS_ChapterGetPrize, playerData *entity.PlayerData) *netproto.SC_ChapterGetPrize {
 	// 收益金币 = 挂机时间 * 每秒收益
 	cfgChapter := table.TableMgr.TableChapter[playerData.GetChapter().GetLevel()]
 	now := time.Now().Unix()

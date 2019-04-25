@@ -15,14 +15,14 @@ import (
 /**
 登陆消息处理控制器
 */
-type Login struct {
+type login struct {
 	controller.IController
 	loginTokenCheck string         `cfg:"url.login.token.check"`
 	serviceLogin    *service.Login `bean:""`
 }
 
-func newLogin() *Login {
-	return &Login{
+func newLogin() *login {
+	return &login{
 		IController: controller.NewTypeController(""),
 	}
 }
@@ -32,7 +32,7 @@ type LoginTokenCheck struct {
 }
 
 // 登陆消息处理
-func (this *Login) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
+func (this *login) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
 	repLogin := &netproto.SC_Login{
 		Code: netproto.E_Code_E_ERROR,
 	}
