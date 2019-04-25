@@ -43,6 +43,7 @@ type PlayerDataSync struct {
 	// 设置缓存超时时间的接口
 	dataExpireable gdb.IDataExpireable
 }
+
 var PPlayerDataSyncType = reflect.TypeOf((*PlayerDataSync)(nil))
 
 func NewPlayerDataSync(data *PlayerData, info *PlayerInfo, cacheFlushGapSec int64,

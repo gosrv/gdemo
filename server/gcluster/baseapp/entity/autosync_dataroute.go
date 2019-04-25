@@ -13,7 +13,7 @@ import (
 在处理完玩家消息后主动触发一次增量数据更新
 */
 type AutoSyncDataRoute struct {
-	raw        gproto.IRoute
+	raw gproto.IRoute
 }
 
 func NewAutoSyncDataRoute() *AutoSyncDataRoute {

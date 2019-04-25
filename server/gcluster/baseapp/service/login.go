@@ -7,6 +7,7 @@ import (
 	"github.com/gosrv/gbase/gproto"
 	"github.com/gosrv/gbase/tcpnet"
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/gcluster/gcluster/common/meta"
 	"github.com/gosrv/gcluster/gcluster/proto"
 	"github.com/gosrv/glog"
@@ -17,8 +18,8 @@ type Login struct {
 	net                   *tcpnet.TcpNetServer `bean:""`
 	playerMgr             *PlayerMgr           `bean:""`
 	nodeUuid              string               `bean:""`
-	nodeMgr			      *cluster.NodeMgr  `bean:""`
-	nodeMq				  *cluster.NodeMQ    `bean:""`
+	nodeMgr               *cluster.NodeMgr     `bean:""`
+	nodeMq                *cluster.NodeMQ      `bean:""`
 	servicePlayerMsgQueue *PlayerMsgQueue      `bean:""`
 }
 
@@ -47,7 +48,7 @@ func (this *Login) BeanUninit() {
 
 }
 
-func NewLogin() *Login {
+func newLogin() *Login {
 	return &Login{}
 }
 
@@ -125,11 +126,15 @@ func (this *Login) doClusterLogin(playerId int64, attributeGroup gdb.IDBAttribut
 	}
 
 	// 重复登陆处理，通知踢人
-	err = this.nodeMq.Push(oldBaseAppUuid, &netproto.SS_KickPlayer{PlayerId:playerId})
+	err = this.nodeMq.Push(oldBaseAppUuid, &netproto.SS_KickPlayer{PlayerId: playerId})
 	if err != nil {
 		this.log.Debug("node message error %v", err)
 	}
 	this.log.WithFields(glog.LF{"playerId": playerId}).
 		Warn("player relogin failed, kick other server player")
 	return netproto.E_Code_E_RELOGIN
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newLogin())
 }

@@ -7,6 +7,7 @@ import (
 	"github.com/gosrv/gbase/gnet"
 	"github.com/gosrv/gbase/gproto"
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/gcluster/gcluster/common/meta"
 	"github.com/gosrv/gcluster/gcluster/proto"
 	"github.com/gosrv/glog"
@@ -52,7 +53,7 @@ func (this *PlayerMgr) BeanUninit() {
 
 }
 
-func NewPlayerMgr() *PlayerMgr {
+func newPlayerMgr() *PlayerMgr {
 	return &PlayerMgr{}
 }
 
@@ -141,4 +142,8 @@ func (this *PlayerMgr) GetNetchannelByPlayerId(playerId int64) gproto.INetChanne
 		return nil
 	}
 	return net.(gproto.INetChannel)
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newPlayerMgr())
 }

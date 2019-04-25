@@ -4,6 +4,7 @@ import (
 	"github.com/gosrv/gbase/gnet"
 	"github.com/gosrv/gbase/tcpnet"
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"reflect"
 )
 
@@ -11,7 +12,7 @@ type dataAutoSync struct {
 	net *tcpnet.TcpNetServer `bean:""`
 }
 
-func NewDataAutoSync() *dataAutoSync {
+func newDataAutoSync() *dataAutoSync {
 	return &dataAutoSync{}
 }
 
@@ -40,4 +41,8 @@ func (this *dataAutoSync) BeanInit() {
 
 func (this *dataAutoSync) BeanUninit() {
 
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newDataAutoSync())
 }

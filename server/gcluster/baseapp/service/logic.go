@@ -4,6 +4,7 @@ import (
 	"github.com/gosrv/gbase/gnet"
 	"github.com/gosrv/gbase/gproto"
 	"github.com/gosrv/gbase/tcpnet"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/glog"
 )
 
@@ -31,6 +32,10 @@ func (this *Logic) BeanInit() {
 func (this *Logic) BeanUninit() {
 }
 
-func NewLogic() *Logic {
+func newLogic() *Logic {
 	return &Logic{}
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newLogic())
 }

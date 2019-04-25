@@ -11,9 +11,9 @@ import (
 	"github.com/gosrv/gbase/gmxdriver"
 	"github.com/gosrv/gbase/route"
 	"github.com/gosrv/gbase/tcpnet"
-	"github.com/gosrv/gcluster/gcluster/baseapp/controller"
+	_ "github.com/gosrv/gcluster/gcluster/baseapp/controller"
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
-	"github.com/gosrv/gcluster/gcluster/baseapp/service"
+	_ "github.com/gosrv/gcluster/gcluster/baseapp/service"
 	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/glog"
 	"github.com/gosrv/goioc"
@@ -57,23 +57,9 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 		redisNodeMq,
 		cluster.NewNodeMgr(redisNodeMgr),
 		cluster.NewNodeMQ(redisNodeMq),
-
-		// controller
-		controller.NewChapter(),
-		controller.NewHero(),
-		controller.NewLogic(),
-		controller.NewLogin(),
-		controller.NewShop(),
-		// service
-		service.NewDataAutoSync(),
-		service.NewHero(),
-		service.NewLogic(),
-		service.NewLogin(),
-		service.NewPlayerMgr(),
-		service.NewShop(),
-		service.NewPlayerMsgQueue(),
-		service.NewTable(),
 	)
+
+	builder.AddBean(common.BeansInit...)
 }
 
 func initLog(configLoader gioc.IConfigLoader, builder gioc.IBeanContainerBuilder) {

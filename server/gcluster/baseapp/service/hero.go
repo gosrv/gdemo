@@ -2,15 +2,16 @@ package service
 
 import (
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/gcluster/gcluster/table"
 	"github.com/gosrv/glog"
 )
 
 type Hero struct {
-	log glog.IFieldLogger    `log:"app"`
+	log glog.IFieldLogger `log:"app"`
 }
 
-func NewHero() *Hero {
+func newHero() *Hero {
 	return &Hero{}
 }
 
@@ -41,4 +42,8 @@ func (this *Hero) GiveHero(data *entity.PlayerData, id int32) bool {
 	}
 
 	return true
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newHero())
 }

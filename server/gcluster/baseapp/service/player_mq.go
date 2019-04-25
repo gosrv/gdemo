@@ -13,7 +13,7 @@ type PlayerMsgQueue struct {
 	msgCenter *common.ClusterMsgCenter `bean:""`
 }
 
-func NewPlayerMsgQueue() *PlayerMsgQueue {
+func newPlayerMsgQueue() *PlayerMsgQueue {
 	return &PlayerMsgQueue{}
 }
 
@@ -24,4 +24,8 @@ func (this *PlayerMsgQueue) GoProcessPlayerMsg(ctx gnet.ISessionCtx) {
 	gutil.RecoverGo(func() {
 		this.msgCenter.BlockProcessPlayerMsg(playerId, netChannel)
 	})
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newPlayerMsgQueue())
 }

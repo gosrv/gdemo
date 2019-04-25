@@ -6,6 +6,7 @@ import (
 	"github.com/gosrv/gbase/gnet"
 	"github.com/gosrv/gbase/gproto"
 	"github.com/gosrv/gcluster/gcluster/baseapp/service"
+	"github.com/gosrv/gcluster/gcluster/common"
 	"github.com/gosrv/gcluster/gcluster/proto"
 	"io/ioutil"
 	"net/http"
@@ -20,7 +21,7 @@ type Login struct {
 	serviceLogin    *service.Login `bean:""`
 }
 
-func NewLogin() *Login {
+func newLogin() *Login {
 	return &Login{
 		IController: controller.NewTypeController(""),
 	}
@@ -53,4 +54,8 @@ func (this *Login) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChan
 	repLogin.Code = this.serviceLogin.ProcessLogin(netChannel, ctx, loginCheck.Id)
 	// 登陆服授权成功，进入登陆处理
 	return repLogin
+}
+
+func init() {
+	common.BeansInit = append(common.BeansInit, newLogin())
 }
