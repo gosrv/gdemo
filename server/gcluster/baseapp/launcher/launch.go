@@ -9,7 +9,6 @@ import (
 	"github.com/gosrv/gbase/ghttp"
 	"github.com/gosrv/gbase/gl"
 	"github.com/gosrv/gbase/gmxdriver"
-	"github.com/gosrv/gbase/route"
 	"github.com/gosrv/gbase/tcpnet"
 	_ "github.com/gosrv/gcluster/gcluster/baseapp/controller"
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
@@ -32,19 +31,15 @@ func initBaseNet(builder gioc.IBeanContainerBuilder) {
 	builder.AddBean(net)
 }
 
-func initClusterMsgCenter(builder gioc.IBeanContainerBuilder) {
+func initCluster(builder gioc.IBeanContainerBuilder, app *app.Application) {
 	idtype := common.ClusterMsgIds
-	encoder := codec.NewIdProtobufEncoder(idtype)
-	decoder := codec.NewIdProtobufDecoder(idtype)
+	encoder := codec.NewNetMsgFixLenProtobufEncoder(idtype)
+	decoder := codec.NewNetMsgFixLenProtobufDecoder(idtype)
 	builder.AddBean(common.NewClusterMsgCenter(encoder, decoder))
+	app.InitClusterMqBuilder(builder, "cluster", cluster.NodeMQName, encoder, decoder, nil, nil)
 }
 
 func initServices(builder gioc.IBeanContainerBuilder) {
-	redisNodeMgr := cluster.NewRedisNodeMgr()
-	encoder := codec.NewIdProtobufEncoder(common.ClusterMsgIds)
-	decoder := codec.NewIdProtobufDecoder(common.ClusterMsgIds)
-	redisNodeMq := cluster.NewRedisNodeMQ(redisNodeMgr, encoder, decoder, route.NewRouteMap(true, false))
-
 	builder.AddBean(
 		// redis 自动配置
 		gredis.NewAutoConfigReids("pcluster.redis", ""),
@@ -53,10 +48,6 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 		ghttp.NewHttpServer("pcluster.http", nil),
 		gmxdriver.NewGMXDriver("/gmx"),
 		common.NewGmxAppStats(),
-		redisNodeMgr,
-		redisNodeMq,
-		cluster.NewNodeMgr(redisNodeMgr),
-		cluster.NewNodeMQ(redisNodeMq),
 	)
 
 	builder.AddBean(common.BeansInit...)
@@ -64,7 +55,8 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 
 func initLog(configLoader gioc.IConfigLoader, builder gioc.IBeanContainerBuilder) {
 	logroot := &glog.ConfigLogRoot{}
-	configLoader.Config().Get("pcluster.log").Scan(logroot)
+	err := configLoader.Config().Get("pcluster.log").Scan(logroot)
+	util.VerifyNoError(err)
 
 	logBuilder := glog.NewLogFactoryBuilder()
 	logFactory, err := logBuilder.Build(logroot)
@@ -84,11 +76,10 @@ func main() {
 	initLog(configLoader, builder)
 
 	application.InitBaseBeanBuilder(builder, configLoader)
+	initCluster(builder, application)
 
 	initServices(builder)
 	initBaseNet(builder)
-	initClusterMsgCenter(builder)
 	beanContainer := application.Build(builder)
-
 	application.Start(beanContainer)
 }
