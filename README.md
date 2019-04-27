@@ -1,5 +1,5 @@
 ### gdemo
-gcluster游戏服务器引擎demo项目，实例引擎使用方式和主要功能  
+gcluster游戏服务器引擎demo项目，示例引擎使用方式和主要功能  
 客户端使用unity3d编写
 
 ### 感谢您的支持
