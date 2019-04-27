@@ -25,6 +25,7 @@ type login struct {
 func newLogin() *login {
 	return &login{
 		IController: controller.NewTypeController(""),
+		forbidLogin: false,
 	}
 }
 
