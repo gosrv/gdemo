@@ -19,6 +19,7 @@ type login struct {
 	controller.IController
 	loginTokenCheck string         `cfg:"url.login.token.check"`
 	serviceLogin    *service.Login `bean:""`
+	forbidLogin bool				`gmx:"forbidlogin"`
 }
 
 func newLogin() *login {
@@ -35,6 +36,9 @@ type LoginTokenCheck struct {
 func (this *login) Login(ctx gnet.ISessionCtx, login *netproto.CS_Login, netChannel gproto.INetChannel) *netproto.SC_Login {
 	repLogin := &netproto.SC_Login{
 		Code: netproto.E_Code_E_ERROR,
+	}
+	if this.forbidLogin {
+		return repLogin
 	}
 	// 向登录服查询登陆数据
 	repCheck, err := http.Get(this.loginTokenCheck + login.Token)

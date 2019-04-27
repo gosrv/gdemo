@@ -12,6 +12,7 @@ import (
 	"time"
 )
 
+// 这是一个集群的消息处理路由器
 type nodeMq struct {
 	log glog.IFieldLogger `log:"app"`
 	controller.IController
