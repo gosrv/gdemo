@@ -18,6 +18,7 @@ type nodeMq struct {
 	nodeMgr   *cluster.NodeMgr   `bean:""`
 	nodeMq    *cluster.NodeMQ    `bean:""`
 	playerMgr *service.PlayerMgr `bean:""`
+	playerBaseappInfo *common.PlayerBaseappInfo	`bean:""`
 }
 
 func newNodeMq() *nodeMq {
@@ -48,8 +49,25 @@ func (this *nodeMq) Tick(ctx gnet.ISessionCtx, msg *netproto.SS_Tick) {
 	this.log.Print("cluster tick msg")
 }
 
-func (this *nodeMq) KickPlayer(ctx gnet.ISessionCtx, msg *netproto.SS_KickPlayer) {
+func (this *nodeMq) KickPlayer(ctx gnet.ISessionCtx, msg *netproto.SS_KickPlayer) *netproto.SS_PlayerBaseappRedirect {
+	if this.playerMgr.GetNetchannelByPlayerId(msg.PlayerId) == nil {
+		return &netproto.SS_PlayerBaseappRedirect{PlayerId:msg.PlayerId}
+	}
 	this.playerMgr.KickPlayer(msg.PlayerId)
+	return nil
+}
+
+func (this *nodeMq) Player2Player(ctx gnet.ISessionCtx, msg *netproto.SS_Player2Player) *netproto.SS_PlayerBaseappRedirect {
+	netChannel := this.playerMgr.GetNetchannelByPlayerId(msg.ToPlayerId)
+	if netChannel == nil {
+		return &netproto.SS_PlayerBaseappRedirect{PlayerId:msg.ToPlayerId}
+	}
+	netChannel.Send(&netproto.SC_P2P{From:msg.FromPlayerId, To:msg.ToPlayerId, Msg:msg.Data})
+	return nil
+}
+
+func (this *nodeMq) PlayerBaseappRedirect(ctx gnet.ISessionCtx, msg *netproto.SS_PlayerBaseappRedirect) {
+	this.playerBaseappInfo.InvalidCacheUuid(msg.PlayerId)
 }
 
 func init() {
