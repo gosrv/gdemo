@@ -430,6 +430,128 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_P2P")]
+  public partial class CS_P2P : global::ProtoBuf.IExtensible
+  {
+    public CS_P2P() {}
+    
+    private long? _from;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"from", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? from
+    {
+      get { return _from; }
+      set { _from = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool fromSpecified
+    {
+      get { return this._from != null; }
+      set { if (value == (this._from== null)) this._from = value ? this.from : (long?)null; }
+    }
+    private bool ShouldSerializefrom() { return fromSpecified; }
+    private void Resetfrom() { fromSpecified = false; }
+    
+    private long? _to;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"to", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? to
+    {
+      get { return _to; }
+      set { _to = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool toSpecified
+    {
+      get { return this._to != null; }
+      set { if (value == (this._to== null)) this._to = value ? this.to : (long?)null; }
+    }
+    private bool ShouldSerializeto() { return toSpecified; }
+    private void Resetto() { toSpecified = false; }
+    
+    private byte[] _msg;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"msg", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public byte[] msg
+    {
+      get { return _msg; }
+      set { _msg = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool msgSpecified
+    {
+      get { return this._msg != null; }
+      set { if (value == (this._msg== null)) this._msg = value ? this.msg : (byte[])null; }
+    }
+    private bool ShouldSerializemsg() { return msgSpecified; }
+    private void Resetmsg() { msgSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SC_P2P")]
+  public partial class SC_P2P : global::ProtoBuf.IExtensible
+  {
+    public SC_P2P() {}
+    
+    private long? _from;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"from", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? from
+    {
+      get { return _from; }
+      set { _from = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool fromSpecified
+    {
+      get { return this._from != null; }
+      set { if (value == (this._from== null)) this._from = value ? this.from : (long?)null; }
+    }
+    private bool ShouldSerializefrom() { return fromSpecified; }
+    private void Resetfrom() { fromSpecified = false; }
+    
+    private long? _to;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"to", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? to
+    {
+      get { return _to; }
+      set { _to = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool toSpecified
+    {
+      get { return this._to != null; }
+      set { if (value == (this._to== null)) this._to = value ? this.to : (long?)null; }
+    }
+    private bool ShouldSerializeto() { return toSpecified; }
+    private void Resetto() { toSpecified = false; }
+    
+    private byte[] _msg;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"msg", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public byte[] msg
+    {
+      get { return _msg; }
+      set { _msg = value; }
+    }
+    [global::System.Xml.Serialization.XmlIgnore]
+    [global::System.ComponentModel.Browsable(false)]
+    public bool msgSpecified
+    {
+      get { return this._msg != null; }
+      set { if (value == (this._msg== null)) this._msg = value ? this.msg : (byte[])null; }
+    }
+    private bool ShouldSerializemsg() { return msgSpecified; }
+    private void Resetmsg() { msgSpecified = false; }
+    
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"CS_None")]
   public partial class CS_None : global::ProtoBuf.IExtensible
   {
@@ -494,59 +616,65 @@ namespace netproto
       [global::ProtoBuf.ProtoEnum(Name=@"ECS_None", Value=0)]
       ECS_None = 0,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Tick", Value=101)]
-      ECS_Tick = 101,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_P2P", Value=101)]
+      ECS_P2P = 101,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Tick", Value=102)]
-      ESC_Tick = 102,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_P2P", Value=102)]
+      ESC_P2P = 102,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Login", Value=103)]
-      ECS_Login = 103,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Tick", Value=201)]
+      ECS_Tick = 201,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Login", Value=104)]
-      ESC_Login = 104,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Tick", Value=202)]
+      ESC_Tick = 202,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopAddDiamond", Value=105)]
-      ECS_ShopAddDiamond = 105,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_Login", Value=203)]
+      ECS_Login = 203,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopAddDiamond", Value=106)]
-      ESC_ShopAddDiamond = 106,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_Login", Value=204)]
+      ESC_Login = 204,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopBuyGold", Value=107)]
-      ECS_ShopBuyGold = 107,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopAddDiamond", Value=205)]
+      ECS_ShopAddDiamond = 205,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopBuyGold", Value=108)]
-      ESC_ShopBuyGold = 108,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopAddDiamond", Value=206)]
+      ESC_ShopAddDiamond = 206,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroDraw", Value=109)]
-      ECS_HeroDraw = 109,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ShopBuyGold", Value=207)]
+      ECS_ShopBuyGold = 207,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroDraw", Value=110)]
-      ESC_HeroDraw = 110,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ShopBuyGold", Value=208)]
+      ESC_ShopBuyGold = 208,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroUplevel", Value=111)]
-      ECS_HeroUplevel = 111,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroDraw", Value=209)]
+      ECS_HeroDraw = 209,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroUpLevel", Value=112)]
-      ESC_HeroUpLevel = 112,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroDraw", Value=210)]
+      ESC_HeroDraw = 210,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroEquip", Value=113)]
-      ECS_HeroEquip = 113,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroUplevel", Value=211)]
+      ECS_HeroUplevel = 211,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroEquip", Value=114)]
-      ESC_HeroEquip = 114,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroUpLevel", Value=212)]
+      ESC_HeroUpLevel = 212,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterGetPrize", Value=115)]
-      ECS_ChapterGetPrize = 115,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_HeroEquip", Value=213)]
+      ECS_HeroEquip = 213,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterGetPrize", Value=116)]
-      ESC_ChapterGetPrize = 116,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_HeroEquip", Value=214)]
+      ESC_HeroEquip = 214,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterChallenge", Value=117)]
-      ECS_ChapterChallenge = 117,
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterGetPrize", Value=215)]
+      ECS_ChapterGetPrize = 215,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterChallenge", Value=118)]
-      ESC_ChapterChallenge = 118
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterGetPrize", Value=216)]
+      ESC_ChapterGetPrize = 216,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ECS_ChapterChallenge", Value=217)]
+      ECS_ChapterChallenge = 217,
+            
+      [global::ProtoBuf.ProtoEnum(Name=@"ESC_ChapterChallenge", Value=218)]
+      ESC_ChapterChallenge = 218
     }
   
 }

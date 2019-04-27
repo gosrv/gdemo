@@ -22,50 +22,6 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SS_ClusterRegister")]
-  public partial class SS_ClusterRegister : global::ProtoBuf.IExtensible
-  {
-    public SS_ClusterRegister() {}
-    
-    private string _signCode;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"signCode", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string signCode
-    {
-      get { return _signCode; }
-      set { _signCode = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool signCodeSpecified
-    {
-      get { return this._signCode != null; }
-      set { if (value == (this._signCode== null)) this._signCode = value ? this.signCode : (string)null; }
-    }
-    private bool ShouldSerializesignCode() { return signCodeSpecified; }
-    private void ResetsignCode() { signCodeSpecified = false; }
-    
-    private string _uuid;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"uuid", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public string uuid
-    {
-      get { return _uuid; }
-      set { _uuid = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool uuidSpecified
-    {
-      get { return this._uuid != null; }
-      set { if (value == (this._uuid== null)) this._uuid = value ? this.uuid : (string)null; }
-    }
-    private bool ShouldSerializeuuid() { return uuidSpecified; }
-    private void Resetuuid() { uuidSpecified = false; }
-    
-    private global::ProtoBuf.IExtension extensionObject;
-    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
-  }
-  
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SS_KickPlayer")]
   public partial class SS_KickPlayer : global::ProtoBuf.IExtensible
   {
@@ -154,44 +110,27 @@ namespace netproto
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SS_P2PRedirect")]
-  public partial class SS_P2PRedirect : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"SS_PlayerBaseappRedirect")]
+  public partial class SS_PlayerBaseappRedirect : global::ProtoBuf.IExtensible
   {
-    public SS_P2PRedirect() {}
+    public SS_PlayerBaseappRedirect() {}
     
-    private long? _fromPlayerId;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"fromPlayerId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? fromPlayerId
+    private long? _playerId;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"playerId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public long? playerId
     {
-      get { return _fromPlayerId; }
-      set { _fromPlayerId = value; }
+      get { return _playerId; }
+      set { _playerId = value; }
     }
     [global::System.Xml.Serialization.XmlIgnore]
     [global::System.ComponentModel.Browsable(false)]
-    public bool fromPlayerIdSpecified
+    public bool playerIdSpecified
     {
-      get { return this._fromPlayerId != null; }
-      set { if (value == (this._fromPlayerId== null)) this._fromPlayerId = value ? this.fromPlayerId : (long?)null; }
+      get { return this._playerId != null; }
+      set { if (value == (this._playerId== null)) this._playerId = value ? this.playerId : (long?)null; }
     }
-    private bool ShouldSerializefromPlayerId() { return fromPlayerIdSpecified; }
-    private void ResetfromPlayerId() { fromPlayerIdSpecified = false; }
-    
-    private long? _toPlayerId;
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"toPlayerId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    public long? toPlayerId
-    {
-      get { return _toPlayerId; }
-      set { _toPlayerId = value; }
-    }
-    [global::System.Xml.Serialization.XmlIgnore]
-    [global::System.ComponentModel.Browsable(false)]
-    public bool toPlayerIdSpecified
-    {
-      get { return this._toPlayerId != null; }
-      set { if (value == (this._toPlayerId== null)) this._toPlayerId = value ? this.toPlayerId : (long?)null; }
-    }
-    private bool ShouldSerializetoPlayerId() { return toPlayerIdSpecified; }
-    private void ResettoPlayerId() { toPlayerIdSpecified = false; }
+    private bool ShouldSerializeplayerId() { return playerIdSpecified; }
+    private void ResetplayerId() { playerIdSpecified = false; }
     
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -357,17 +296,14 @@ namespace netproto
       [global::ProtoBuf.ProtoEnum(Name=@"ESS_Tick", Value=1)]
       ESS_Tick = 1,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESS_ClusterRegister", Value=10)]
-      ESS_ClusterRegister = 10,
-            
       [global::ProtoBuf.ProtoEnum(Name=@"ESS_KickPlayer", Value=11)]
       ESS_KickPlayer = 11,
             
       [global::ProtoBuf.ProtoEnum(Name=@"ESS_Player2Player", Value=12)]
       ESS_Player2Player = 12,
             
-      [global::ProtoBuf.ProtoEnum(Name=@"ESS_P2PRedirect", Value=13)]
-      ESS_P2PRedirect = 13,
+      [global::ProtoBuf.ProtoEnum(Name=@"ESS_PlayerBaseappRedirect", Value=13)]
+      ESS_PlayerBaseappRedirect = 13,
             
       [global::ProtoBuf.ProtoEnum(Name=@"ESS_ForwardPlayerMsg", Value=14)]
       ESS_ForwardPlayerMsg = 14,
