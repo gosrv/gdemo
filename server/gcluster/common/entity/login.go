@@ -21,17 +21,22 @@ func NewLoginResult(code string, token string) *LoginResult {
 }
 
 type LoginRegisterResult struct {
-	Success bool
+	Code string
 }
 
 func NewLoginRegisterResult(success bool) *LoginRegisterResult {
-	return &LoginRegisterResult{Success: success}
+	if success {
+		return &LoginRegisterResult{Code: "ok"}
+	} else {
+		return &LoginRegisterResult{Code: "error"}
+	}
 }
 
 type LoginCheckResult struct {
+	Code string
 	Id int64
 }
 
-func NewLoginCheckResult(id int64) *LoginCheckResult {
-	return &LoginCheckResult{Id: id}
+func NewLoginCheckResult(code string, id int64) *LoginCheckResult {
+	return &LoginCheckResult{Code:code, Id: id}
 }

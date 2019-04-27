@@ -69,8 +69,8 @@ func (this *controllerLogin) Register(ctx gnet.ISessionCtx, param struct{ accoun
 func (this *controllerLogin) Check(ctx gnet.ISessionCtx, param struct{ token string }) *entity.LoginCheckResult {
 	tokenCtx := this.serviceLogin.loadTokenByTk(param.token)
 	if tokenCtx == nil {
-		return entity.NewLoginCheckResult(0)
+		return entity.NewLoginCheckResult("error", 0)
 	} else {
-		return entity.NewLoginCheckResult(tokenCtx.Id)
+		return entity.NewLoginCheckResult("ok", tokenCtx.Id)
 	}
 }

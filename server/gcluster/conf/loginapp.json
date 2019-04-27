@@ -8,6 +8,6 @@
   "app.group": "go.cluster",
 
   "pcluster.http" : {
-    "http.host": "127.0.0.1:18080"
+    "http.host": "0.0.0.0:18080"
   }
 }
