@@ -26,7 +26,7 @@ Go version >= 1.2
 ### [更多文档](server/doc/)
 [demo功能说明](server/doc/demo功能说明.md)  
 [集群](server/doc/cluster.md)  
-[登录服](server/doc/登录服.md)  
+[登录服](server/doc/登陆服.md)  
 [数据库](server/doc/数据库.md)  
 [数据同步](server/doc/数据同步.md)    
 
