@@ -14,6 +14,8 @@ import (
 	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
 	_ "github.com/gosrv/gcluster/gcluster/baseapp/service"
 	"github.com/gosrv/gcluster/gcluster/common"
+	entity2 "github.com/gosrv/gcluster/gcluster/common/entity"
+	"github.com/gosrv/gcluster/gcluster/common/meta"
 	"github.com/gosrv/glog"
 	"github.com/gosrv/goioc"
 	"github.com/gosrv/goioc/util"
@@ -35,8 +37,8 @@ func initCluster(builder gioc.IBeanContainerBuilder, app *app.Application) {
 	idtype := common.ClusterMsgIds
 	encoder := codec.NewNetMsgFixLenProtobufEncoder(idtype)
 	decoder := codec.NewNetMsgFixLenProtobufDecoder(idtype)
-	builder.AddBean(common.NewClusterMsgCenter(encoder, decoder))
 	app.InitClusterMqBuilder(builder, "cluster", cluster.NodeMQName, encoder, decoder, nil, nil)
+	builder.AddBean(common.NewPlayerBaseappInfo(meta.PlayerAttribute + ":", 0, 0))
 }
 
 func initServices(builder gioc.IBeanContainerBuilder) {
@@ -49,6 +51,11 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 		gmxdriver.NewGMXDriver("/gmx"),
 		common.NewGmxAppStats(),
 	)
+
+	idtype := common.ClusterMsgIds
+	encoder := codec.NewIdProtobufEncoder(idtype)
+	decoder := codec.NewIdProtobufDecoder(idtype)
+	builder.AddBean(entity2.NewPlayerMQBundle(encoder, decoder))
 
 	builder.AddBean(common.BeansInit...)
 }

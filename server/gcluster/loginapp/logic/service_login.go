@@ -42,7 +42,6 @@ func NewLoginAccount(Account string, pw string, playerId int64) *LoginAccount {
 func (this *serviceLogin) loadTokenByAcc(account string) *entity.LoginTokenCtx {
 	tokenCache, err := this.tokenCacheOpt.Get(AccTokenPrefix + account)
 	if err != nil {
-		this.log.Debug("load acc token %v error %v", account, err)
 		return nil
 	}
 	tokcnIns := &entity.LoginTokenCtx{}
@@ -57,7 +56,6 @@ func (this *serviceLogin) loadTokenByAcc(account string) *entity.LoginTokenCtx {
 func (this *serviceLogin) loadTokenByTk(token string) *entity.LoginTokenCtx {
 	tokenCache, err := this.tokenCacheOpt.Get(TokenPrefix + token)
 	if err != nil {
-		this.log.Debug("load token %v error %v", token, err)
 		return nil
 	}
 	tokcnIns := &entity.LoginTokenCtx{}

@@ -5,6 +5,6 @@ const (
 	PlayerBaseData  = "_pbd"
 	BaseApp         = "_bapp"
 
-	MessageQueuePlayer = "_mp"
-	MessageQueueBundle = "_mb"
+	MessageQueuePlayer = "_mpl"
+	MessageQueueGuild = "_mgl"
 )

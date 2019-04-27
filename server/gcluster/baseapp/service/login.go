@@ -20,7 +20,6 @@ type Login struct {
 	nodeUuid              string               `bean:""`
 	nodeMgr               *cluster.NodeMgr     `bean:""`
 	nodeMq                *cluster.NodeMQ      `bean:""`
-	servicePlayerMsgQueue *PlayerMsgQueue      `bean:""`
 }
 
 func (this *Login) BeanInit() {
@@ -87,7 +86,6 @@ func (this *Login) ProcessLogin(netChannel gproto.INetChannel, ctx gnet.ISession
 		return netproto.E_Code_E_RELOGIN
 	}
 	ctx.Set(entity.PlayerIdKey, playerId)
-	this.servicePlayerMsgQueue.GoProcessPlayerMsg(ctx)
 
 	return netproto.E_Code_E_OK
 }

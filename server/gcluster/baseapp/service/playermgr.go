@@ -28,7 +28,7 @@ type PlayerMgr struct {
 	playerId2Channel sync.Map
 	log              glog.IFieldLogger `log:"app"`
 
-	messageQueueFactories   []gdb.IMessageQueueFactory     `bean:""`
+	messageQueueFactories   []gproto.IMessageQueueFactory     `bean:""`
 	attributeGroupFactories []gdb.IDBAttributeGroupFactory `bean:""`
 	dbAccessorFactory       *dbaccessor.DBDataAccessorFactory
 }
@@ -59,6 +59,15 @@ func newPlayerMgr() *PlayerMgr {
 
 func (this *PlayerMgr) IsForbidLogin(playerId int64) bool {
 	return false
+}
+
+func (this *PlayerMgr) KickPlayer(playerId int64) bool {
+	netChannelIns, _ := this.playerId2Channel.Load(playerId)
+	if netChannelIns == nil {
+		return false
+	}
+	_ = netChannelIns.(gproto.INetChannel).Close()
+	return true
 }
 
 func (this *PlayerMgr) GetDBDataAccessor(playerId int64) *dbaccessor.DBDataAccessor {
@@ -126,7 +135,7 @@ func (this *PlayerMgr) PlayerLogin(playerId int64, netChannel gproto.INetChannel
 
 	ctx.SetAttribute(gnet.ScopeSession, reflect.TypeOf(dataAccessor), dataAccessor)
 	ctx.SetAttribute(gnet.ScopeSession, gdb.IDBAttributeGroupType, attributeGroup)
-	ctx.SetAttribute(gnet.ScopeSession, gdb.IMessageQueueType,
+	ctx.SetAttribute(gnet.ScopeSession, gproto.IMessageQueueType,
 		this.dbAccessorFactory.GetMessageQueue(meta.PlayerAttribute, strconv.FormatInt(playerId, 10)))
 
 	return true

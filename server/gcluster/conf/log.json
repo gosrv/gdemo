@@ -10,7 +10,7 @@
       "sfiledevWriterName":{
         "writer":"sfile",
         "path":"slog/logdev.log",
-        "span":"1m"
+        "span":"1h"
       },
       "sfilepubWriterName":{
         "writer":"sfile",
