@@ -10,11 +10,10 @@ import (
 	"github.com/gosrv/gbase/gl"
 	"github.com/gosrv/gbase/gmxdriver"
 	"github.com/gosrv/gbase/tcpnet"
-	_ "github.com/gosrv/gcluster/gcluster/baseapp/controller"
-	"github.com/gosrv/gcluster/gcluster/baseapp/entity"
-	_ "github.com/gosrv/gcluster/gcluster/baseapp/service"
+	_ "github.com/gosrv/gcluster/gcluster/battleapp/controller"
+	_ "github.com/gosrv/gcluster/gcluster/battleapp/service"
 	"github.com/gosrv/gcluster/gcluster/common"
-	entity2 "github.com/gosrv/gcluster/gcluster/common/entity"
+	"github.com/gosrv/gcluster/gcluster/common/entity"
 	"github.com/gosrv/gcluster/gcluster/common/meta"
 	"github.com/gosrv/glog"
 	"github.com/gosrv/goioc"
@@ -24,12 +23,12 @@ import (
 // 客户端网络初始化
 func initBaseNet(builder gioc.IBeanContainerBuilder) {
 	// pb消息编解码器，4字节长度 + 2字节proto id + proto
-	idtype := common.LogicMsgIds
+	idtype := common.BattleMsgIds
 	encoder := codec.NewNetMsgFixLenProtobufEncoder(idtype)
 	decoder := codec.NewNetMsgFixLenProtobufDecoder(idtype)
 	// 创建网络模块，这里使用了数据自动同步路由器AutoSyncDataRoute
-	net := tcpnet.NewTcpNetServer("pcluster.basenet", "",
-		encoder, decoder, nil, entity.NewAutoSyncDataRoute())
+	net := tcpnet.NewTcpNetServer("pcluster.battlenet", "",
+		encoder, decoder, nil, nil)
 	builder.AddBean(net)
 }
 
@@ -39,10 +38,6 @@ func initCluster(builder gioc.IBeanContainerBuilder, app *app.Application) {
 	decoder := codec.NewNetMsgFixLenProtobufDecoder(idtype)
 	app.InitClusterMqBuilder(builder, "cluster", cluster.NodeMQName, encoder, decoder, nil, nil)
 	builder.AddBean(common.NewPlayerBaseappInfo(meta.PlayerAttribute + ":", 0, 0))
-}
-
-func initSlotStub(builder gioc.IBeanContainerBuilder)  {
-
 }
 
 func initServices(builder gioc.IBeanContainerBuilder) {
@@ -59,7 +54,7 @@ func initServices(builder gioc.IBeanContainerBuilder) {
 	idtype := common.ClusterMsgIds
 	encoder := codec.NewIdProtobufEncoder(idtype)
 	decoder := codec.NewIdProtobufDecoder(idtype)
-	builder.AddBean(entity2.NewPlayerMQBundle(encoder, decoder))
+	builder.AddBean(entity.NewPlayerMQBundle(encoder, decoder))
 
 	builder.AddBean(common.BeansInit...)
 }

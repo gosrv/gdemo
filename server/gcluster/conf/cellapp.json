@@ -1,0 +1,17 @@
+{
+  "cfg.files": [
+    "gcluster/conf/cluster.json",
+    "gcluster/conf/redis.json",
+    "gcluster/conf/mongo.json",
+    "gcluster/conf/log.json",
+    "gcluster/conf/http.json",
+    "gcluster/conf/slot.json"
+  ],
+
+  "app.group": "go.cluster",
+  "url.login.token.check": "http://127.0.0.1:18080/login/check?token=",
+
+  "pcluster.basenet": {
+    "net.host": "127.0.0.1:11102"
+  }
+}

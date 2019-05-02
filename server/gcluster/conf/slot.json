@@ -1,0 +1,8 @@
+{
+  "slot": {
+    "maxmgr": 1000,
+    "size": 1024,
+    "fastpgap": 2,
+    "slowpgap": 60
+  }
+}
